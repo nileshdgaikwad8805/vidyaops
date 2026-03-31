@@ -17,11 +17,6 @@
     />
     <link rel="icon" type="image/svg+xml" href="favicon.svg?v=5" />
     <link rel="stylesheet" href="styles.css" />
-    <style>
-      body.admin-auth-pending main {
-        visibility: hidden;
-      }
-    </style>
     <script>
       (function () {
         var token = window.localStorage.getItem("vidyaops_admin_token");
@@ -33,7 +28,7 @@
       })();
     </script>
   </head>
-  <body class="admin-auth-pending" data-page="admin">
+  <body data-page="admin">
     <div class="page-shell">
       <header class="site-header">
         <a class="brand-mark" href="index.html">

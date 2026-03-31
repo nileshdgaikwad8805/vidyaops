@@ -27,10 +27,6 @@ function clearAdminSession() {
   window.localStorage.removeItem(adminTokenKey);
 }
 
-function revealAdminShell() {
-  document.body.classList.remove("admin-auth-pending");
-}
-
 function handleUnauthorized() {
   clearAdminSession();
   window.location.href = "/admin-login.html";
@@ -655,7 +651,6 @@ async function bootstrapAdmin() {
     attachWorkshopActions();
     attachAiContentGenerator();
     attachDocumentActions();
-    revealAdminShell();
     loadAdminOverview();
   } catch (error) {
     handleUnauthorized();
