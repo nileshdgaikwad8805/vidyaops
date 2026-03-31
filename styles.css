@@ -2200,3 +2200,100 @@ main {
     bottom: 70px;
   }
 }
+
+/* Button system override */
+.button {
+  min-height: 48px;
+  padding: 13px 22px;
+  border-radius: 999px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.button--secondary,
+.button--ghost {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+  border: 1px solid rgba(145, 171, 217, 0.22);
+  color: #f3f7ff;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.button--secondary:hover,
+.button--ghost:hover {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.05));
+  color: #ffffff;
+  border-color: rgba(145, 171, 217, 0.34);
+}
+
+.site-header > .button.button--ghost,
+.brand-mark + .button--ghost,
+.site-header .button--ghost {
+  min-width: 148px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+}
+
+.home-hero__signals span,
+.page-hero__chips span {
+  min-height: 46px;
+  padding: 11px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(161, 184, 226, 0.26);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.08));
+  color: #c7fff0;
+  font-weight: 700;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
+}
+
+.page-hero__chips span {
+  color: #d8fbff;
+}
+
+.contact-card--links .button,
+.cta-inline .button,
+.admin-card .button,
+.admin-item .button {
+  width: 100%;
+}
+
+.contact-card--links {
+  gap: 12px;
+}
+
+.chatbot__toggle {
+  background: linear-gradient(135deg, #43d8d1, #2f7ce8);
+  color: #f7fbff;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.chatbot__toggle:hover {
+  box-shadow: 0 18px 30px rgba(47, 124, 232, 0.24);
+  filter: saturate(1.03);
+}
+
+.whatsapp-float {
+  background: linear-gradient(135deg, #27d98d, #11a86d);
+  color: #062119;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.whatsapp-float:hover {
+  box-shadow: 0 18px 32px rgba(17, 168, 109, 0.28);
+}
+
+.chatbot__close {
+  color: #dce8ff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.chatbot__form .button,
+.contact-card .button,
+.admin-card form .button {
+  width: 100%;
+}
+
+@media (min-width: 721px) {
+  .chatbot__form .button {
+    width: auto;
+    min-width: 96px;
+  }
+}
