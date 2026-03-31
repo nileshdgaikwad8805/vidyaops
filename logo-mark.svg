@@ -1,21 +1,21 @@
 <svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="vo-bg" x1="16" y1="14" x2="112" y2="114" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#091426"/>
-      <stop offset="1" stop-color="#123A6B"/>
+    <linearGradient id="bg" x1="14" y1="12" x2="112" y2="116" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#08111F"/>
+      <stop offset="1" stop-color="#133C70"/>
     </linearGradient>
-    <linearGradient id="vo-v" x1="35" y1="30" x2="93" y2="93" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#62F1D2"/>
-      <stop offset="1" stop-color="#56A8FF"/>
+    <linearGradient id="ring" x1="32" y1="28" x2="96" y2="96" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#67F2D4"/>
+      <stop offset="1" stop-color="#5BA9FF"/>
     </linearGradient>
-    <linearGradient id="vo-arc" x1="26" y1="34" x2="102" y2="34" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#FFC15A"/>
-      <stop offset="1" stop-color="#FFE48B"/>
+    <linearGradient id="vstroke" x1="36" y1="34" x2="72" y2="94" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFE394"/>
+      <stop offset="1" stop-color="#FFC05D"/>
     </linearGradient>
   </defs>
-  <rect x="8" y="8" width="112" height="112" rx="30" fill="url(#vo-bg)"/>
+  <rect x="8" y="8" width="112" height="112" rx="28" fill="url(#bg)"/>
   <rect x="18" y="18" width="92" height="92" rx="24" stroke="rgba(255,255,255,0.10)"/>
-  <path d="M34 36C42 27 53 22 64 22C76 22 87 27 95 36" stroke="url(#vo-arc)" stroke-width="6" stroke-linecap="round"/>
-  <path d="M35 92L50 42L64 70L78 42L93 92" stroke="url(#vo-v)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="64" cy="70" r="5" fill="#D9FFF8"/>
+  <circle cx="76" cy="68" r="20" stroke="url(#ring)" stroke-width="8"/>
+  <path d="M34 38L52 90L65 58L78 90" stroke="url(#vstroke)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="76" cy="68" r="5" fill="#D9FFF8"/>
 </svg>
