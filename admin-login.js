@@ -4,6 +4,32 @@ const adminTokenKey = "vidyaops_admin_token";
 const apiBase = String(window.VIDYAOPS_CONFIG?.apiBase || "").replace(/\/$/, "");
 const apiUrl = (pathname) => (apiBase ? `${apiBase}${pathname}` : pathname);
 
+async function redirectIfLoggedIn() {
+  const token = window.localStorage.getItem(adminTokenKey);
+  if (!token) {
+    return;
+  }
+
+  try {
+    const response = await fetch(apiUrl("/api/admin/session"), {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    if (response.ok) {
+      window.location.replace("/admin.html");
+      return;
+    }
+  } catch (error) {
+    // Ignore transient validation issues and allow normal login flow.
+  }
+
+  window.localStorage.removeItem(adminTokenKey);
+}
+
+redirectIfLoggedIn();
+
 if (loginForm) {
   loginForm.addEventListener("submit", async (event) => {
     event.preventDefault();

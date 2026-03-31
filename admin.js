@@ -27,6 +27,10 @@ function clearAdminSession() {
   window.localStorage.removeItem(adminTokenKey);
 }
 
+function revealAdminShell() {
+  document.body.classList.remove("admin-auth-pending");
+}
+
 function handleUnauthorized() {
   clearAdminSession();
   window.location.href = "/admin-login.html";
@@ -621,13 +625,41 @@ async function loadAdminOverview() {
   }
 }
 
-refreshButtons.forEach((button) => {
-  button.addEventListener("click", loadAdminOverview);
-});
+async function bootstrapAdmin() {
+  const token = window.localStorage.getItem(adminTokenKey);
+  if (!token) {
+    handleUnauthorized();
+    return;
+  }
 
-attachAdminControls();
-attachPasswordChange();
-attachWorkshopActions();
-attachAiContentGenerator();
-attachDocumentActions();
-loadAdminOverview();
+  try {
+    const response = await fetch(apiUrl("/api/admin/session"), {
+      headers: getAuthHeaders(),
+    });
+
+    if (response.status === 401) {
+      handleUnauthorized();
+      return;
+    }
+
+    if (!response.ok) {
+      throw new Error("Unable to validate admin session.");
+    }
+
+    refreshButtons.forEach((button) => {
+      button.addEventListener("click", loadAdminOverview);
+    });
+
+    attachAdminControls();
+    attachPasswordChange();
+    attachWorkshopActions();
+    attachAiContentGenerator();
+    attachDocumentActions();
+    revealAdminShell();
+    loadAdminOverview();
+  } catch (error) {
+    handleUnauthorized();
+  }
+}
+
+bootstrapAdmin();

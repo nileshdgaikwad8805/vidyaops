@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VidyaOps | Admin</title>
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
     <meta
       name="description"
       content="VidyaOps admin dashboard for inquiries, chatbot leads, and recent chat activity."
@@ -16,8 +17,23 @@
     />
     <link rel="icon" type="image/svg+xml" href="favicon.svg?v=5" />
     <link rel="stylesheet" href="styles.css" />
+    <style>
+      body.admin-auth-pending main {
+        visibility: hidden;
+      }
+    </style>
+    <script>
+      (function () {
+        var token = window.localStorage.getItem("vidyaops_admin_token");
+        if (!token) {
+          window.location.replace("/admin-login.html");
+          return;
+        }
+        document.documentElement.classList.add("admin-auth-ready");
+      })();
+    </script>
   </head>
-  <body data-page="admin">
+  <body class="admin-auth-pending" data-page="admin">
     <div class="page-shell">
       <header class="site-header">
         <a class="brand-mark" href="index.html">
