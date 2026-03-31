@@ -1,19 +1,26 @@
 <svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="vidyaopsBg" x1="20" y1="18" x2="108" y2="112" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#E37D34"/>
-      <stop offset="1" stop-color="#0F6D6A"/>
+    <linearGradient id="vidyaopsBase" x1="16" y1="12" x2="112" y2="120" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1732"/>
+      <stop offset="0.55" stop-color="#0F2A54"/>
+      <stop offset="1" stop-color="#123B6D"/>
     </linearGradient>
-    <linearGradient id="vidyaopsGlow" x1="34" y1="34" x2="93" y2="94" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#FFF5E7"/>
-      <stop offset="1" stop-color="#FFFFFF"/>
+    <linearGradient id="vidyaopsAccent" x1="31" y1="30" x2="97" y2="95" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4BF2D4"/>
+      <stop offset="1" stop-color="#5AA9FF"/>
+    </linearGradient>
+    <linearGradient id="vidyaopsPulse" x1="30" y1="96" x2="98" y2="46" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFAA45"/>
+      <stop offset="1" stop-color="#FFE08E"/>
     </linearGradient>
   </defs>
-  <rect x="8" y="8" width="112" height="112" rx="34" fill="url(#vidyaopsBg)"/>
-  <path d="M40 83C40 69.7452 50.7452 59 64 59C77.2548 59 88 69.7452 88 83" stroke="url(#vidyaopsGlow)" stroke-width="8" stroke-linecap="round"/>
-  <path d="M48 83C48 74.1634 55.1634 67 64 67C72.8366 67 80 74.1634 80 83" stroke="#FDE7C8" stroke-width="6" stroke-linecap="round"/>
-  <path d="M64 32L74.5 49H53.5L64 32Z" fill="#FFF8EF"/>
-  <circle cx="64" cy="53" r="6" fill="#FFF1D8"/>
-  <path d="M37 46C41.5 36.5 50.5 31 63 31" stroke="#FDE7C8" stroke-width="6" stroke-linecap="round"/>
-  <path d="M91 46C86.5 36.5 77.5 31 65 31" stroke="#FFF8EF" stroke-width="6" stroke-linecap="round"/>
+  <rect x="8" y="8" width="112" height="112" rx="32" fill="url(#vidyaopsBase)"/>
+  <rect x="20" y="20" width="88" height="88" rx="24" stroke="rgba(255,255,255,0.12)"/>
+  <path d="M37 84L50 48L64 68L78 38L91 84" stroke="url(#vidyaopsAccent)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M36 90H92" stroke="rgba(255,255,255,0.15)" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="50" cy="48" r="5" fill="#D5FFF4"/>
+  <circle cx="64" cy="68" r="5" fill="#D5FFF4"/>
+  <circle cx="78" cy="38" r="5" fill="#D5FFF4"/>
+  <path d="M34 36C42 27 53 22 65 22C78 22 89 28 96 38" stroke="url(#vidyaopsPulse)" stroke-width="6" stroke-linecap="round"/>
+  <path d="M33 96C44 90 54 87 64 87C75 87 85 90 95 96" stroke="rgba(255,255,255,0.18)" stroke-width="4" stroke-linecap="round"/>
 </svg>
