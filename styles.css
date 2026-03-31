@@ -2022,3 +2022,181 @@ body::before {
     flex-direction: column;
   }
 }
+
+/* Layout calibration override */
+.page-shell {
+  padding-top: 12px;
+}
+
+.site-header {
+  top: 16px;
+  margin-bottom: 22px;
+}
+
+.site-header + main,
+main {
+  position: relative;
+}
+
+.home-hero {
+  min-height: auto;
+  padding-top: 18px;
+}
+
+.home-hero__content h1 {
+  max-width: 8.6ch;
+  font-size: clamp(3.15rem, 5.2vw, 5.35rem);
+}
+
+.page-hero {
+  margin-top: 8px;
+  padding: 28px 30px;
+}
+
+.page-hero__content {
+  min-width: 0;
+}
+
+.page-hero h1 {
+  margin: 6px 0 14px;
+  max-width: 10.5ch;
+  font-size: clamp(2.35rem, 4.8vw, 4.6rem);
+  line-height: 0.98;
+}
+
+.page-hero p:last-child {
+  max-width: 56ch;
+}
+
+.page-hero__panel {
+  align-self: center;
+}
+
+.section {
+  padding: 34px 0;
+}
+
+.section--tight {
+  padding-top: 18px;
+}
+
+.section-heading {
+  margin-bottom: 18px;
+}
+
+.spotlight,
+.leadership,
+.cta,
+.page-hero--split {
+  gap: 22px;
+}
+
+.testimonial-grid,
+.story-grid,
+.program-grid,
+.enterprise-grid,
+.workshop-grid {
+  gap: 16px;
+}
+
+.testimonial-card,
+.story-card,
+.program-card,
+.enterprise-card,
+.impact-card,
+.contact-card {
+  padding: 22px;
+}
+
+.testimonial-card {
+  background: linear-gradient(180deg, rgba(20, 35, 61, 0.96), rgba(11, 20, 37, 0.98));
+}
+
+.testimonial-card__quote,
+.testimonial-card blockquote {
+  color: #dbe7ff;
+}
+
+.testimonial-card span,
+.testimonial-card p:not(.testimonial-card__quote) {
+  color: #9eabc2;
+}
+
+.site-footer {
+  margin-top: 18px;
+  padding-top: 22px;
+}
+
+.whatsapp-float {
+  right: 18px;
+  bottom: 18px;
+  padding: 12px 18px;
+  font-size: 0.98rem;
+  box-shadow: 0 16px 30px rgba(12, 143, 98, 0.26);
+}
+
+.chatbot {
+  right: 18px;
+  bottom: 82px;
+}
+
+.chatbot__toggle {
+  padding: 12px 18px;
+  font-size: 0.96rem;
+  box-shadow: 0 14px 26px rgba(15, 109, 106, 0.22);
+}
+
+.chatbot__panel {
+  width: min(336px, calc(100vw - 26px));
+}
+
+@media (max-width: 1024px) {
+  .page-hero {
+    padding: 24px;
+  }
+
+  .page-hero h1,
+  .home-hero__content h1 {
+    max-width: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .site-header {
+    top: 10px;
+    margin-bottom: 16px;
+  }
+
+  .page-hero,
+  .home-cta__panel,
+  .hero-command,
+  .hero-stack__panel {
+    padding: 20px;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(2.15rem, 12vw, 3.4rem);
+    line-height: 1;
+  }
+
+  .home-hero__content h1 {
+    font-size: clamp(2.5rem, 13vw, 4rem);
+  }
+
+  .section {
+    padding: 26px 0;
+  }
+
+  .whatsapp-float {
+    right: 14px;
+    left: auto;
+    bottom: 14px;
+    min-width: 150px;
+  }
+
+  .chatbot {
+    right: 14px;
+    left: auto;
+    bottom: 70px;
+  }
+}
