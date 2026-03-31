@@ -66,12 +66,16 @@ function escapeHtml(value) {
 
 function attachAdminControls() {
   document.querySelector("#admin-logout")?.addEventListener("click", async () => {
-    await fetch(apiUrl("/api/admin/logout"), {
-      method: "POST",
-      headers: getAuthHeaders(),
-    });
     clearAdminSession();
-    window.location.href = "/admin-login.html";
+    try {
+      await fetch(apiUrl("/api/admin/logout"), {
+        method: "POST",
+        headers: getAuthHeaders(),
+      });
+    } catch (error) {
+      // Local logout should still succeed even if the network request fails.
+    }
+    window.location.replace("/admin-login.html");
   });
 
   const downloadCsv = async (pathname, filename) => {
