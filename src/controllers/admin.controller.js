@@ -43,7 +43,7 @@ async function handleAdminLogin(req, res) {
       createdAt: Date.now(),
     });
 
-    res.cookie(SESSION_COOKIE, token, { httpOnly: true, path: "/", sameSite: "lax" });
+    res.cookie(SESSION_COOKIE, token, { httpOnly: true, secure: true, path: "/", sameSite: "strict" });
     return res.status(200).json({ success: true, username: adminUser.username, token });
   } catch (error) {
     return res.status(500).json({ error: error.message || "Unexpected server error." });
@@ -61,7 +61,7 @@ function handleAdminLogout(req, res) {
     adminSessions.delete(token);
   }
 
-  res.cookie(SESSION_COOKIE, "", { httpOnly: true, path: "/", maxAge: 0, sameSite: "lax" });
+  res.cookie(SESSION_COOKIE, "", { httpOnly: true, secure: true, path: "/", maxAge: 0, sameSite: "strict" });
   return res.status(200).json({ success: true });
 }
 

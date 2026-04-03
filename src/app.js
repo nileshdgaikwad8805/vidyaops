@@ -8,12 +8,17 @@ const { loadAppConfig } = require('../app-config');
 const adminRoutes = require('./routes/admin.routes');
 const publicRoutes = require('./routes/public.routes');
 const { getAdminSession } = require('./middleware/auth');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
 
 const ROOT = path.join(__dirname, '../');
 const APP_CONFIG = loadAppConfig(ROOT);
 const DATA_DIR = APP_CONFIG.dataDir;
 
 const app = express();
+
+// Set HTTP response headers to secure the app
+app.use(helmet());
 
 const corsOptions = {
   origin: function (origin, callback) {
@@ -33,9 +38,18 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
+// Rate limit API requests to prevent brute force & DDOS
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // Limit each IP to 100 requests per 15 minutes
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: "Too many requests from this IP, please try again after 15 minutes." }
+});
+
 // Mount API routes
-app.use('/api/admin', adminRoutes);
-app.use('/api', publicRoutes);
+app.use('/api/admin', apiLimiter, adminRoutes);
+app.use('/api', apiLimiter, publicRoutes);
 
 // Runtime client config
 app.get('/config.js', (req, res) => {
