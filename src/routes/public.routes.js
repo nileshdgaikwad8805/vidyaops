@@ -11,11 +11,13 @@ const {
   handleRazorpayOrderCreate,
   handleRazorpayVerify
 } = require('../controllers/public.controller');
+const { handleGetContent } = require('../controllers/content.controller');
 
 // Basic API routes
 router.get('/workshops', handleWorkshopList);
 router.get('/products', handleProductCatalog);
 router.get('/learner/session', handleLearnerSession);
+router.get('/content', handleGetContent);
 
 // Actions
 router.post('/chat', handleChat);

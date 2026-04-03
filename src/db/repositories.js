@@ -156,6 +156,13 @@ const updateLeadNurture = db.prepare(`
   SET nurture_stage = ?, nurture_next_run_at = ?, nurture_last_sent_at = ?, updated_at = CURRENT_TIMESTAMP
   WHERE id = ?
 `);
+const selectAllContent = db.prepare(`
+  SELECT key_name, content FROM site_content
+`);
+const upsertContent = db.prepare(`
+  INSERT INTO site_content (key_name, content) VALUES (?, ?)
+  ON CONFLICT(key_name) DO UPDATE SET content = excluded.content, updated_at = CURRENT_TIMESTAMP
+`);
 
 module.exports = {
   db,
@@ -191,4 +198,6 @@ module.exports = {
   selectDueLeadNurtures,
   updateInquiryNurture,
   updateLeadNurture,
+  selectAllContent,
+  upsertContent,
 };

@@ -17,6 +17,7 @@ const {
   handleAdminWorkshopUpdate,
   handleAdminWorkshopDelete
 } = require('../controllers/workshop.controller');
+const { handleUpdateContent } = require('../controllers/content.controller');
 
 // Open routes
 router.post('/login', handleAdminLogin);
@@ -32,6 +33,7 @@ router.post('/test-email', handleAdminTestEmail);
 router.post('/ai-content', handleAdminAiContent);
 router.put('/leads/:id', handleAdminLeadUpdate);
 router.get('/export/:kind', handleCsvExport);
+router.put('/content', handleUpdateContent);
 
 // Workshop admin routes
 router.post('/workshops', handleAdminWorkshopCreate);
