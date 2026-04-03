@@ -665,3 +665,24 @@ const countObserver = new IntersectionObserver(
 );
 
 countElements.forEach((element) => countObserver.observe(element));
+
+async function loadSiteContent() {
+  try {
+    const response = await fetch(apiUrl('/api/content'));
+    const payload = await response.json();
+    
+    if (response.ok && payload.content) {
+      const elements = document.querySelectorAll("[data-content-key]");
+      elements.forEach((el) => {
+        const key = el.getAttribute("data-content-key");
+        if (payload.content[key]) {
+          el.textContent = payload.content[key];
+        }
+      });
+    }
+  } catch (error) {
+    console.error("Failed to load dynamic site content:", error);
+  }
+}
+
+loadSiteContent();

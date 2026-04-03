@@ -230,6 +230,40 @@
               <pre id="admin-ai-output-text"></pre>
             </div>
           </article>
+        <section class="section">
+          <article class="admin-card reveal">
+            <div class="admin-card__header">
+              <h2>Site Content Management</h2>
+            </div>
+            <form class="contact-card" id="cms-form">
+              <p class="form-note">Update the main text shown on the website's pages. Changes take effect immediately.</p>
+              
+              <label>
+                Home Hero Title
+                <textarea name="home_hero_title" rows="2" placeholder="Title text" required></textarea>
+              </label>
+              
+              <label>
+                Home Hero Description
+                <textarea name="home_hero_copy" rows="4" placeholder="Description text" required></textarea>
+              </label>
+              
+              <label>
+                Home Call to Action Title
+                <textarea name="home_cta_title" rows="2" placeholder="CTA title" required></textarea>
+              </label>
+
+              <label>
+                Home Call to Action Description
+                <textarea name="home_cta_copy" rows="4" placeholder="CTA description" required></textarea>
+              </label>
+              
+              <div class="admin-toolbar">
+                <button type="submit" class="button">Save Content</button>
+              </div>
+              <p class="form-feedback" id="cms-feedback" hidden></p>
+            </form>
+          </article>
         </section>
 
         <section class="section admin-grid">

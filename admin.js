@@ -345,6 +345,71 @@ function attachAiContentGenerator() {
   });
 }
 
+async function loadCmsContent() {
+  try {
+    const response = await fetch(apiUrl('/api/content'));
+    const payload = await response.json();
+    
+    if (response.ok && payload.content) {
+      const form = document.querySelector("#cms-form");
+      if (form) {
+        if (payload.content.home_hero_title) form.querySelector('[name="home_hero_title"]').value = payload.content.home_hero_title;
+        if (payload.content.home_hero_copy) form.querySelector('[name="home_hero_copy"]').value = payload.content.home_hero_copy;
+        if (payload.content.home_cta_title) form.querySelector('[name="home_cta_title"]').value = payload.content.home_cta_title;
+        if (payload.content.home_cta_copy) form.querySelector('[name="home_cta_copy"]').value = payload.content.home_cta_copy;
+      }
+    }
+  } catch (error) {
+    console.error("Unable to load CMS content:", error);
+  }
+}
+
+function attachCmsActions() {
+  const form = document.querySelector("#cms-form");
+  const feedback = document.querySelector("#cms-feedback");
+  
+  if (!form) return;
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const formData = new FormData(form);
+    
+    const payload = {};
+    for (const [key, value] of formData.entries()) {
+      payload[key] = value.trim();
+    }
+    
+    try {
+      const response = await fetch(apiUrl("/api/admin/content"), {
+        method: "PUT",
+        headers: getAuthHeaders(true),
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+
+      if (response.status === 401) {
+        handleUnauthorized();
+        return;
+      }
+
+      if (!response.ok) {
+        throw new Error(result?.error || "Unable to save content.");
+      }
+
+      if (feedback) {
+        feedback.hidden = false;
+        feedback.textContent = "Content updated successfully. Changes are now live on the site.";
+      }
+    } catch (error) {
+      if (feedback) {
+        feedback.hidden = false;
+        feedback.textContent = error instanceof Error ? error.message : "Unable to save content.";
+      }
+    }
+  });
+}
+
 function attachDocumentActions() {
   document.addEventListener("click", async (event) => {
     const target = event.target;
@@ -655,7 +720,9 @@ async function bootstrapAdmin() {
     attachWorkshopActions();
     attachAiContentGenerator();
     attachDocumentActions();
+    attachCmsActions();
     loadAdminOverview();
+    loadCmsContent();
   } catch (error) {
     handleUnauthorized();
   }
