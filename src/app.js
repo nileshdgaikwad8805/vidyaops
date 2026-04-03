@@ -1,0 +1,89 @@
+const express = require('express');
+const cors = require('cors');
+const cookieParser = require('cookie-parser');
+const path = require('path');
+const fs = require('fs');
+
+const { loadAppConfig } = require('../app-config');
+const adminRoutes = require('./routes/admin.routes');
+const publicRoutes = require('./routes/public.routes');
+const { getAdminSession } = require('./middleware/auth');
+
+const ROOT = path.join(__dirname, '../');
+const APP_CONFIG = loadAppConfig(ROOT);
+const DATA_DIR = APP_CONFIG.dataDir;
+
+const app = express();
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true);
+    
+    const allowed = APP_CONFIG.allowedOrigins.includes("*") ||
+      APP_CONFIG.allowedOrigins.includes(origin);
+      
+    if (allowed) return callback(null, true);
+    callback(new Error('Not allowed by CORS'));
+  },
+  credentials: true
+};
+
+app.use(cors(corsOptions));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
+
+// Mount API routes
+app.use('/api/admin', adminRoutes);
+app.use('/api', publicRoutes);
+
+// Runtime client config
+app.get('/config.js', (req, res) => {
+  const baseUrl = APP_CONFIG.publicApiBase || "";
+  const content = `window.VIDYAOPS_CONFIG = window.VIDYAOPS_CONFIG || ${JSON.stringify(
+    {
+      apiBase: baseUrl,
+      runtimeMode: APP_CONFIG.runtimeMode,
+      platformTarget: APP_CONFIG.platformTarget,
+    },
+    null,
+    2
+  )};\n`;
+  res.type('application/javascript').send(content);
+});
+
+// Protect files from unauthorized access at root level
+app.use((req, res, next) => {
+  const pathname = req.path;
+  const blockedFiles = new Set(["server.js", ".env", "package.json", "render.yaml", "netlify.toml", "vercel.json"]);
+  const isBlocklisted = blockedFiles.has(path.basename(pathname)) || path.basename(pathname).startsWith(".");
+  
+  if (isBlocklisted && pathname !== "/") {
+    return res.status(403).json({ error: "Forbidden" });
+  }
+
+  // Handle protected page logic
+  if (pathname === "/admin.html") {
+    if (!getAdminSession(req)) {
+      return res.redirect('/admin-login.html');
+    }
+  }
+
+  next();
+});
+
+app.use(express.static(ROOT, { index: 'index.html' }));
+
+app.use((req, res, next) => {
+  res.status(404).json({ error: "Not found" });
+});
+
+app.use((err, req, res, next) => {
+  if (err.message && err.message === 'Not allowed by CORS') {
+    return res.status(403).json({ error: "Not allowed by CORS" });
+  }
+  console.error("Express Error Middleware caught:", err);
+  res.status(500).json({ error: err.message || 'Something broke!' });
+});
+
+module.exports = app;

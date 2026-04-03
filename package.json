@@ -3,7 +3,11 @@
   "private": true,
   "version": "1.0.0",
   "description": "VidyaOps marketing site with a local Gemini chatbot proxy.",
-  "dependencies": {},
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "express": "^5.2.1"
+  },
   "scripts": {
     "build:vercel": "node scripts/generate-config.js",
     "start": "node server.js"
