@@ -12,6 +12,7 @@ const {
   handleRazorpayVerify
 } = require('../controllers/public.controller');
 const { handleGetContent } = require('../controllers/content.controller');
+const { uploadVolunteerFiles, handleVolunteerIntake } = require('../controllers/volunteer.controller');
 
 // Basic API routes
 router.get('/workshops', handleWorkshopList);
@@ -28,6 +29,9 @@ router.post('/leads', handleLeadCapture);
 router.post('/enrollments/free', handleFreeEnrollment);
 router.post('/payments/razorpay/order', handleRazorpayOrderCreate);
 router.post('/payments/razorpay/verify', handleRazorpayVerify);
+
+// Volunteer System
+router.post('/volunteer/apply', uploadVolunteerFiles, handleVolunteerIntake);
 
 // Health check
 router.get('/health', (req, res) => {

@@ -14,6 +14,10 @@ const rateLimit = require('express-rate-limit');
 const ROOT = path.join(__dirname, '../');
 const APP_CONFIG = loadAppConfig(ROOT);
 const DATA_DIR = APP_CONFIG.dataDir;
+const SEO_FILES = {
+  "/robots.txt": path.join(ROOT, "robots.txt"),
+  "/sitemap.xml": path.join(ROOT, "sitemap.xml"),
+};
 
 const app = express();
 
@@ -66,6 +70,16 @@ app.get('/config.js', (req, res) => {
   res.type('application/javascript').send(content);
 });
 
+Object.entries(SEO_FILES).forEach(([routePath, filePath]) => {
+  app.get(routePath, (req, res, next) => {
+    if (!fs.existsSync(filePath)) {
+      return next();
+    }
+
+    res.sendFile(filePath);
+  });
+});
+
 // Protect files from unauthorized access at root level
 app.use((req, res, next) => {
   const pathname = req.path;
@@ -86,7 +100,8 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(express.static(ROOT, { index: 'index.html' }));
+const PUBLIC_DIR = path.join(ROOT, 'public');
+app.use(express.static(PUBLIC_DIR, { index: 'index.html' }));
 
 app.use((req, res, next) => {
   res.status(404).json({ error: "Not found" });

@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Exclude sensitive routes from Google
+Disallow: /admin.html
+Disallow: /admin-login.html
+Disallow: /learner-dashboard.html
+Disallow: /payment-success.html
+Disallow: /data/
+Disallow: /scripts/
+
+Sitemap: https://vidyaops.com/sitemap.xml
