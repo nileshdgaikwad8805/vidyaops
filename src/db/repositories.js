@@ -163,6 +163,10 @@ const upsertContent = db.prepare(`
   INSERT INTO site_content (key_name, content) VALUES (?, ?)
   ON CONFLICT(key_name) DO UPDATE SET content = excluded.content, updated_at = CURRENT_TIMESTAMP
 `);
+const insertVolunteerTrainer = db.prepare(`
+  INSERT INTO volunteer_trainers (name, email, phone, linkedin_url, topic_of_choice, resume_path, photo_path, status)
+  VALUES (?, ?, ?, ?, ?, ?, ?, 'pending')
+`);
 
 module.exports = {
   db,
@@ -200,4 +204,5 @@ module.exports = {
   updateLeadNurture,
   selectAllContent,
   upsertContent,
+  insertVolunteerTrainer,
 };
