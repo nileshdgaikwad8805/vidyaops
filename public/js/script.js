@@ -17,7 +17,7 @@ const chatSessionId =
 const apiUrl = (pathname) => (apiBase ? `${apiBase}${pathname}` : pathname);
 const vidyaOpsKnowledge = {
   contact:
-    "You can contact VidyaOps at 9284543320, email nileshdgaikwad8805@gmail.com, or use the WhatsApp button on this page for a faster reply.",
+    "You can contact VidyaOps at 9284543320, email contact@vidyaops.com, or use the WhatsApp button on this page for a faster reply.",
   audience:
     "VidyaOps is built for college students, freshers, early professionals, and knowledge seekers.",
   location: "VidyaOps is based in Pune, Maharashtra.",
