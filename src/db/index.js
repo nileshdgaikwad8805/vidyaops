@@ -136,10 +136,10 @@ db.exec(`
 
 db.exec(`
   INSERT OR IGNORE INTO site_content (key_name, content) VALUES
-  ('home_hero_title', 'VidyaOps is where practical skilling meets modern momentum.'),
-  ('home_hero_copy', 'Built for students, freshers, early professionals, and knowledge seekers, VidyaOps creates a cleaner way to discover, practice, and grow in Cloud, Data Analysis, AI, and Cybersecurity.'),
+  ('home_hero_title', 'Practical tech learning for students ready to move.'),
+  ('home_hero_copy', 'VidyaOps helps college students, freshers, early professionals, and knowledge seekers build useful capability in Cloud, Data Analysis, AI, and Cybersecurity through workshops, guided tracks, and career-aware mentorship.'),
   ('home_cta_title', 'Take the next step in your tech career with confidence.'),
-  ('home_cta_copy', 'Join hundreds of successful learners who have accelerated their careers with VidyaOps. Choose a workshop to get started, or book a direct consultation to map out your personalized learning journey.')
+  ('home_cta_copy', 'Choose a workshop to get started, or book a direct consultation to map out a practical learning path for your current level and goals.')
 `);
 
 function ensureColumn(tableName, columnName, columnDefinition) {

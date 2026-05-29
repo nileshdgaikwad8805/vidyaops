@@ -93,7 +93,7 @@ Required `.env` values:
 ```env
 RESEND_API_KEY=your_resend_api_key
 RESEND_FROM_EMAIL=VidyaOps <onboarding@resend.dev>
-NOTIFY_EMAIL_TO=nileshdgaikwad8805@gmail.com
+NOTIFY_EMAIL_TO=contact@vidyaops.com
 ```
 
 Resend’s docs show sending through their Email API from Node.js and note you should create an API key and verify a domain for production sending: [Send emails with Node.js](https://resend.com/docs/send-with-nodejs), [Send Email API](https://resend.com/docs/api-reference/emails), [Managing Domains](https://resend.com/docs/dashboard/domains/introduction).
