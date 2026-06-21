@@ -31,8 +31,8 @@ function loadAppConfig(rootDir) {
     .filter(Boolean);
 
   return {
-    port: Number(process.env.PORT || 3000),
-    host: process.env.HOST || "127.0.0.1",
+    host: process.env.HOST || "0.0.0.0",
+    port: Number(process.env.PORT || 10000),
     geminiApiKey: process.env.GEMINI_API_KEY || "",
     geminiModel: process.env.GEMINI_MODEL || "gemini-2.5-flash",
     adminUsername: process.env.ADMIN_USERNAME || "admin",
