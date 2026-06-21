@@ -2740,3 +2740,83 @@ body::before {
 .wip-banner--hidden {
   display: none;
 }
+
+/* ── Service showcase (Vinsys-inspired) ── */
+.service-showcase {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.service-showcase__card {
+  background: var(--surface-strong);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 28px 24px;
+  display: grid;
+  gap: 10px;
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+.service-showcase__card:hover {
+  box-shadow: var(--shadow-soft);
+  transform: translateY(-3px);
+}
+.service-showcase__card .service-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent-soft), var(--accent));
+  display: grid;
+  place-items: center;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+}
+.service-showcase__card h3 {
+  font-family: "Sora", sans-serif;
+  font-size: 1.05rem;
+  margin: 0;
+}
+.service-showcase__card p {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.5;
+  margin: 0;
+}
+.service-showcase__card a {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+}
+.service-showcase__card a:hover {
+  color: var(--accent-deep);
+}
+
+/* ── Partner / client strip ── */
+.partner-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 24px 40px;
+  padding: 24px 0;
+}
+.partner-strip span {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.7;
+}
+
+@media (max-width: 860px) {
+  .service-showcase {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 540px) {
+  .service-showcase {
+    grid-template-columns: 1fr;
+  }
+}
