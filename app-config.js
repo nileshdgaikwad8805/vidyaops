@@ -34,7 +34,7 @@ function loadAppConfig(rootDir) {
     host: process.env.HOST || "0.0.0.0",
     port: Number(process.env.PORT || 10000),
     geminiApiKey: process.env.GEMINI_API_KEY || "",
-    geminiModel: process.env.GEMINI_MODEL || "gemini-2.0-flash",
+    geminiModel: process.env.GEMINI_MODEL || "gemini-1.5-flash",
     adminUsername: process.env.ADMIN_USERNAME || "admin",
     adminPassword: process.env.ADMIN_PASSWORD || "vidyaops123",
     sessionCookie: process.env.SESSION_COOKIE || "vidyaops_admin_session",

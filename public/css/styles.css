@@ -620,6 +620,7 @@ a {
 
 .section-heading {
   max-width: 720px;
+  margin-bottom: 32px;
 }
 
 .section-heading h2,
@@ -2081,7 +2082,7 @@ main {
 }
 
 .section-heading {
-  margin-bottom: 18px;
+  margin-bottom: 32px;
 }
 
 .spotlight,
@@ -2752,9 +2753,14 @@ body::before {
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
   padding: 28px 24px;
-  display: grid;
-  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   transition: box-shadow 0.25s, transform 0.25s;
+  align-items: flex-start;
+}
+.service-showcase__card p {
+  flex: 1 1 auto;
 }
 .service-showcase__card:hover {
   box-shadow: var(--shadow-soft);
@@ -2819,4 +2825,198 @@ body::before {
   .service-showcase {
     grid-template-columns: 1fr;
   }
+}
+
+/* ── Modern futuristic animations ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+@keyframes float-glow {
+  0%, 100% { transform: translateY(0); box-shadow: 0 8px 24px rgba(189, 146, 52, 0.08); }
+  50% { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(189, 146, 52, 0.18); }
+}
+@keyframes shimmer-sweep {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+@keyframes border-pulse {
+  0%, 100% { border-color: rgba(189, 146, 52, 0.12); }
+  50% { border-color: rgba(189, 146, 52, 0.35); }
+}
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes orbit-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Service cards — float + glow */
+.service-showcase__card {
+  animation: float-glow 5s ease-in-out infinite;
+}
+.service-showcase__card:nth-child(2) { animation-delay: 0.4s; }
+.service-showcase__card:nth-child(3) { animation-delay: 0.8s; }
+.service-showcase__card:nth-child(4) { animation-delay: 1.2s; }
+.service-showcase__card:nth-child(5) { animation-delay: 1.6s; }
+.service-showcase__card:nth-child(6) { animation-delay: 2s; }
+
+/* Service icon — subtle spin pulse */
+.service-showcase__card .service-icon {
+  position: relative;
+  overflow: hidden;
+}
+.service-showcase__card .service-icon::after {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  background: conic-gradient(transparent, rgba(255,255,255,0.4), transparent 60%);
+  animation: orbit-spin 4s linear infinite;
+  pointer-events: none;
+}
+
+/* Button shimmer overlay */
+.button {
+  position: relative;
+  isolation: isolate;
+}
+.button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+  transform: translateX(-100%);
+  animation: shimmer-sweep 4s ease-in-out infinite;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* Border pulse on key cards */
+.operating-card,
+.signal-card,
+.journey-card,
+.home-cta__panel {
+  animation: border-pulse 4s ease-in-out infinite;
+}
+
+/* Hero shell subtle gradient shift */
+.hero-shell {
+  animation: gradient-shift 8s ease infinite;
+  background-size: 200% 200%;
+}
+
+/* Reveal enhancement — scale in with existing fade */
+.reveal.is-visible {
+  animation: scale-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Section heading underline glow */
+.section-heading h2 {
+  position: relative;
+  display: inline-block;
+}
+.section-heading h2::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-soft));
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* ── Partnerships Coming Soon ── */
+.partners-coming {
+  text-align: center;
+  padding: 48px 24px;
+  border-radius: var(--radius-xl);
+  background: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(247,244,238,0.5));
+  border: 2px dashed rgba(189, 146, 52, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+.partners-coming::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: conic-gradient(from 0deg, transparent, rgba(189,146,52,0.12), transparent, rgba(189,146,52,0.12), transparent);
+  animation: orbit-spin 6s linear infinite;
+  pointer-events: none;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  padding: 2px;
+}
+.partners-coming .coming-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 20px;
+}
+.partners-coming .coming-badge span {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff;
+  animation: glow-pulse 1.5s ease-in-out infinite;
+}
+.partners-coming h2 {
+  font-family: "Sora", sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  margin: 0 0 12px;
+  color: var(--text);
+}
+.partners-coming p {
+  color: var(--muted);
+  max-width: 48ch;
+  margin: 0 auto 28px;
+  line-height: 1.7;
+}
+.partners-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+.partners-grid span {
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 24px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid rgba(8, 47, 84, 0.1);
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 12px rgba(8, 47, 84, 0.05);
+  transition: all 0.3s ease;
+}
+.partners-grid span:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(189, 146, 52, 0.15);
+  border-color: rgba(189, 146, 52, 0.3);
+  color: var(--accent-deep);
 }

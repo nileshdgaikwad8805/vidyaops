@@ -57,6 +57,16 @@ if (activeGroup) {
 }
 
 if (navToggle && siteNav) {
+  const closeMobileNav = () => {
+    siteNav.classList.remove("is-open");
+    navToggle.setAttribute("aria-expanded", "false");
+    document.body.classList.remove("nav-open");
+  };
+
+  const closeDropdowns = () => {
+    document.querySelectorAll(".nav-group.is-open").forEach((g) => g.classList.remove("is-open"));
+  };
+
   navToggle.addEventListener("click", () => {
     const isOpen = siteNav.classList.toggle("is-open");
     navToggle.setAttribute("aria-expanded", String(isOpen));
@@ -64,27 +74,35 @@ if (navToggle && siteNav) {
   });
 
   siteNav.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      siteNav.classList.remove("is-open");
-      navToggle.setAttribute("aria-expanded", "false");
-      document.body.classList.remove("nav-open");
-    });
+    link.addEventListener("click", closeMobileNav);
   });
 
   document.querySelectorAll(".nav-group").forEach((group) => {
     const trigger = group.querySelector('[data-nav="services"]');
-    if (!trigger) {
-      return;
-    }
+    if (!trigger) return;
 
     trigger.addEventListener("click", (event) => {
-      if (window.innerWidth > 1024) {
-        return;
-      }
-
+      if (window.innerWidth > 1024) return;
       event.preventDefault();
       group.classList.toggle("is-open");
     });
+  });
+
+  // Close mobile nav + dropdowns on scroll
+  let scrollTimer;
+  window.addEventListener("scroll", () => {
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(() => {
+      closeDropdowns();
+      closeMobileNav();
+    }, 150);
+  }, { passive: true });
+
+  // Close dropdowns on click outside
+  document.addEventListener("click", (event) => {
+    if (!event.target.closest(".nav-group")) {
+      closeDropdowns();
+    }
   });
 }
 
