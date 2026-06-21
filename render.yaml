@@ -13,7 +13,7 @@ services:
       - key: HOST
         value: 0.0.0.0
       - key: ALLOWED_ORIGINS
-        value: https://vidyaops.com,https://<your-render-app>.onrender.com
+        value: https://www.vidyaops.com,https://vidyaops.com,https://vidyaops.onrender.com
       - key: GEMINI_MODEL
         value: gemini-2.0-flash
       - key: GEMINI_API_KEY
