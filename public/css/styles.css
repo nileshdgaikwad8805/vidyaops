@@ -3168,3 +3168,199 @@ body::before {
   border-color: rgba(189, 146, 52, 0.3);
   color: var(--accent-deep);
 }
+
+/* ── Comprehensive mobile-friendly overhaul ── */
+@media (max-width: 768px) {
+  /* Thinner page shell on small screens */
+  .page-shell {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  /* Reduce outcome-band padding */
+  .outcome-band {
+    padding: 28px 16px !important;
+    border-radius: 18px;
+  }
+
+  /* Reduce partners section padding */
+  .partners-coming {
+    padding: 32px 16px;
+  }
+  .partners-grid {
+    gap: 10px;
+  }
+  .partners-grid span {
+    padding: 10px 16px;
+    font-size: 0.8rem;
+  }
+
+  /* Shrink hero gap on mobile */
+  .home-hero {
+    gap: 16px;
+  }
+
+  /* Smaller hero heading */
+  .home-hero__content h1,
+  .hero__content h1 {
+    font-size: clamp(2.2rem, 11vw, 3rem) !important;
+    max-width: none !important;
+  }
+
+  /* Reduce service card padding */
+  .service-showcase__card {
+    padding: 20px 18px;
+  }
+
+  /* Reduce grid gaps */
+  .program-grid,
+  .story-grid,
+  .enterprise-grid,
+  .operating-grid,
+  .signal-grid,
+  .journey-grid,
+  .testimonial-grid,
+  .workshop-grid {
+    gap: 12px;
+  }
+
+  /* Smaller card padding */
+  .program-card,
+  .story-card,
+  .enterprise-card,
+  .operating-card,
+  .signal-card,
+  .journey-card,
+  .testimonial-card,
+  .workshop-card {
+    padding: 18px;
+  }
+
+  /* Section heading smaller */
+  .section-heading h2 {
+    font-size: clamp(1.5rem, 6vw, 2rem) !important;
+  }
+
+  /* Service icon smaller */
+  .service-showcase__card .service-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+  .service-showcase__card h3 {
+    font-size: 0.95rem;
+  }
+  .service-showcase__card p {
+    font-size: 0.82rem;
+  }
+
+  /* CTA panel compact */
+  .home-cta__panel {
+    padding: 20px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* Domain strip compact */
+  .domain-strip {
+    gap: 8px;
+  }
+  .domain-strip span {
+    padding: 8px 14px;
+    font-size: 0.82rem;
+  }
+
+  /* Page hero compact */
+  .page-hero {
+    padding: 20px !important;
+  }
+  .page-hero h1 {
+    font-size: clamp(1.6rem, 8vw, 2.4rem) !important;
+  }
+
+  /* Stats grid compact */
+  .hero-command__grid {
+    gap: 10px;
+  }
+  .hero-command__grid article {
+    padding: 12px;
+  }
+  .hero-command__grid strong {
+    font-size: 1.5rem;
+  }
+
+  /* Hero signals compact */
+  .home-hero__signals {
+    gap: 8px;
+  }
+  .home-hero__signals span {
+    padding: 8px 14px;
+    font-size: 0.82rem;
+  }
+
+  /* Reduce/disable heavy animation on mobile for perf */
+  .service-showcase__card,
+  .journey-card,
+  .story-card,
+  .program-card,
+  .enterprise-card,
+  .operating-card,
+  .signal-card,
+  .hero-stack__panel {
+    animation-duration: 8s !important;
+    transform: none !important;
+  }
+
+  /* Button shimmer off on mobile */
+  .button::before {
+    animation: none !important;
+    display: none;
+  }
+
+  /* Section banner animation off */
+  .section-heading h2::after {
+    animation: none !important;
+    opacity: 0.5;
+  }
+}
+
+/* Accessibility: reduce motion for vestibular disorders */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 400px) {
+  /* Very small screens: minimal padding */
+  .page-shell {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+
+  .site-header {
+    padding: 10px 12px;
+  }
+
+  .brand-mark__icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .partners-grid span {
+    padding: 8px 12px;
+    font-size: 0.75rem;
+  }
+
+  .home-hero__content h1 {
+    font-size: clamp(1.8rem, 10vw, 2.4rem) !important;
+  }
+}
