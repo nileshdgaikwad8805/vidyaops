@@ -31,7 +31,7 @@ services:
       - key: APP_BASE_URL
         value: https://www.vidyaops.com
       - key: NOTIFY_EMAIL_TO
-        value: contact@vidyaops.com
+        value: info@vidyaops.com
     disk:
       name: skillnest-data
       mountPath: /opt/render/project/src/data

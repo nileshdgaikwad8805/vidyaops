@@ -94,7 +94,7 @@ async function handleChat(req, res) {
       "Do not invent prices, schedules, certifications, job guarantees, or promises that are not provided. " +
       "If asked for location, say VidyaOps is based in Pune, Maharashtra. " +
       "If asked who VidyaOps is for, mention college students, freshers, early professionals, and knowledge seekers. " +
-      "When a user shows buying intent, wants to enroll, asks for dates, fees, next batch, or deeper details not present in site context, tell them to contact VidyaOps directly at phone 9284543320, email contact@vidyaops.com, or WhatsApp.";
+      "When a user shows buying intent, wants to enroll, asks for dates, fees, next batch, or deeper details not present in site context, tell them to contact VidyaOps directly at phone 950368512, email info@vidyaops.com, or WhatsApp.";
 
     const counselorInstructions =
       baseInstructions +

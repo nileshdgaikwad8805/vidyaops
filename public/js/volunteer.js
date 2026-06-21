@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ].join("\n")
     );
 
-    window.location.href = `mailto:contact@vidyaops.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:info@vidyaops.com?subject=${subject}&body=${body}`;
   };
 
   form.addEventListener("submit", async (e) => {

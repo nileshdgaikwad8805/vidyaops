@@ -15,7 +15,7 @@
 | **GitHub repo** | [https://github.com/nileshdgaikwad8805/vidyaops.git](https://github.com/nileshdgaikwad8805/vidyaops.git) |
 | **Local workspace** | `C:\Users\niles\Downloads\VidyaOps\LearnSkills` |
 | **App package name** | `vidyaops-site` |
-| **Contact** | 9284543320 · contact@vidyaops.com |
+| **Contact** | 950368512 · info@vidyaops.com |
 
 ---
 
@@ -222,7 +222,7 @@ ADMIN_USERNAME=...
 ADMIN_PASSWORD=...
 RESEND_API_KEY=...
 RESEND_FROM_EMAIL=VidyaOps <onboarding@resend.dev>
-NOTIFY_EMAIL_TO=contact@vidyaops.com
+NOTIFY_EMAIL_TO=info@vidyaops.com
 RAZORPAY_KEY_ID=...
 RAZORPAY_KEY_SECRET=...
 ALLOWED_ORIGINS=https://vidyaops.com,https://your-render-domain.onrender.com

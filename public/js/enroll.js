@@ -171,7 +171,7 @@ function openEnrollmentMail(payload, selectedProduct) {
     ].join("\n")
   );
 
-  window.location.href = `mailto:contact@vidyaops.com?subject=${subject}&body=${body}`;
+  window.location.href = `mailto:info@vidyaops.com?subject=${subject}&body=${body}`;
 }
 
 async function submitPaidEnrollment(payload) {
