@@ -550,10 +550,10 @@ async function loadAdminOverview() {
 
     renderItems(inquiryList, payload.inquiries, (item) => `
       <article class="admin-item">
-        <strong>${item.name}</strong>
-        <p>${item.email}</p>
-        <p>${item.interest}</p>
-        <p>${item.message}</p>
+        <strong>${escapeHtml(item.name)}</strong>
+        <p>${escapeHtml(item.email)}</p>
+        <p>${escapeHtml(item.interest)}</p>
+        <p>${escapeHtml(item.message)}</p>
         ${
           item.ai_summary || item.ai_next_step
             ? `<div class="admin-ai-snippet">
@@ -566,17 +566,17 @@ async function loadAdminOverview() {
               </div>`
             : ""
         }
-        <span>${item.created_at}</span>
+        <span>${escapeHtml(item.created_at)}</span>
       </article>
     `);
 
     renderItems(leadList, payload.leads, (item) => `
       <article class="admin-item" data-lead-card>
-        <strong>${item.name}</strong>
-        <p>${item.contact}</p>
-        <p>${item.learner_type}</p>
-        <p>${item.interest}</p>
-        <span class="admin-status admin-status--${item.status}">${item.status}</span>
+        <strong>${escapeHtml(item.name)}</strong>
+        <p>${escapeHtml(item.contact)}</p>
+        <p>${escapeHtml(item.learner_type)}</p>
+        <p>${escapeHtml(item.interest)}</p>
+        <span class="admin-status admin-status--${escapeHtml(item.status)}">${escapeHtml(item.status)}</span>
         <label>
           Lead Status
           <select data-lead-status>
@@ -590,7 +590,7 @@ async function loadAdminOverview() {
         </label>
         <label>
           Notes
-          <textarea rows="3" data-lead-notes placeholder="Add follow-up notes">${item.notes || ""}</textarea>
+          <textarea rows="3" data-lead-notes placeholder="Add follow-up notes">${escapeHtml(item.notes || "")}</textarea>
         </label>
         ${
           item.ai_summary || item.ai_next_step
@@ -613,25 +613,25 @@ async function loadAdminOverview() {
           >Save Lead</button>
         </div>
         <p class="form-feedback" hidden></p>
-        <span>Created ${item.created_at}</span>
+        <span>Created ${escapeHtml(item.created_at)}</span>
       </article>
     `);
 
     renderItems(chatList, payload.chatMessages, (item) => `
       <article class="admin-item">
-        <strong>${item.role}</strong>
-        <p>${item.content}</p>
-        <span>${item.created_at}</span>
+        <strong>${escapeHtml(item.role)}</strong>
+        <p>${escapeHtml(item.content)}</p>
+        <span>${escapeHtml(item.created_at)}</span>
       </article>
     `);
 
     const workshopList = document.querySelector("#admin-workshop-list");
     renderItems(workshopList, payload.workshops, (item) => `
       <article class="admin-item">
-        <strong>${item.title}</strong>
-        <p>${item.type}</p>
-        <p>${item.schedule_text} | ${item.duration_text} | ${item.level_text}</p>
-        <p>${item.description}</p>
+        <strong>${escapeHtml(item.title)}</strong>
+        <p>${escapeHtml(item.type)}</p>
+        <p>${escapeHtml(item.schedule_text)} | ${escapeHtml(item.duration_text)} | ${escapeHtml(item.level_text)}</p>
+        <p>${escapeHtml(item.description)}</p>
         ${
           item.ai_workshop_description || item.ai_announcement || item.ai_social_posts
             ? `<div class="admin-ai-snippet">
@@ -648,7 +648,7 @@ async function loadAdminOverview() {
             type="button"
             class="button button--secondary"
             data-workshop-edit
-            data-id="${item.id}"
+            data-id="${escapeAttribute(item.id)}"
             data-title="${escapeAttribute(item.title)}"
             data-type="${escapeAttribute(item.type)}"
             data-description="${escapeAttribute(item.description)}"
@@ -663,7 +663,7 @@ async function loadAdminOverview() {
             type="button"
             class="button button--secondary"
             data-workshop-delete
-            data-id="${item.id}"
+            data-id="${escapeAttribute(item.id)}"
           >Delete</button>
         </div>
       </article>
@@ -671,13 +671,13 @@ async function loadAdminOverview() {
 
     renderItems(enrollmentList, payload.enrollments || [], (item) => `
       <article class="admin-item">
-        <strong>${item.learner_name}</strong>
-        <p>${item.learner_email}</p>
-        <p>${item.product_name}</p>
-        <p>${item.product_type} | ₹${item.amount_inr}</p>
-        <span class="admin-status admin-status--${item.status}">${item.status}</span>
+        <strong>${escapeHtml(item.learner_name)}</strong>
+        <p>${escapeHtml(item.learner_email)}</p>
+        <p>${escapeHtml(item.product_name)}</p>
+        <p>${escapeHtml(item.product_type)} | ₹${escapeHtml(item.amount_inr)}</p>
+        <span class="admin-status admin-status--${escapeHtml(item.status)}">${escapeHtml(item.status)}</span>
         <p>Onboarding sent: ${item.onboarding_sent ? "Yes" : "No"}</p>
-        <span>${item.created_at}</span>
+        <span>${escapeHtml(item.created_at)}</span>
       </article>
     `);
   } catch (error) {

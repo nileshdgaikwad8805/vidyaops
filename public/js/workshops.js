@@ -1,6 +1,49 @@
 const workshopList = document.querySelector("#workshop-list");
 const workshopsApiBase = String(window.VIDYAOPS_CONFIG?.apiBase || "").replace(/\/$/, "");
 const workshopApiUrl = (pathname) => (workshopsApiBase ? `${workshopsApiBase}${pathname}` : pathname);
+const isStaticWorkshopRuntime = window.VIDYAOPS_CONFIG?.runtimeMode === "static" && !workshopsApiBase;
+const defaultWorkshops = [
+  {
+    title: "Cloud Basics for College Students",
+    type: "Free Workshop",
+    description: "Introductory session covering cloud concepts, career paths, and practical starting points.",
+    schedule_text: "Saturday, 10:00 AM",
+    duration_text: "2 Hours",
+    level_text: "Beginner",
+    cta_text: "Reserve Seat",
+    cta_link: "enroll.html",
+  },
+  {
+    title: "Hands-On Data Analysis Sprint",
+    type: "Paid Workshop",
+    description: "Learn practical data workflows, basic tools, and how to think analytically with guided exercises.",
+    schedule_text: "Sunday, 11:30 AM",
+    duration_text: "3 Hours",
+    level_text: "Beginner to Intermediate",
+    cta_text: "Enroll Now",
+    cta_link: "enroll.html",
+  },
+  {
+    title: "Introduction to AI Tools and Use Cases",
+    type: "Free Workshop",
+    description: "Explore AI ideas, practical examples, and how students and freshers can start learning responsibly.",
+    schedule_text: "Wednesday, 5:00 PM",
+    duration_text: "90 Minutes",
+    level_text: "Beginner",
+    cta_text: "Reserve Seat",
+    cta_link: "enroll.html",
+  },
+  {
+    title: "Cybersecurity Awareness and Foundations",
+    type: "Paid Workshop",
+    description: "Understand security basics, threat awareness, and how cybersecurity skills connect to career growth.",
+    schedule_text: "Saturday, 4:00 PM",
+    duration_text: "2.5 Hours",
+    level_text: "Beginner",
+    cta_text: "Enroll Now",
+    cta_link: "enroll.html",
+  },
+];
 
 function renderWorkshopCard(workshop) {
   return `
@@ -27,16 +70,31 @@ async function loadWorkshops() {
     workshopList.innerHTML = `
       <article class="workshop-card reveal is-visible">
         <p class="workshop-card__type">Local Preview</p>
-        <h3>Start the VidyaOps server to load live workshops.</h3>
-        <p>The workshop catalog is now database-driven. Open the site through localhost to load and manage workshops from the admin dashboard.</p>
+        <h3>Workshop dates are available through VidyaOps.</h3>
+        <p>Contact VidyaOps to confirm the latest workshop dates and available seats.</p>
         <a class="button" href="contact.html">Contact VidyaOps</a>
       </article>
     `;
     return;
   }
 
+  if (isStaticWorkshopRuntime) {
+    workshopList.innerHTML = defaultWorkshops.map(renderWorkshopCard).join("");
+    return;
+  }
+
   try {
-    const response = await fetch(workshopApiUrl("/api/workshops"));
+    const response = await fetch(workshopApiUrl("/api/workshops"), {
+      headers: {
+        Accept: "application/json",
+      },
+    });
+    const contentType = response.headers.get("content-type") || "";
+
+    if (!contentType.includes("application/json")) {
+      throw new Error("Workshop API did not return JSON.");
+    }
+
     const payload = await response.json();
 
     if (!response.ok) {
@@ -44,29 +102,9 @@ async function loadWorkshops() {
     }
 
     const workshops = Array.isArray(payload.workshops) ? payload.workshops : [];
-
-    if (!workshops.length) {
-      workshopList.innerHTML = `
-        <article class="workshop-card reveal is-visible">
-          <p class="workshop-card__type">No Active Workshops</p>
-          <h3>Fresh workshop dates will be announced soon.</h3>
-          <p>Please contact VidyaOps or use WhatsApp if you want help choosing the right training path now.</p>
-          <a class="button" href="contact.html">Send Inquiry</a>
-        </article>
-      `;
-      return;
-    }
-
-    workshopList.innerHTML = workshops.map(renderWorkshopCard).join("");
+    workshopList.innerHTML = (workshops.length ? workshops : defaultWorkshops).map(renderWorkshopCard).join("");
   } catch (error) {
-    workshopList.innerHTML = `
-      <article class="workshop-card reveal is-visible">
-        <p class="workshop-card__type">Unable to Load</p>
-        <h3>The workshop list could not be loaded right now.</h3>
-        <p>${error instanceof Error ? error.message : "Please try again shortly."}</p>
-        <a class="button" href="contact.html">Contact VidyaOps</a>
-      </article>
-    `;
+    workshopList.innerHTML = defaultWorkshops.map(renderWorkshopCard).join("");
   }
 }
 

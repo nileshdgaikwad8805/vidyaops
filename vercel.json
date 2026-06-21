@@ -3,6 +3,7 @@
   "cleanUrls": false,
   "trailingSlash": false,
   "buildCommand": "npm run build:vercel",
+  "outputDirectory": "public",
   "headers": [
     {
       "source": "/(.*)",

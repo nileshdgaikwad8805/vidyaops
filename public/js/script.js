@@ -15,6 +15,23 @@ const chatSessionId =
   window.localStorage.getItem(chatSessionKey) ||
   (window.crypto?.randomUUID ? window.crypto.randomUUID() : `session-${Date.now()}`);
 const apiUrl = (pathname) => (apiBase ? `${apiBase}${pathname}` : pathname);
+const isStaticRuntime = window.VIDYAOPS_CONFIG?.runtimeMode === "static" && !apiBase;
+const openInquiryEmail = ({ recipient, name, email, organization, interest, message }) => {
+  const subject = encodeURIComponent("New VidyaOps Inquiry");
+  const body = encodeURIComponent(
+    [
+      `Name: ${name}`,
+      `Email: ${email}`,
+      `Company or College: ${organization}`,
+      `Interested In: ${interest}`,
+      "",
+      "Message:",
+      message,
+    ].join("\n")
+  );
+
+  window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
+};
 const vidyaOpsKnowledge = {
   contact:
     "You can contact VidyaOps at 9284543320, email contact@vidyaops.com, or use the WhatsApp button on this page for a faster reply.",
@@ -133,21 +150,8 @@ if (contactForm) {
     const message = String(formData.get("message") || "").trim();
     const recipient = contactForm.dataset.fallbackEmail || "";
 
-    const subject = encodeURIComponent("New VidyaOps Inquiry");
-    const body = encodeURIComponent(
-      [
-        `Name: ${name}`,
-        `Email: ${email}`,
-        `Company or College: ${organization}`,
-        `Interested In: ${interest}`,
-        "",
-        "Message:",
-        message,
-      ].join("\n")
-    );
-
-    if (!isServedOverHttp) {
-      window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
+    if (!isServedOverHttp || isStaticRuntime) {
+      openInquiryEmail({ recipient, name, email, organization, interest, message });
       return;
     }
 
@@ -181,10 +185,11 @@ if (contactForm) {
           "Thanks. Your inquiry has been saved successfully in the VidyaOps app.";
       }
     } catch (error) {
-      if (contactFormFeedback) {
+      if (apiBase === "") {
+        openInquiryEmail({ recipient, name, email, organization, interest, message });
+      } else if (contactFormFeedback) {
         contactFormFeedback.hidden = false;
-        contactFormFeedback.textContent =
-          error instanceof Error ? error.message : "Unable to save inquiry right now.";
+        contactFormFeedback.textContent = "Unable to send inquiry right now. Please contact VidyaOps on WhatsApp or email contact@vidyaops.com.";
       }
     }
   });
@@ -314,7 +319,7 @@ if (chatbot) {
   };
 
   const botReplies = async (text, history) => {
-    if (!isServedOverHttp) {
+    if (!isServedOverHttp || isStaticRuntime) {
       return getLocalReply(text);
     }
 
@@ -340,7 +345,7 @@ if (chatbot) {
       return payload.reply || getLocalReply(text);
     } catch (error) {
       console.error(error);
-      return `${await getLocalReply(text)} If you want the full AI version, start the local server with a Gemini API key.`;
+      return `${await getLocalReply(text)} For personalized guidance, contact VidyaOps on WhatsApp, call 9284543320, or email contact@vidyaops.com.`;
     }
   };
 
@@ -400,7 +405,7 @@ if (chatbot) {
     const nextStep = leadSteps[currentIndex + 1];
 
     if (!nextStep) {
-      if (isServedOverHttp) {
+      if (isServedOverHttp && !isStaticRuntime) {
         try {
           await fetch(apiUrl("/api/leads"), {
             method: "POST",
@@ -428,7 +433,7 @@ if (chatbot) {
         `Contact: ${leadCapture.data.contact}\n` +
         `Learner Type: ${leadCapture.data.learnerType}\n` +
         `Interest: ${leadCapture.data.interest}\n\n` +
-        `Your lead has been saved. Open the Contact page to see these details pre-filled, or continue via WhatsApp for a faster reply.`;
+        `Your details are ready. Open the Contact page to see them pre-filled, or continue via WhatsApp for a faster reply.`;
       addMessage(summary, "bot");
       resetLeadCapture();
       return;
@@ -494,7 +499,7 @@ if (chatbot) {
 
     let reply = getLocalCounselorReply(counselorFlow.data);
 
-    if (isServedOverHttp) {
+    if (isServedOverHttp && !isStaticRuntime) {
       try {
         const response = await fetch(apiUrl("/api/chat"), {
           method: "POST",
@@ -544,9 +549,7 @@ if (chatbot) {
   };
 
   addMessage(
-    isServedOverHttp
-      ? "Hi, I am VidyaOps AI. I can answer questions about trainings, workshops, and how to contact VidyaOps."
-      : "Hi, I am VidyaOps AI. I am in local fallback mode right now. Start the local server with a Gemini API key for full AI answers.",
+    "Hi, I am VidyaOps AI. I can answer questions about trainings, workshops, and how to contact VidyaOps.",
     "bot"
   );
 
@@ -667,11 +670,19 @@ const countObserver = new IntersectionObserver(
 countElements.forEach((element) => countObserver.observe(element));
 
 async function loadSiteContent() {
+  if (isStaticRuntime) {
+    return;
+  }
+
   try {
     const response = await fetch(apiUrl('/api/content'));
+    if (!response.ok) {
+      return;
+    }
+
     const payload = await response.json();
     
-    if (response.ok && payload.content) {
+    if (payload.content) {
       const elements = document.querySelectorAll("[data-content-key]");
       elements.forEach((el) => {
         const key = el.getAttribute("data-content-key");
@@ -681,7 +692,7 @@ async function loadSiteContent() {
       });
     }
   } catch (error) {
-    console.error("Failed to load dynamic site content:", error);
+    return;
   }
 }
 

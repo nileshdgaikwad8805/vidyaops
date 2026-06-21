@@ -5,7 +5,55 @@ const enrollmentFeedback = document.querySelector("#enrollment-feedback");
 const enrollmentSubmit = document.querySelector("#enrollment-submit");
 const enrollmentApiBase = String(window.VIDYAOPS_CONFIG?.apiBase || "").replace(/\/$/, "");
 const enrollmentApiUrl = (pathname) => (enrollmentApiBase ? `${enrollmentApiBase}${pathname}` : pathname);
+const isStaticEnrollmentRuntime = window.VIDYAOPS_CONFIG?.runtimeMode === "static" && !enrollmentApiBase;
 const learnerTokenKey = "vidyaops_learner_token";
+const fallbackProductCatalog = [
+  {
+    id: "free-community-workshop",
+    type: "free",
+    category: "Community Workshop",
+    name: "Free Community Workshop Pass",
+    priceInr: 0,
+    description:
+      "An open-entry VidyaOps community workshop for students, freshers, and knowledge seekers who want a low-risk first step.",
+    includes: [
+      "Live community workshop access",
+      "Skill guidance from VidyaOps",
+      "Post-workshop next-step recommendations",
+    ],
+    ctaLabel: "Register Free",
+  },
+  {
+    id: "paid-ai-workshop",
+    type: "paid",
+    category: "Paid Workshop",
+    name: "AI Career Starter Workshop",
+    priceInr: 1499,
+    description:
+      "A paid practical workshop focused on AI fundamentals, tool exposure, guided exercises, and clearer career direction.",
+    includes: [
+      "Guided live workshop",
+      "Practical exercises and assignments",
+      "Learner dashboard access and onboarding",
+    ],
+    ctaLabel: "Enroll",
+  },
+  {
+    id: "paid-cloud-workshop",
+    type: "paid",
+    category: "Paid Workshop",
+    name: "Cloud Foundations Workshop",
+    priceInr: 1999,
+    description:
+      "A hands-on cloud workshop for learners who want stronger practical clarity before moving into deeper training paths.",
+    includes: [
+      "Structured workshop delivery",
+      "Foundational cloud roadmap",
+      "Access to onboarding and next-step guidance",
+    ],
+    ctaLabel: "Enroll",
+  },
+];
 
 let productCatalog = [];
 let razorpayReady = false;
@@ -30,11 +78,25 @@ function renderProductCard(product) {
 }
 
 async function loadProducts() {
-  const response = await fetch(enrollmentApiUrl("/api/products"));
-  const payload = await response.json();
+  let payload;
 
-  if (!response.ok) {
-    throw new Error(payload?.error || "Unable to load products.");
+  try {
+    if (isStaticEnrollmentRuntime) {
+      throw new Error("Static product catalog fallback.");
+    }
+
+    const response = await fetch(enrollmentApiUrl("/api/products"));
+    payload = await response.json();
+
+    if (!response.ok) {
+      throw new Error(payload?.error || "Unable to load products.");
+    }
+  } catch (error) {
+    payload = {
+      products: fallbackProductCatalog,
+      razorpayEnabled: false,
+      razorpayKeyId: "",
+    };
   }
 
   productCatalog = Array.isArray(payload.products) ? payload.products : [];
@@ -92,6 +154,24 @@ async function submitFreeEnrollment(payload) {
 
   window.localStorage.setItem(learnerTokenKey, result.accessToken);
   window.location.href = result.redirectUrl || `learner-dashboard.html?token=${encodeURIComponent(result.accessToken)}`;
+}
+
+function openEnrollmentMail(payload, selectedProduct) {
+  const subject = encodeURIComponent(`VidyaOps Enrollment Inquiry - ${selectedProduct.name}`);
+  const body = encodeURIComponent(
+    [
+      `Product: ${selectedProduct.name}`,
+      `Name: ${payload.name}`,
+      `Email: ${payload.email}`,
+      `Phone: ${payload.phone}`,
+      `Learner Type: ${payload.learnerType}`,
+      "",
+      "Goal:",
+      payload.goal || "Not shared",
+    ].join("\n")
+  );
+
+  window.location.href = `mailto:contact@vidyaops.com?subject=${subject}&body=${body}`;
 }
 
 async function submitPaidEnrollment(payload) {
@@ -180,7 +260,9 @@ if (enrollmentForm) {
         throw new Error("Please choose a product first.");
       }
 
-      if (selectedProduct.type === "free") {
+      if (isStaticEnrollmentRuntime || (!razorpayReady && enrollmentApiBase === "")) {
+        openEnrollmentMail(payload, selectedProduct);
+      } else if (selectedProduct.type === "free") {
         await submitFreeEnrollment(payload);
       } else {
         await submitPaidEnrollment(payload);

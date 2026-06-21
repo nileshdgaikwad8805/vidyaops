@@ -72,11 +72,14 @@ app.get('/config.js', (req, res) => {
 
 Object.entries(SEO_FILES).forEach(([routePath, filePath]) => {
   app.get(routePath, (req, res, next) => {
-    if (!fs.existsSync(filePath)) {
+    const publicPath = path.join(ROOT, "public", path.basename(routePath));
+    const resolvedPath = fs.existsSync(publicPath) ? publicPath : (fs.existsSync(filePath) ? filePath : null);
+
+    if (!resolvedPath) {
       return next();
     }
 
-    res.sendFile(filePath);
+    res.sendFile(resolvedPath);
   });
 });
 
