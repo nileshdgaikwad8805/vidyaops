@@ -21,6 +21,9 @@ const SEO_FILES = {
 
 const app = express();
 
+// Trust Render's proxy so rate limiter reads real client IP
+app.set('trust proxy', 1);
+
 // Set HTTP response headers to secure the app
 app.use(helmet());
 
