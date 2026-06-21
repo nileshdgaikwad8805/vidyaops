@@ -88,20 +88,16 @@ if (navToggle && siteNav) {
     });
   });
 
-  // Close mobile nav + dropdowns on scroll
-  let scrollTimer;
-  window.addEventListener("scroll", () => {
-    clearTimeout(scrollTimer);
-    scrollTimer = setTimeout(() => {
+  // Close dropdown on scroll or touch move
+  window.addEventListener("scroll", closeDropdowns, { passive: true });
+  window.addEventListener("touchmove", closeDropdowns, { passive: true });
+
+  // Close nav + dropdowns on click/tap outside
+  document.addEventListener("click", (event) => {
+    const inNav = event.target.closest(".site-nav,.nav-toggle");
+    if (!inNav) {
       closeDropdowns();
       closeMobileNav();
-    }, 150);
-  }, { passive: true });
-
-  // Close dropdowns on click outside
-  document.addEventListener("click", (event) => {
-    if (!event.target.closest(".nav-group")) {
-      closeDropdowns();
     }
   });
 }

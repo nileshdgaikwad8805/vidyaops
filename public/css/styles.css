@@ -242,8 +242,7 @@ a {
 }
 
 .nav-group:hover .nav-dropdown,
-.nav-group:focus-within .nav-dropdown,
-.nav-group.is-active .nav-dropdown {
+.nav-group:focus-within .nav-dropdown {
   opacity: 1;
   pointer-events: auto;
   transform: translateY(0);
@@ -1320,13 +1319,11 @@ a {
   }
 
   .nav-group:hover .nav-dropdown,
-  .nav-group:focus-within .nav-dropdown,
-  .nav-group.is-active .nav-dropdown {
+  .nav-group:focus-within .nav-dropdown {
     transform: none;
   }
 
-  .nav-group.is-open .nav-dropdown,
-  .nav-group.is-active .nav-dropdown {
+  .nav-group.is-open .nav-dropdown {
     display: grid;
   }
 
