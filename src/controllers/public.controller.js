@@ -117,6 +117,7 @@ async function handleChat(req, res) {
 
     const reply =
       (await callGemini({
+        caller: "handleChat",
         instructions: chatMode === "counselor" ? counselorInstructions : defaultInstructions,
         contents,
       })) || "I could not generate a reply right now. Please try again.";

@@ -24,7 +24,7 @@ function extractGeminiText(payload) {
     .trim();
 }
 
-async function callGemini({ instructions, contents }) {
+async function callGemini({ instructions, contents, caller }) {
   const geminiResponse = await fetch(
     `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`,
     {
@@ -45,6 +45,8 @@ async function callGemini({ instructions, contents }) {
   const payload = await geminiResponse.json();
 
   if (!geminiResponse.ok) {
+    const tag = caller ? `[${caller}] ` : "";
+    console.error(`${tag}Gemini API error (model=${GEMINI_MODEL}):`, JSON.stringify(payload?.error || payload));
     throw new Error(payload?.error?.message || "Gemini request failed.");
   }
 
@@ -57,6 +59,7 @@ async function generateInquiryAutomation({ name, organization, interest, message
   }
 
   const output = await callGemini({
+    caller: "generateInquiryAutomation",
     instructions:
       "You are VidyaOps's internal AI intake assistant. " +
       "Summarize incoming inquiries for admins. " +
@@ -102,6 +105,7 @@ async function generateLeadAutomation({ name, learnerType, interest, contact }) 
   }
 
   const output = await callGemini({
+    caller: "generateLeadAutomation",
     instructions:
       "You are VidyaOps's internal AI lead triage assistant. " +
       "Summarize a lead and recommend the best next step for the VidyaOps team. " +
@@ -151,6 +155,7 @@ async function generateWorkshopAutomation({ title, type, description, scheduleTe
   }
 
   const output = await callGemini({
+    caller: "generateWorkshopAutomation",
     instructions:
       "You are VidyaOps's internal AI marketing assistant. " +
       "Create ready-to-use marketing assets for a workshop. " +

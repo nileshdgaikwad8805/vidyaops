@@ -204,6 +204,7 @@ async function handleAdminAiContent(req, res) {
       `Location: Pune, Maharashtra.\n`;
 
     const output = await callGemini({
+      caller: "handleAdminAiContent",
       instructions,
       contents: [{ role: "user", parts: [{ text: prompt }] }],
     });

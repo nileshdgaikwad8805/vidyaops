@@ -29,6 +29,7 @@ async function generateTrainerBanner(trainerId, name, topic, photoFilename) {
     let aiData;
     try {
       const textResponse = await callGemini({
+        caller: "generateTrainerBanner",
         instructions: `You are a marketing expert writing a promotional banner for a volunteer trainer. Return ONLY a raw JSON object (no markdown formatting, no code blocks) with keys "title" (string) and "points" (array of 3 strings). Write a 3-5 word exciting event title and 3 short, punchy bullet points (max 6 words each) detailing what they will learn.`,
         contents: [
           { role: "user", parts: [{ text: `Name: ${name}\nTopic: ${topic}` }] }
@@ -54,8 +55,12 @@ async function generateTrainerBanner(trainerId, name, topic, photoFilename) {
     const whatsappLink = `https://chat.whatsapp.com/invite/VIDYAOPS_GRP_${trainerId}`;
     const qrCodeDataUrl = await QRCode.toDataURL(whatsappLink, { errorCorrectionLevel: 'H', margin: 1 });
 
-    // 4. Load Photo
+    // 4. Load Photo (skip banner if file missing)
     const photoPath = path.join(__dirname, "../../data/uploads", photoFilename);
+    if (!fs.existsSync(photoPath)) {
+      console.warn(`[AI-Banner] Photo file not found: ${photoPath} — skipping banner generation`);
+      return null;
+    }
     const photoExt = path.extname(photoFilename).replace('.', '');
     const photoBase64 = fs.readFileSync(photoPath).toString('base64');
     const photoMime = (photoExt === 'jpg' || photoExt === 'jpeg') ? 'image/jpeg' : 'image/png';
