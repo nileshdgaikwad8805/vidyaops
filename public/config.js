@@ -1,5 +1,5 @@
 window.VIDYAOPS_CONFIG = window.VIDYAOPS_CONFIG || {
-  "apiBase": "",
+  "apiBase": "https://vidyaops.onrender.com",
   "runtimeMode": "static",
   "platformTarget": "vercel"
 };

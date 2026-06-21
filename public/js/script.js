@@ -697,3 +697,10 @@ async function loadSiteContent() {
 }
 
 loadSiteContent();
+
+/* ── WIP banner dismiss ── */
+document.querySelectorAll(".wip-banner__close").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    btn.closest(".wip-banner").classList.add("wip-banner--hidden");
+  });
+});

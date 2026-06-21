@@ -5,7 +5,7 @@ const root = path.resolve(__dirname, "..");
 const configPath = path.join(root, "config.js");
 const publicConfigPath = path.join(root, "public", "config.js");
 
-const apiBase = String(process.env.PUBLIC_API_BASE || "").replace(/\/$/, "");
+const apiBase = String(process.env.PUBLIC_API_BASE || "https://vidyaops.onrender.com").replace(/\/$/, "");
 const runtimeMode = String(process.env.PUBLIC_RUNTIME_MODE || "static");
 const platformTarget = String(process.env.PUBLIC_PLATFORM_TARGET || "vercel");
 

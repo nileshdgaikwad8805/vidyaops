@@ -51,6 +51,7 @@
     </style>
   </head>
   <body data-page="volunteer">
+    <div class="wip-banner"><span>Website work going on &mdash; We're actively building something awesome!</span><button class="wip-banner__close" aria-label="Dismiss">&times;</button></div>
     <div class="page-shell">
       <header class="site-header">
         <a class="brand-mark" href="index.html">
@@ -64,10 +65,21 @@
           <span></span><span></span><span></span>
         </button>
         <nav class="site-nav" id="site-nav">
-          <a href="index.html">Home</a>
-          <a href="about.html">About</a>
-          <a href="workshops.html">Workshops</a>
-          <a href="contact.html">Contact</a>
+          <a href="index.html" data-nav="home">Home</a>
+          <a href="about.html" data-nav="about">About</a>
+          <div class="nav-group" data-nav-group="services">
+            <a href="services.html" data-nav="services">Services</a>
+            <div class="nav-dropdown">
+              <a href="services.html">All Services</a>
+              <a href="corporate-training.html">Corporate Training</a>
+              <a href="certifications.html">Certifications</a>
+              <a href="collaborations.html">Collaborations</a>
+            </div>
+          </div>
+          <a href="programs.html" data-nav="programs">Programs</a>
+          <a href="rd-internship.html" data-nav="rd-internship">R&D Internship</a>
+          <a href="workshops.html" data-nav="workshops">Workshops</a>
+          <a href="contact.html" data-nav="contact">Contact</a>
         </nav>
         <a class="button button--ghost" href="contact.html">Talk to Us</a>
       </header>
