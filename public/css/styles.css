@@ -3177,6 +3177,32 @@ body::before {
   color: var(--accent-deep);
 }
 
+/* Coming Soon badge for workshop schedule */
+.workshop-meta li:first-child {
+  list-style: none;
+  margin-left: -18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, rgba(189, 146, 52, 0.12), rgba(15, 118, 110, 0.12));
+  border: 1px solid rgba(189, 146, 52, 0.2);
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: #bd9234;
+  letter-spacing: 0.02em;
+  width: fit-content;
+}
+.workshop-meta li:first-child::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #bd9234;
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
 /* ── Comprehensive mobile-friendly overhaul ── */
 @media (max-width: 768px) {
   /* Thinner page shell on small screens */

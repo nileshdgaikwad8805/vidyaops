@@ -7,40 +7,40 @@ const defaultWorkshops = [
     title: "Cloud Basics for College Students",
     type: "Free Workshop",
     description: "Introductory session covering cloud concepts, career paths, and practical starting points.",
-    schedule_text: "Saturday, 10:00 AM",
+    schedule_text: "Coming Soon",
     duration_text: "2 Hours",
     level_text: "Beginner",
-    cta_text: "Reserve Seat",
+    cta_text: "Notify Me",
     cta_link: "enroll.html",
   },
   {
     title: "Hands-On Data Analysis Sprint",
     type: "Paid Workshop",
     description: "Learn practical data workflows, basic tools, and how to think analytically with guided exercises.",
-    schedule_text: "Sunday, 11:30 AM",
+    schedule_text: "Coming Soon",
     duration_text: "3 Hours",
     level_text: "Beginner to Intermediate",
-    cta_text: "Enroll Now",
+    cta_text: "Notify Me",
     cta_link: "enroll.html",
   },
   {
     title: "Introduction to AI Tools and Use Cases",
     type: "Free Workshop",
     description: "Explore AI ideas, practical examples, and how students and freshers can start learning responsibly.",
-    schedule_text: "Wednesday, 5:00 PM",
+    schedule_text: "Coming Soon",
     duration_text: "90 Minutes",
     level_text: "Beginner",
-    cta_text: "Reserve Seat",
+    cta_text: "Notify Me",
     cta_link: "enroll.html",
   },
   {
     title: "Cybersecurity Awareness and Foundations",
     type: "Paid Workshop",
     description: "Understand security basics, threat awareness, and how cybersecurity skills connect to career growth.",
-    schedule_text: "Saturday, 4:00 PM",
+    schedule_text: "Coming Soon",
     duration_text: "2.5 Hours",
     level_text: "Beginner",
-    cta_text: "Enroll Now",
+    cta_text: "Notify Me",
     cta_link: "enroll.html",
   },
 ];
@@ -69,10 +69,10 @@ async function loadWorkshops() {
   if (window.location.protocol !== "http:" && window.location.protocol !== "https:") {
     workshopList.innerHTML = `
       <article class="workshop-card reveal is-visible">
-        <p class="workshop-card__type">Local Preview</p>
-        <h3>Workshop dates are available through VidyaOps.</h3>
-        <p>Contact VidyaOps to confirm the latest workshop dates and available seats.</p>
-        <a class="button" href="contact.html">Contact VidyaOps</a>
+        <p class="workshop-card__type">Preview Mode</p>
+        <h3>Workshops are coming soon at VidyaOps.</h3>
+        <p>Stay tuned — session dates will be announced once confirmed. Get in touch to express your interest.</p>
+        <a class="button" href="contact.html">Notify Me</a>
       </article>
     `;
     return;
