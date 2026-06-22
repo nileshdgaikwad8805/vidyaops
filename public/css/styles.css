@@ -677,17 +677,19 @@ a {
 }
 
 .program-card span {
-  display: inline-flex;
-  width: 38px;
-  height: 38px;
-  align-items: center;
-  justify-content: center;
-  border-radius: 12px;
-  background: rgba(217, 111, 50, 0.12);
-  color: var(--accent-deep);
+  display: block;
+  font-family: "Sora", sans-serif;
+  font-size: 2.4rem;
   font-weight: 800;
-  margin-bottom: 18px;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  line-height: 1;
+  margin-bottom: 14px;
+  letter-spacing: -0.04em;
+  background: linear-gradient(135deg, #bd9234, #0f766e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  filter: drop-shadow(0 0 24px rgba(189, 146, 52, 0.2));
 }
 
 .program-card h3,
@@ -1927,8 +1929,14 @@ body::before {
   color: #87e8d4;
 }
 
-.program-card span {
-  color: #84e8d4;
+.program-card span::after {
+  content: "";
+  display: block;
+  width: 36px;
+  height: 3px;
+  margin-top: 10px;
+  background: linear-gradient(90deg, #bd9234, #0f766e);
+  border-radius: 2px;
 }
 
 .program-card,
@@ -3234,6 +3242,17 @@ body::before {
   .testimonial-card,
   .workshop-card {
     padding: 18px;
+  }
+
+  /* Smaller numbering on mobile */
+  .program-card span {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+  .program-card span::after {
+    width: 28px;
+    height: 2px;
+    margin-top: 8px;
   }
 
   /* Section heading smaller */
