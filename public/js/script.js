@@ -34,7 +34,7 @@ const openInquiryEmail = ({ recipient, name, email, organization, interest, mess
 };
 const vidyaOpsKnowledge = {
   contact:
-    "You can contact VidyaOps at 950368512, email info@vidyaops.com, or use the WhatsApp button on this page for a faster reply.",
+    "You can contact VidyaOps at 9503685152, email info@vidyaops.com, or use the WhatsApp button on this page for a faster reply.",
   audience:
     "VidyaOps is built for college students, freshers, early professionals, and knowledge seekers.",
   location: "VidyaOps is based in Pune, Maharashtra.",
@@ -359,7 +359,7 @@ if (chatbot) {
       return payload.reply || getLocalReply(text);
     } catch (error) {
       console.error(error);
-      return `${await getLocalReply(text)} For personalized guidance, contact VidyaOps on WhatsApp, call 950368512, or email info@vidyaops.com.`;
+      return `${await getLocalReply(text)} For personalized guidance, contact VidyaOps on WhatsApp, call 9503685152, or email info@vidyaops.com.`;
     }
   };
 

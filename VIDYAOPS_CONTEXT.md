@@ -15,7 +15,7 @@
 | **GitHub repo** | [https://github.com/nileshdgaikwad8805/vidyaops.git](https://github.com/nileshdgaikwad8805/vidyaops.git) |
 | **Local workspace** | `C:\Users\niles\Downloads\VidyaOps\LearnSkills` |
 | **App package name** | `vidyaops-site` |
-| **Contact** | 950368512 · info@vidyaops.com |
+| **Contact** | +91 95036 85152 · info@vidyaops.com |
 
 ---
 
