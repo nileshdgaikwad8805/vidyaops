@@ -2889,17 +2889,20 @@ body::before {
 .story-card,
 .program-card,
 .enterprise-card,
-.workshop-card {
+.workshop-card,
+.testimonial-card {
   animation: float-glow 6s ease-in-out infinite;
 }
 .journey-card:nth-child(2),
 .story-card:nth-child(2),
 .program-card:nth-child(2),
-.enterprise-card:nth-child(2) { animation-delay: 0.6s; }
+.enterprise-card:nth-child(2),
+.testimonial-card:nth-child(2) { animation-delay: 0.6s; }
 .journey-card:nth-child(3),
 .story-card:nth-child(3),
 .program-card:nth-child(3),
-.enterprise-card:nth-child(3) { animation-delay: 1.2s; }
+.enterprise-card:nth-child(3),
+.testimonial-card:nth-child(3) { animation-delay: 1.2s; }
 .journey-card:nth-child(4),
 .program-card:nth-child(4),
 .enterprise-card:nth-child(4) { animation-delay: 1.8s; }
@@ -3312,6 +3315,7 @@ body::before {
   .enterprise-card,
   .operating-card,
   .signal-card,
+  .testimonial-card,
   .hero-stack__panel {
     animation-duration: 8s !important;
     transform: none !important;
@@ -3369,4 +3373,23 @@ body::before {
   .home-hero__content h1 {
     font-size: clamp(1.8rem, 10vw, 2.4rem) !important;
   }
+}
+
+/* Testimonial author styling */
+.testimonial-card {
+  display: flex;
+  flex-direction: column;
+}
+.testimonial-card blockquote {
+  flex: 1;
+  margin: 0 0 20px;
+}
+.testimonial-card__author strong {
+  display: block;
+  color: #082f54;
+  font-size: 0.92rem;
+}
+.testimonial-card__author span {
+  font-size: 0.82rem;
+  color: #5a6877;
 }
