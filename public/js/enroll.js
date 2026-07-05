@@ -260,7 +260,7 @@ if (enrollmentForm) {
         throw new Error("Please choose a product first.");
       }
 
-      if (isStaticEnrollmentRuntime || (!razorpayReady && enrollmentApiBase === "")) {
+      if (isStaticEnrollmentRuntime || !razorpayReady) {
         openEnrollmentMail(payload, selectedProduct);
       } else if (selectedProduct.type === "free") {
         await submitFreeEnrollment(payload);
