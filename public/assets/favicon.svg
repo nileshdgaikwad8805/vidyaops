@@ -1,16 +1,16 @@
 <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="fbg" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#08111F"/>
-      <stop offset="1" stop-color="#133C70"/>
+      <stop stop-color="#0a2140"/>
+      <stop offset="1" stop-color="#082f54"/>
     </linearGradient>
     <linearGradient id="fring" x1="22" y1="18" x2="47" y2="45" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#67F2D4"/>
-      <stop offset="1" stop-color="#5BA9FF"/>
+      <stop stop-color="#bd9234"/>
+      <stop offset="1" stop-color="#0f766e"/>
     </linearGradient>
     <linearGradient id="fv" x1="17" y1="18" x2="31" y2="45" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#FFE394"/>
-      <stop offset="1" stop-color="#FFC05D"/>
+      <stop stop-color="#bd9234"/>
+      <stop offset="1" stop-color="#0f766e"/>
     </linearGradient>
   </defs>
   <rect x="4" y="4" width="56" height="56" rx="18" fill="url(#fbg)"/>
