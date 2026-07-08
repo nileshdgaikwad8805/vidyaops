@@ -89,9 +89,23 @@ document.addEventListener("DOMContentLoaded", () => {
       successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
     } catch (err) {
-      errorBox.textContent = err.message;
+      errorBox.textContent = err.message + " Please use the email option below.";
       errorBox.style.display = "block";
       errorBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+      const fallbackLink = document.createElement("div");
+      fallbackLink.style.marginTop = "1rem";
+      const mailBtn = document.createElement("button");
+      mailBtn.type = "button";
+      mailBtn.className = "button button--secondary";
+      mailBtn.textContent = "Send via Email Instead";
+      mailBtn.onclick = function() {
+        const formData = new FormData(form);
+        openVolunteerEmail(formData);
+      };
+      fallbackLink.appendChild(mailBtn);
+      errorBox.parentElement.appendChild(fallbackLink);
+
       submitBtn.disabled = false;
       submitBtn.textContent = "Submit Application";
     }
