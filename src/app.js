@@ -117,6 +117,17 @@ app.use((err, req, res, next) => {
   if (err.message && err.message === 'Not allowed by CORS') {
     return res.status(403).json({ error: "Not allowed by CORS" });
   }
+  // Properly handle Multer errors
+  if (err.code === 'LIMIT_FILE_SIZE') {
+    return res.status(413).json({ error: "File too large. Maximum size is 10MB." });
+  }
+  if (err.code === 'LIMIT_UNEXPECTED_FILE') {
+    return res.status(400).json({ error: "Unexpected file field." });
+  }
+  // Handle multer file filter errors (custom Error messages from fileFilter)
+  if (err.message && (err.message.includes('Resume must be') || err.message.includes('Photo must be') || err.message.includes('Invalid file'))) {
+    return res.status(400).json({ error: err.message });
+  }
   console.error("Express Error Middleware caught:", err);
   res.status(500).json({ error: err.message || 'Something broke!' });
 });

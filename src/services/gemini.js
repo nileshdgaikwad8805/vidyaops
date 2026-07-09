@@ -25,6 +25,9 @@ function extractGeminiText(payload) {
 }
 
 async function callGemini({ instructions, contents, caller }) {
+  if (!GEMINI_API_KEY) {
+    throw new Error("GEMINI_API_KEY is not configured.");
+  }
   const geminiResponse = await fetch(
     `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`,
     {

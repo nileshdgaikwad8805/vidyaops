@@ -59,9 +59,8 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
     errorBox.style.display = "none";
-    // Remove any previous fallback buttons
-    var oldFallback = document.getElementById("volunteer-fallback");
-    if (oldFallback) oldFallback.remove();
+    // Remove any previous fallback buttons (use class-based query to catch all)
+    form.querySelectorAll(".volunteer-fallback").forEach(function(el) { el.remove(); });
 
     submitBtn.disabled = true;
     submitBtn.textContent = "Submitting...";
@@ -92,6 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
       successBox.style.display = "block";
       successBox.scrollIntoView({ behavior: "smooth", block: "center" });
     } catch (err) {
+      console.error("[Volunteer] API failed:", err);
       var mailtoHref = buildMailto(formData);
 
       errorBox.innerHTML =
@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
       errorBox.scrollIntoView({ behavior: "smooth", block: "center" });
 
       var fallback = document.createElement("div");
-      fallback.id = "volunteer-fallback";
+      fallback.className = "volunteer-fallback";
       fallback.style.cssText = "margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:1rem;justify-content:center";
 
       var emailBtn = document.createElement("a");

@@ -1,8 +1,11 @@
 const path = require("path");
 const fs = require("fs");
 const multer = require("multer");
+const { loadAppConfig } = require("../../app-config");
 const { insertVolunteerTrainer } = require("../db/repositories");
 const { generateTrainerBanner } = require("../services/banner.service");
+
+const APP_CONFIG = loadAppConfig(path.join(__dirname, "../../"));
 
 // Configure Multer storage
 const uploadDirectory = path.join(__dirname, "../../data/uploads");
@@ -79,6 +82,9 @@ async function handleVolunteerIntake(req, res) {
       photoPath
     );
 
+    if (!result.lastInsertRowid) {
+      return res.status(500).json({ error: "Failed to create trainer record." });
+    }
     const newTrainerId = Number(result.lastInsertRowid);
 
     res.status(201).json({
@@ -87,11 +93,13 @@ async function handleVolunteerIntake(req, res) {
       message: "Trainer application submitted successfully."
     });
 
-    // Trigger AI background job safely out of the standard request lifecycle
-    setImmediate(() => {
-      generateTrainerBanner(newTrainerId, name.trim(), topic_of_choice.trim(), photoPath)
-        .catch(err => console.error("[Banner Job] Failed:", err));
-    });
+    // Trigger AI background job only in long-running runtime (not serverless)
+    if (APP_CONFIG.enableBackgroundJobs) {
+      setImmediate(() => {
+        generateTrainerBanner(newTrainerId, name.trim(), topic_of_choice.trim(), photoPath)
+          .catch(err => console.error("[Banner Job] Failed:", err));
+      });
+    }
 
     return;
 

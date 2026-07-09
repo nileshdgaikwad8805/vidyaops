@@ -136,8 +136,10 @@ async function generateTrainerBanner(trainerId, name, topic, photoFilename) {
     const pngBuffer = pngData.asPng();
 
     // 8. Save output
+    const bannerDir = path.join(__dirname, "../../data/banners");
+    if (!fs.existsSync(bannerDir)) fs.mkdirSync(bannerDir, { recursive: true });
     const bannerFilename = `banner_trainer_${trainerId}_${Date.now()}.png`;
-    const bannerPath = path.join(__dirname, "../../data/banners", bannerFilename);
+    const bannerPath = path.join(bannerDir, bannerFilename);
     fs.writeFileSync(bannerPath, pngBuffer);
     
     console.log(`[AI-Banner] Successfully generated: ${bannerPath}`);
