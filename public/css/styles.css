@@ -3413,6 +3413,52 @@ body::before {
   color: #5a6877;
 }
 
+/* Water wave */
+@keyframes waterSway {
+  0% { transform: translateX(-10%) scaleY(1); }
+  50% { transform: translateX(10%) scaleY(1.15); }
+  100% { transform: translateX(-10%) scaleY(1); }
+}
+@keyframes waterDrift {
+  0% { background-position: 0 0, 85% 12%, 0 0; }
+  100% { background-position: 6% 3%, 78% 9%, 0 0; }
+}
+
+.water {
+  position: relative;
+  height: 60px;
+  margin: -30px 0 -50px;
+  overflow: hidden;
+  pointer-events: none;
+}
+.water::before,
+.water::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 200%;
+  left: -50%;
+  background: var(--teal);
+}
+.water::before {
+  top: 20px;
+  height: 50px;
+  border-radius: 42% 58% 48% 52% / 56% 44% 56% 44%;
+  opacity: 0.06;
+  animation: waterSway 7s ease-in-out infinite;
+}
+.water::after {
+  top: 10px;
+  height: 40px;
+  border-radius: 38% 62% 54% 46% / 48% 52% 48% 52%;
+  opacity: 0.04;
+  animation: waterSway 9s ease-in-out infinite reverse;
+}
+
+body {
+  animation: waterDrift 30s ease-in-out infinite alternate;
+}
+
 @media print {
   body { font-size: 11pt; color: #000; background: #fff; }
   .site-header, .site-footer, .whatsapp-float, .chatbot, .nav-toggle, .button--ghost, .footer-note { display: none !important; }
