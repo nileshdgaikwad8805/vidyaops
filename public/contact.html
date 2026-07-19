@@ -72,95 +72,160 @@
       </header>
 
       <main>
-        <section class="page-hero page-hero--split reveal">
+        <section class="page-hero page-hero--split page-hero--dark reveal">
           <div class="page-hero__content">
-            <p class="eyebrow">Contact</p>
-            <h1>Let's guide more learners toward the right VidyaOps starting point.</h1>
+            <p class="eyebrow">Get in Touch</p>
+            <h1>Have a question? We'd love to <span class="gradient-text">hear from you</span>.</h1>
             <p>
-              Use this page as the main inquiry point for Cloud, Data Analysis, AI,
-              and Cybersecurity training, plus free and paid workshops in Pune.
+              Whether you're exploring Cloud, Data, AI, or Cybersecurity training, our team
+              is ready to help you find the right path. Reach out by form, email, phone, or
+              WhatsApp — we respond quickly and personally.
             </p>
             <div class="page-hero__chips">
-              <span>Fast inquiries</span>
+              <span>Quick response</span>
               <span>WhatsApp ready</span>
               <span>Pune, Maharashtra</span>
+              <span>No commitment needed</span>
             </div>
           </div>
           <aside class="page-hero__panel">
-            <p class="page-hero__panel-label">Best for</p>
-            <strong>Learners who want guidance before they commit.</strong>
+            <p class="page-hero__panel-label">We can help with</p>
+            <strong>Guidance before you commit.</strong>
             <ul class="page-hero__list">
-              <li>Ask about the right training or workshop path</li>
-              <li>Connect directly by form, email, phone, or WhatsApp</li>
-              <li>Get clear direction based on interest and level</li>
+              <li>Choosing the right training or workshop</li>
+              <li>Understanding pricing and schedules</li>
+              <li>Corporate training and group bookings</li>
+              <li>Career guidance and certification advice</li>
             </ul>
           </aside>
         </section>
 
-        <section class="section cta cta--single">
-          <div class="cta__content reveal">
-            <p class="eyebrow">Talk to our team</p>
-            <h2>Start with the right training, workshop, or next-step conversation.</h2>
-            <p>
-              VidyaOps is here for college students, early professionals,
-              freshers, and knowledge seekers who want practical technology
-              learning with clear guidance and a faster way to decide what fits.
-            </p>
-            <div class="contact-details">
-              <p><strong>Email</strong> info@vidyaops.com</p>
-              <p><strong>Phone</strong> 9503685152</p>
-              <p><strong>Office</strong> Pune, Maharashtra, India</p>
+        <section class="section section--lg">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Contact methods</p>
+            <h2>Reach us however suits you best.</h2>
+          </div>
+          <div class="feature-grid stagger-children">
+            <div class="feature-card reveal">
+              <h3>Email</h3>
+              <p><strong>info@vidyaops.com</strong></p>
+              <p>Send us a detailed inquiry and we'll respond within one business day.</p>
             </div>
-            <div class="cta-inline">
-              <a class="button" href="enroll.html">Start Enrollment</a>
+            <div class="feature-card reveal">
+              <h3>WhatsApp</h3>
+              <p><strong>+91 95036 85152</strong></p>
+              <p>Quick questions, workshop details, or just say hello — message us anytime.</p>
+            </div>
+            <div class="feature-card reveal">
+              <h3>Office</h3>
+              <p><strong>Pune, Maharashtra, India</strong></p>
+              <p>Online-first, but available for in-person meetings by appointment in Pune.</p>
             </div>
           </div>
-          <form
-            class="contact-card reveal"
-            action="/api/contact"
-            method="POST"
-            data-fallback-email="info@vidyaops.com"
-            data-api-endpoint="/api/contact"
-          >
-            <label>
-              Name
-              <input type="text" name="name" placeholder="Your name" required />
-            </label>
-            <label>
-              Email
-              <input type="email" name="email" placeholder="you@example.com" required />
-            </label>
-            <label>
-              Company or College
-              <input type="text" name="organization" placeholder="College, company, or institute" />
-            </label>
-            <label>
-              Interested In
-              <select name="interest" required>
-                <option value="">Select a training or workshop</option>
-                <option value="Cloud Training">Cloud Training</option>
-                <option value="Data Analysis Training">Data Analysis Training</option>
-                <option value="AI Training">AI Training</option>
-                <option value="Cybersecurity Training">Cybersecurity Training</option>
-                <option value="Free Workshop">Free Workshop</option>
-                <option value="Paid Workshop">Paid Workshop</option>
-              </select>
-            </label>
-            <label>
-              Message
-              <textarea
-                rows="5"
-                name="message"
-                placeholder="Tell us which training or workshop you are interested in"
-                required
-              ></textarea>
-            </label>
-            <button type="submit" class="button">Send Inquiry</button>
-            <p class="form-feedback" hidden></p>
-            <p class="form-note">
-              We will review your inquiry and guide you toward the right VidyaOps starting point.
-            </p>
-          </form>
+        </section>
+
+        <section class="section">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Send an inquiry</p>
+            <h2>Tell us what you're looking for.</h2>
+            <p>Fill out the form below and our team will guide you to the right training or workshop.</p>
+          </div>
+          <div class="feature-card reveal">
+            <form
+              action="/api/contact"
+              method="POST"
+              data-fallback-email="info@vidyaops.com"
+              data-api-endpoint="/api/contact"
+            >
+              <label>
+                Full Name
+                <input type="text" name="name" placeholder="Your full name" required />
+              </label>
+              <label>
+                Email Address
+                <input type="email" name="email" placeholder="you@example.com" required />
+              </label>
+              <label>
+                Phone Number
+                <input type="tel" name="phone" placeholder="+91 9XXXXXXXXX" />
+              </label>
+              <label>
+                Company or College
+                <input type="text" name="organization" placeholder="College, company, or institute" />
+              </label>
+              <label>
+                Interested In
+                <select name="interest" required>
+                  <option value="">Select a training or workshop</option>
+                  <option value="Cloud Training">Cloud Training</option>
+                  <option value="Data Analysis Training">Data Analysis Training</option>
+                  <option value="AI Training">AI Training</option>
+                  <option value="Cybersecurity Training">Cybersecurity Training</option>
+                  <option value="Free Workshop">Free Workshop</option>
+                  <option value="Paid Workshop">Paid Workshop</option>
+                  <option value="Corporate Training">Corporate Training</option>
+                </select>
+              </label>
+              <label>
+                Message
+                <textarea
+                  rows="5"
+                  name="message"
+                  placeholder="Tell us which training or workshop you are interested in, or ask any question"
+                  required
+                ></textarea>
+              </label>
+              <button type="submit" class="button">Send Inquiry</button>
+              <p class="form-feedback" hidden></p>
+              <p class="form-note">
+                We will review your inquiry and guide you toward the right VidyaOps starting point.
+              </p>
+            </form>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="content-card content-card--accent reveal" style="text-align:center;">
+            <span class="badge">Typically within 24 hours</span>
+            <h3>We respond fast.</h3>
+            <p>Most inquiries are answered within one business day. For urgent questions, WhatsApp is the quickest way to reach us directly.</p>
+          </div>
+        </section>
+
+        <section class="section section--lg">
+          <div class="section-heading reveal">
+            <p class="eyebrow">FAQ</p>
+            <h2>Common questions before reaching out.</h2>
+          </div>
+          <div class="accordion reveal">
+            <div class="accordion__item">
+              <button class="accordion__trigger" aria-expanded="false">How quickly will I get a response?</button>
+              <div class="accordion__panel">
+                <p>We typically respond within 24 hours during business days. WhatsApp inquiries often get a reply within minutes during working hours.</p>
+              </div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" aria-expanded="false">Can I book a free consultation?</button>
+              <div class="accordion__panel">
+                <p>Yes. Contact us with your learning goals and we'll schedule a short, no-obligation consultation to help you choose the right training or workshop.</p>
+              </div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" aria-expanded="false">Do you offer corporate or group training?</button>
+              <div class="accordion__panel">
+                <p>Absolutely. VidyaOps provides tailored corporate training programs for teams of all sizes. Reach out with your requirements and we'll design a custom plan.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="home-cta home-cta--gradient reveal">
+          <p class="eyebrow">Prefer WhatsApp?</p>
+          <h2>Let's chat directly.</h2>
+          <p>Skip the form and message us on WhatsApp for a quick, personal response.</p>
+          <div class="cta-inline">
+            <a class="button button--lg" href="https://wa.me/919503685152?text=Hello%20VidyaOps%2C%20I%20have%20a%20question%20about%20your%20trainings." target="_blank" rel="noreferrer">Chat on WhatsApp</a>
+          </div>
         </section>
       </main>
 
@@ -236,5 +301,21 @@
 
     <script src="config.js"></script>
     <script src="js/script.js"></script>
+    <script>
+    (function() {
+      document.querySelectorAll('.accordion__trigger').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var panel = this.nextElementSibling;
+          var isOpen = panel.style.maxHeight && panel.style.maxHeight !== '0px';
+          document.querySelectorAll('.accordion__panel').forEach(function(p) { p.style.maxHeight = '0px'; });
+          document.querySelectorAll('.accordion__trigger').forEach(function(b) { b.setAttribute('aria-expanded', 'false'); });
+          if (!isOpen) {
+            panel.style.maxHeight = panel.scrollHeight + 'px';
+            this.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+    })();
+    </script>
   </body>
 </html>
