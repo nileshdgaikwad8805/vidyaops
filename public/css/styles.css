@@ -528,6 +528,11 @@ a:hover {
 /* ── 10. Section ── */
 .section {
   padding: 80px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.section:last-of-type {
+  border-bottom: none;
 }
 
 .section--lg {
@@ -565,29 +570,18 @@ a:hover {
 }
 
 /* ── 11. Service cards ── */
-.service-showcase {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
+.service-showcase { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
 
 .service-showcase__card {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-md);
-  padding: 32px 28px;
+  padding: 28px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
   align-items: flex-start;
-  box-shadow: var(--shadow-sm);
-  transition: box-shadow var(--transition), transform var(--transition);
+  border-left: 3px solid var(--accent);
 }
 
-.service-showcase__card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-4px);
-}
+.service-showcase__card:hover {}
 
 .service-icon {
   width: 52px;
@@ -683,26 +677,18 @@ a:hover {
 }
 
 /* ── 13. Case study cards ── */
-.case-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+.case-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;
 }
 
 .case-card {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
   padding: 28px;
-  box-shadow: var(--shadow-sm);
-  transition: box-shadow var(--transition), transform var(--transition);
   display: flex;
   flex-direction: column;
+  gap: 10px;
+  border-left: 3px solid var(--accent);
 }
 
 .case-card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-4px);
 }
 
 .case-card__tag {
@@ -833,15 +819,7 @@ a:hover {
   gap: 24px;
 }
 
-.initiatives-grid article {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  padding: 32px 28px;
-  box-shadow: var(--shadow-sm);
-  transition: box-shadow var(--transition), transform var(--transition);
-  text-align: center;
-}
+.initiatives-grid article { padding: 32px 28px; text-align: center; }
 
 .initiatives-grid article:hover {
   box-shadow: var(--shadow-md);
@@ -876,42 +854,24 @@ a:hover {
 }
 
 .initiatives-card {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
   padding: 28px;
-  box-shadow: var(--shadow-sm);
-  transition: box-shadow var(--transition), transform var(--transition);
   text-align: center;
 }
 
-.initiatives-card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-4px);
-}
+.initiatives-card:hover {}
 
 /* ── 17. Testimonial cards ── */
-.testimonial-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+.testimonial-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;
 }
 
 .testimonial-card {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  padding: 32px;
-  box-shadow: var(--shadow-sm);
-  transition: box-shadow var(--transition), transform var(--transition);
+  padding: 28px;
   display: flex;
   flex-direction: column;
+  border-left: 3px solid var(--accent);
 }
 
-.testimonial-card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-4px);
-}
+.testimonial-card:hover {}
 
 .testimonial-card blockquote {
   margin: 0 0 20px;
@@ -1255,28 +1215,17 @@ a:hover {
 [data-delay="600"] { transition-delay: 0.6s !important; }
 
 /* ── 24. Feature grid ── */
-.feature-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-}
+.feature-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
 
 .feature-card {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  padding: 32px 28px;
-  box-shadow: var(--shadow-sm);
-  transition: box-shadow var(--transition), transform var(--transition);
+  padding: 28px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 10px;
+  border-left: 3px solid var(--accent);
 }
 
-.feature-card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-3px);
-}
+.feature-card:hover {}
 
 .feature-card h3 {
   margin: 0;
@@ -1371,9 +1320,7 @@ a:hover {
   transition: box-shadow var(--transition), border-color var(--transition);
 }
 
-.accordion__item:hover {
-  box-shadow: var(--shadow-sm);
-}
+.accordion__item:hover {}
 
 .accordion__item.is-open {
   box-shadow: var(--shadow-md);
@@ -1465,10 +1412,7 @@ a:hover {
   transition: transform var(--transition), box-shadow var(--transition);
 }
 
-.impact-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-}
+.impact-card:hover { transform: translateY(-2px); }
 
 .impact-card strong {
   display: block;
@@ -1613,17 +1557,11 @@ a:hover {
 
 /* ── 33. Content cards ── */
 .content-card {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  padding: 36px;
-  box-shadow: var(--shadow-sm);
-  transition: box-shadow var(--transition), transform var(--transition);
+  padding: 28px;
+  border-left: 3px solid var(--accent);
 }
 
-.content-card:hover {
-  box-shadow: var(--shadow-md);
-}
+.content-card:hover {}
 
 .content-card h3 {
   margin: 0 0 14px;
@@ -1950,28 +1888,18 @@ a:hover {
 }
 
 /* ── 41. Story grid ── */
-.story-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+.story-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;
 }
 
 .story-card {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  padding: 32px;
-  box-shadow: var(--shadow-sm);
-  transition: box-shadow var(--transition), transform var(--transition);
+  padding: 28px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 10px;
+  border-left: 3px solid var(--accent);
 }
 
-.story-card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-3px);
-}
+.story-card:hover {}
 
 .story-card__label {
   display: inline-block;
@@ -2038,10 +1966,7 @@ a:hover {
   flex-shrink: 0;
 }
 
-.program-card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-4px);
-}
+.program-card:hover {}
 
 /* ── 44. Enterprise grid ── */
 .enterprise-grid {
@@ -2051,21 +1976,14 @@ a:hover {
 }
 
 .enterprise-card {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  padding: 32px 28px;
-  box-shadow: var(--shadow-sm);
-  transition: box-shadow var(--transition), transform var(--transition);
+  padding: 28px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 10px;
+  border-left: 3px solid var(--accent);
 }
 
-.enterprise-card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-4px);
-}
+.enterprise-card:hover {}
 
 /* ── 45. Admin cards ── */
 .admin-login-card {
@@ -2117,11 +2035,7 @@ a:hover {
 
 /* ── 47. Contact card & form feedback ── */
 .contact-card {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-xl);
   padding: 48px;
-  box-shadow: var(--shadow-md);
 }
 
 .form-feedback {
@@ -2248,9 +2162,7 @@ a:hover {
     grid-template-columns: 1fr;
   }
 
-  .service-showcase {
-    grid-template-columns: 1fr;
-  }
+  .service-showcase { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
 
   .impact-strip {
     grid-template-columns: repeat(2, 1fr);
@@ -2344,9 +2256,7 @@ a:hover {
     max-width: none;
   }
 
-  .feature-grid {
-    grid-template-columns: 1fr;
-  }
+  .feature-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
 
   .process-steps {
     padding-left: 44px;
@@ -2419,9 +2329,7 @@ a:hover {
     grid-template-columns: 1fr;
   }
 
-  .service-showcase {
-    grid-template-columns: 1fr;
-  }
+  .service-showcase { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
 
   .page-hero {
     padding: 40px 0 28px;
@@ -2439,9 +2347,7 @@ a:hover {
     font-size: clamp(1.2rem, 5vw, 1.6rem);
   }
 
-  .feature-grid {
-    grid-template-columns: 1fr;
-  }
+  .feature-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
 
   .stat-number {
     font-size: 1.8rem;
