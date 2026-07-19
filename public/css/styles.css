@@ -914,10 +914,11 @@ a:hover {
 
 /* ── 17. Footer ── */
 .site-footer {
-  background: #1e293b;
-  color: #f8fafc;
+  background: var(--surface);
+  color: var(--text);
   padding: 48px 0 32px;
   margin-top: 48px;
+  border-top: 1px solid var(--line);
 }
 
 .site-footer .page-shell {
@@ -925,13 +926,13 @@ a:hover {
 }
 
 .site-footer a {
-  color: #94a3b8;
+  color: var(--muted);
   font-size: 0.85rem;
   transition: color 0.2s ease;
 }
 
 .site-footer a:hover {
-  color: #fff;
+  color: var(--primary);
 }
 
 .site-footer__inner {
@@ -943,7 +944,7 @@ a:hover {
 .site-footer__brand p {
   margin: 12px 0 0;
   font-size: 0.85rem;
-  color: #cbd5e1;
+  color: var(--muted);
   line-height: 1.6;
   max-width: 32ch;
 }
@@ -954,7 +955,7 @@ a:hover {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #94a3b8;
+  color: var(--text);
 }
 
 .site-footer__links a {
@@ -965,10 +966,14 @@ a:hover {
 .site-footer__bottom {
   margin-top: 32px;
   padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--line);
   text-align: center;
   font-size: 0.8rem;
-  color: #64748b;
+  color: var(--muted);
+}
+
+.site-footer .brand-mark__tag {
+  color: var(--muted);
 }
 
 /* ── 18. WhatsApp float ── */
