@@ -1694,21 +1694,6 @@ a:hover {
 /* ── 34. Page hero ── */
 .page-hero {
   padding: 100px 0 56px;
-  background: linear-gradient(135deg, var(--primary-50), var(--bg));
-  position: relative;
-  overflow: hidden;
-}
-
-.page-hero::before {
-  content: "";
-  position: absolute;
-  top: -40%;
-  right: -15%;
-  width: 600px;
-  height: 600px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.06), transparent 70%);
-  pointer-events: none;
 }
 
 .page-hero h1 {
@@ -1739,31 +1724,6 @@ a:hover {
   max-width: none;
 }
 
-.page-hero--split .page-hero__visual {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--radius-xl);
-  box-shadow: inset 0 2px 20px rgba(0, 0, 0, 0.04);
-  background: var(--surface);
-  border: 1px solid var(--line);
-  padding: 28px;
-}
-
-.page-hero--dark {
-  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-}
-
-.page-hero--dark h1,
-.page-hero--dark p,
-.page-hero--dark .eyebrow {
-  color: #fff;
-}
-
-.page-hero--dark::before {
-  background: rgba(255, 255, 255, 0.04);
-}
-
 .page-hero__content {
   position: relative;
   z-index: 1;
@@ -1772,13 +1732,6 @@ a:hover {
 .page-hero__panel {
   position: relative;
   z-index: 1;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: var(--radius-lg);
-  padding: 28px 32px;
-  color: #fff;
 }
 
 .page-hero__panel strong {
@@ -1793,7 +1746,7 @@ a:hover {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--text-secondary);
   margin-bottom: 8px;
 }
 
@@ -1809,7 +1762,7 @@ a:hover {
   margin-bottom: 10px;
   font-size: 0.92rem;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--text-secondary);
 }
 
 .page-hero__list li::before {
@@ -1836,14 +1789,10 @@ a:hover {
   font-size: 0.8rem;
   font-weight: 600;
   border-radius: 100px;
-  background: rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: var(--primary-50);
+  color: var(--primary);
+  border: 1px solid var(--primary-100);
   letter-spacing: 0.01em;
-}
-
-.page-hero__chips span:hover {
-  background: rgba(255, 255, 255, 0.18);
 }
 
 /* ── 35. Button modifiers ── */
