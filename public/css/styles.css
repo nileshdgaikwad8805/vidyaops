@@ -1764,6 +1764,88 @@ a:hover {
   background: rgba(255, 255, 255, 0.04);
 }
 
+.page-hero__content {
+  position: relative;
+  z-index: 1;
+}
+
+.page-hero__panel {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-lg);
+  padding: 28px 32px;
+  color: #fff;
+}
+
+.page-hero__panel strong {
+  display: block;
+  font-size: 1.25rem;
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+.page-hero__panel-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 8px;
+}
+
+.page-hero__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.page-hero__list li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 10px;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.page-hero__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.page-hero__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.page-hero__chips span {
+  display: inline-block;
+  padding: 6px 16px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  letter-spacing: 0.01em;
+}
+
+.page-hero__chips span:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
 /* ── 35. Button modifiers ── */
 .button--lg {
   padding: 16px 36px;
