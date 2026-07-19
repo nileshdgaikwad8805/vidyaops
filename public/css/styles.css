@@ -126,15 +126,26 @@ a:hover {
   z-index: 100;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
+  gap: 24px;
   padding: 14px 24px;
   background: var(--surface);
   border-bottom: 1px solid var(--line);
   box-shadow: var(--shadow-sm);
 }
 
+.site-header .brand-mark {
+  flex-shrink: 0;
+}
+
+.site-nav {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
 .site-header > .button {
+  margin-left: auto;
   flex-shrink: 0;
 }
 
@@ -181,12 +192,6 @@ a:hover {
 }
 
 /* ── 6. Site nav ── */
-.site-nav {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-
 .site-nav a {
   font-size: 0.9rem;
   font-weight: 500;
@@ -410,6 +415,18 @@ a:hover {
 .home-hero__visual {
   position: relative;
   min-height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-logo {
+  display: block;
+  width: 80%;
+  max-width: 320px;
+  height: auto;
+  margin: 0 auto 24px;
+  border-radius: var(--radius-md);
 }
 
 .hero-shell {
@@ -461,14 +478,21 @@ a:hover {
   gap: 12px;
 }
 
-.hero-command__grid article {
+.hero-command__grid .hero-stack {
+  display: block;
+  margin: 0;
+}
+
+.hero-command__grid > * {
   padding: 16px;
   border-radius: var(--radius-md);
   background: var(--bg);
   border: 1px solid var(--line);
+  text-align: center;
 }
 
-.hero-command__grid strong {
+.hero-command__grid strong,
+.hero-command__grid .hero-stack span {
   display: block;
   font-size: 1.6rem;
   font-weight: 800;
@@ -477,7 +501,8 @@ a:hover {
   margin-bottom: 4px;
 }
 
-.hero-command__grid span {
+.hero-command__grid span,
+.hero-command__grid .hero-stack small {
   font-size: 0.8rem;
   color: var(--muted);
 }
@@ -909,13 +934,21 @@ a:hover {
   color: #fff;
 }
 
-.footer-grid {
+.site-footer__inner {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: 32px;
 }
 
-.footer-col h4 {
+.site-footer__brand p {
+  margin: 12px 0 0;
+  font-size: 0.85rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+  max-width: 32ch;
+}
+
+.site-footer__links h4 {
   margin: 0 0 16px;
   font-size: 0.8rem;
   font-weight: 700;
@@ -924,27 +957,16 @@ a:hover {
   color: #94a3b8;
 }
 
-.footer-col p {
-  margin: 0 0 12px;
-  font-size: 0.85rem;
-  color: #cbd5e1;
-  line-height: 1.6;
+.site-footer__links a {
+  display: block;
+  margin-bottom: 10px;
 }
 
-.footer-col nav {
-  display: grid;
-  gap: 10px;
-}
-
-.footer-bottom {
+.site-footer__bottom {
   margin-top: 32px;
   padding-top: 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
+  text-align: center;
   font-size: 0.8rem;
   color: #64748b;
 }
@@ -1269,14 +1291,9 @@ a:hover {
     font-size: clamp(1.4rem, 5vw, 1.9rem);
   }
 
-  .footer-grid {
+  .site-footer__inner {
     grid-template-columns: 1fr 1fr;
     gap: 24px;
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-    text-align: center;
   }
 
   .whatsapp-float {
@@ -1305,7 +1322,7 @@ a:hover {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .footer-grid {
+  .site-footer__inner {
     grid-template-columns: 1fr;
   }
 
