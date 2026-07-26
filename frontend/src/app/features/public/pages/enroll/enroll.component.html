@@ -88,3 +88,21 @@
     }
   </div>
 </section>
+
+@if (submitted()) {
+  <section class="section">
+    <div class="page-shell">
+      <div class="section-heading" style="text-align:center;max-width:100%;">
+        <div class="enroll-success-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <h2>Enrollment received!</h2>
+        <p>Thank you, {{ formData.name }}. We have received your enrollment and will reach out to you at <strong>{{ formData.email }}</strong> with next steps.</p>
+        <div style="margin-top:24px;display:flex;gap:12px;justify-content:center;">
+          <a routerLink="/" class="button button--primary button--lg">Back to Home</a>
+          <a routerLink="/contact" class="button button--secondary button--lg">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+}

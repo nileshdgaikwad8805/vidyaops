@@ -5,6 +5,8 @@ import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 import { RuntimeConfigService } from '../../../../core/services/runtime-config.service';
 
+const WEB3FORMS_ACCESS_KEY = '0be77e00-31bc-46c1-ae9f-f2533b47dd86';
+
 @Component({
   selector: 'app-enroll',
   standalone: true,
@@ -35,6 +37,29 @@ export class EnrollComponent {
     this.formData.productId = type;
   }
 
+  private async sendViaWeb3Forms(): Promise<void> {
+    const type = this.selectedProduct() === 'paid' ? 'Paid Masterclass' : 'Free Workshop';
+    const body = {
+      access_key: WEB3FORMS_ACCESS_KEY,
+      subject: `New VidyaOps Enrollment — ${type} from ${this.formData.name}`,
+      name: this.formData.name,
+      email: this.formData.email,
+      phone: this.formData.phone,
+      learnerType: this.formData.learnerType,
+      goal: this.formData.goal || 'Not specified',
+      enrollmentType: type,
+      from_name: 'VidyaOps Enrollment',
+    };
+
+    const response = await firstValueFrom(
+      this.http.post<{ success: boolean }>('https://api.web3forms.com/submit', body),
+    );
+
+    if (!response.success) {
+      throw new Error('Web3Forms submission failed');
+    }
+  }
+
   async onSubmit(): Promise<void> {
     if (this.isSubmitting()) return;
     this.isSubmitting.set(true);
@@ -42,12 +67,19 @@ export class EnrollComponent {
 
     try {
       if (this.selectedProduct() === 'paid') {
-        const orderResponse = await firstValueFrom(
-          this.http.post<{ orderId: string; amount: number; keyId: string }>(
-            this.runtimeConfig.apiUrl('/api/payments/razorpay/order'),
-            { productId: this.formData.productId },
-          ),
-        );
+        let orderResponse;
+        try {
+          orderResponse = await firstValueFrom(
+            this.http.post<{ orderId: string; amount: number; keyId: string }>(
+              this.runtimeConfig.apiUrl('/api/payments/razorpay/order'),
+              { ...this.formData },
+            ),
+          );
+        } catch {
+          await this.sendViaWeb3Forms();
+          this.submitted.set(true);
+          return;
+        }
 
         const options: any = {
           key: orderResponse.keyId,
@@ -86,12 +118,17 @@ export class EnrollComponent {
         return;
       }
 
-      await firstValueFrom(
-        this.http.post(this.runtimeConfig.apiUrl('/api/enrollments/free'), this.formData),
-      );
-      window.location.href = '/payment-success';
+      try {
+        await firstValueFrom(
+          this.http.post(this.runtimeConfig.apiUrl('/api/enrollments/free'), this.formData),
+        );
+        window.location.href = '/payment-success';
+      } catch {
+        await this.sendViaWeb3Forms();
+        this.submitted.set(true);
+      }
     } catch {
-      this.errorMessage.set('Enrollment failed. Please try again or contact us.');
+      this.errorMessage.set('Something went wrong. Please try again or contact us at info@vidyaops.com.');
     } finally {
       this.isSubmitting.set(false);
     }

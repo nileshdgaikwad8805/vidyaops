@@ -451,6 +451,59 @@ a:hover { color: var(--teal-dark); }
 .service-showcase__card a::after { content: "\2192"; transition: transform var(--transition); }
 .service-showcase__card a:hover::after { transform: translateX(2px); }
 
+/* ── 11b. Home stats ── */
+.home-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.home-stats__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 36px 24px;
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  text-align: center;
+  transition: transform 0.3s var(--ease), box-shadow var(--transition), border-color var(--transition);
+}
+.home-stats__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(13, 148, 136, 0.08);
+  border-color: var(--teal-100);
+}
+.home-stats__icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--teal-50), rgba(103, 242, 212, 0.08));
+  border: 1px solid var(--teal-100);
+  display: grid;
+  place-items: center;
+  color: var(--teal);
+}
+.home-stats__number {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  background: linear-gradient(135deg, var(--teal), var(--gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.home-stats__label {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
 /* ── 12. Impact strip ── */
 .impact-strip {
   display: grid;
@@ -1914,6 +1967,7 @@ a:hover { color: var(--teal-dark); }
   .hero-command__grid { grid-template-columns: 1fr; }
   .hero-stack { grid-template-columns: 1fr; }
   .service-showcase { grid-template-columns: 1fr; }
+  .home-stats { grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .impact-strip { grid-template-columns: repeat(2, 1fr); gap: 32px; }
   .impact-strip strong { font-size: 2.8rem; }
   .case-studies-grid { grid-template-columns: 1fr; }
@@ -1955,6 +2009,7 @@ a:hover { color: var(--teal-dark); }
    RESPONSIVE — 540px
    ═══════════════════════════════════════════════════════════════════════════ */
 @media (max-width: 540px) {
+  .home-stats { grid-template-columns: repeat(2, 1fr); }
   .impact-strip { grid-template-columns: repeat(2, 1fr); }
   .site-footer__inner { grid-template-columns: 1fr; }
   .service-showcase { grid-template-columns: 1fr; }
