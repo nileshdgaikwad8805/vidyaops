@@ -751,7 +751,75 @@ a:hover { color: var(--teal-dark); }
 .home-cta__actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; position: relative; z-index: 1; }
 .home-cta--gradient {}
 
-/* ── 19. Footer ── */
+/* ── 19b. Domain showcase ── */
+.domain-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.domain-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  transition: transform var(--transition), box-shadow var(--transition);
+  cursor: pointer;
+}
+.domain-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+.domain-card__image {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+.domain-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease);
+}
+.domain-card:hover .domain-card__image img {
+  transform: scale(1.08);
+}
+.domain-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(8,17,31,0.85) 100%);
+  pointer-events: none;
+}
+.domain-card__content {
+  padding: 24px;
+}
+.domain-card__tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 100px;
+  background: rgba(13,148,136,0.1);
+  color: var(--teal);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+.domain-card__content h3 {
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.domain-card__content p {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ── 20. Footer ── */
 .site-footer {
   background: #0f172a;
   color: rgba(255,255,255,0.7);
@@ -1255,7 +1323,7 @@ a:hover { color: var(--teal-dark); }
 .content-card--accent { background: var(--surface-alt); border-color: var(--line-strong); }
 
 /* ── 34. Page hero ── */
-.page-hero { padding: 160px 0 80px; position: relative; }
+.page-hero { padding: 160px 0 80px; position: relative; overflow: hidden; }
 .page-hero::before {
   content: "";
   position: absolute;
@@ -1968,6 +2036,7 @@ a:hover { color: var(--teal-dark); }
   .hero-stack { grid-template-columns: 1fr; }
   .service-showcase { grid-template-columns: 1fr; }
   .home-stats { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .domain-grid { grid-template-columns: repeat(2, 1fr); }
   .impact-strip { grid-template-columns: repeat(2, 1fr); gap: 32px; }
   .impact-strip strong { font-size: 2.8rem; }
   .case-studies-grid { grid-template-columns: 1fr; }
@@ -2010,6 +2079,7 @@ a:hover { color: var(--teal-dark); }
    ═══════════════════════════════════════════════════════════════════════════ */
 @media (max-width: 540px) {
   .home-stats { grid-template-columns: repeat(2, 1fr); }
+  .domain-grid { grid-template-columns: 1fr; }
   .impact-strip { grid-template-columns: repeat(2, 1fr); }
   .site-footer__inner { grid-template-columns: 1fr; }
   .service-showcase { grid-template-columns: 1fr; }
