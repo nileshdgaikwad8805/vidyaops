@@ -4,7 +4,7 @@ import { firstValueFrom } from 'rxjs';
 
 import { ContactInquiry } from '../models/site.models';
 
-const WEB3FORMS_ACCESS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY';
+const WEB3FORMS_ACCESS_KEY = '0be77e00-31bc-46c1-ae9f-f2533b47dd86';
 
 @Injectable({
   providedIn: 'root'
