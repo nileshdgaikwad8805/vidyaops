@@ -5,6 +5,8 @@ import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 import { RuntimeConfigService } from '../../../../core/services/runtime-config.service';
 
+const WEB3FORMS_ACCESS_KEY = '0be77e00-31bc-46c1-ae9f-f2533b47dd86';
+
 @Component({
   selector: 'app-volunteer',
   standalone: true,
@@ -41,6 +43,34 @@ export class VolunteerComponent {
     }
   }
 
+  private async sendViaWeb3Forms(): Promise<void> {
+    const fileInfo = [
+      this.resumeFile ? `Resume: ${this.resumeFile.name}` : '',
+      this.photoFile ? `Photo: ${this.photoFile.name}` : '',
+    ].filter(Boolean).join(', ');
+
+    const body = {
+      access_key: WEB3FORMS_ACCESS_KEY,
+      subject: `New VidyaOps Volunteer Application from ${this.formData.name}`,
+      name: this.formData.name,
+      email: this.formData.email,
+      phone: this.formData.phone || 'Not provided',
+      linkedinUrl: this.formData.linkedin_url || 'Not provided',
+      topicOfChoice: this.formData.topic_of_choice,
+      attachedFiles: fileInfo || 'No files attached',
+      message: `Volunteer Application\n\nName: ${this.formData.name}\nEmail: ${this.formData.email}\nPhone: ${this.formData.phone || 'Not provided'}\nLinkedIn: ${this.formData.linkedin_url || 'Not provided'}\nTopic: ${this.formData.topic_of_choice}\n${fileInfo ? 'Files: ' + fileInfo : ''}`,
+      from_name: 'VidyaOps Volunteer Application',
+    };
+
+    const response = await firstValueFrom(
+      this.http.post<{ success: boolean }>('https://api.web3forms.com/submit', body),
+    );
+
+    if (!response.success) {
+      throw new Error('Web3Forms submission failed');
+    }
+  }
+
   async onSubmit(): Promise<void> {
     if (this.isSubmitting()) return;
     this.isSubmitting.set(true);
@@ -56,10 +86,15 @@ export class VolunteerComponent {
       if (this.resumeFile) form.append('resume', this.resumeFile);
       if (this.photoFile) form.append('photo', this.photoFile);
 
-      await firstValueFrom(
-        this.http.post(this.runtimeConfig.apiUrl('/api/volunteer/apply'), form),
-      );
-      this.submitted.set(true);
+      try {
+        await firstValueFrom(
+          this.http.post(this.runtimeConfig.apiUrl('/api/volunteer/apply'), form),
+        );
+        this.submitted.set(true);
+      } catch {
+        await this.sendViaWeb3Forms();
+        this.submitted.set(true);
+      }
     } catch {
       this.errorMessage.set('Something went wrong. Please try again or email us directly at info@vidyaops.com.');
     } finally {

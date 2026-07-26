@@ -5,6 +5,8 @@ import { firstValueFrom } from 'rxjs';
 import { ChatMessage, LeadCaptureData } from '../models/site.models';
 import { RuntimeConfigService } from './runtime-config.service';
 
+const WEB3FORMS_ACCESS_KEY = '0be77e00-31bc-46c1-ae9f-f2533b47dd86';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -112,6 +114,23 @@ export class ChatbotService {
           ...lead,
         }),
       );
+    } catch {
+      try {
+        await firstValueFrom(
+          this.http.post('https://api.web3forms.com/submit', {
+            access_key: WEB3FORMS_ACCESS_KEY,
+            subject: `New VidyaOps Chatbot Lead — ${lead.name}`,
+            name: lead.name,
+            contact: lead.contact,
+            learnerType: lead.learnerType,
+            interest: lead.interest,
+            source: 'chatbot',
+            from_name: 'VidyaOps Chatbot Lead',
+          }),
+        );
+      } catch {
+        // silently fail — lead is persisted locally
+      }
     } finally {
       this.persistLead(lead);
     }
