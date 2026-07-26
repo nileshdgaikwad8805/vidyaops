@@ -1,0 +1,90 @@
+<section class="page-hero mesh-bg">
+  <div class="gradient-orb gradient-orb--teal" style="width:500px;height:500px;top:-100px;right:-120px;"></div>
+  <div class="gradient-orb gradient-orb--gold" style="width:400px;height:400px;bottom:-150px;left:-80px;"></div>
+  <div class="page-shell page-hero__inner">
+    <p class="eyebrow">Enroll Now</p>
+    <h1>Start your <span class="gradient-text">learning journey</span> today.</h1>
+    <p>Choose a free or paid workshop, fill in your details, and get instant access to your learner dashboard.</p>
+  </div>
+</section>
+
+<section class="section reveal-on-scroll">
+  <div class="page-shell">
+    @if (!selectedProduct()) {
+      <div class="section-heading" style="text-align:center;max-width:100%;">
+        <p class="eyebrow">Choose Your Path</p>
+        <h2>Free or Paid — pick what fits your goals.</h2>
+      </div>
+      <div class="enroll-options">
+        <article class="enroll-option" (click)="selectProduct('free')">
+          <div class="enroll-option__icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <span class="enroll-option__badge">Free</span>
+          <h3>Community Workshop</h3>
+          <p>Explore a topic hands-on. No cost, no commitment. Perfect for getting started.</p>
+          <span class="button button--secondary button--lg">Select Free</span>
+        </article>
+        <article class="enroll-option enroll-option--featured" (click)="selectProduct('paid')">
+          <div class="enroll-option__icon enroll-option__icon--gold">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <span class="enroll-option__badge enroll-option__badge--gold">Paid</span>
+          <h3>Deep-Dive Masterclass</h3>
+          <p>Structured curriculum, mentor guidance, certification prep, and career support.</p>
+          <span class="button button--primary button--lg button--shadow">Select Paid</span>
+        </article>
+      </div>
+    } @else {
+      <div class="section-heading">
+        <p class="eyebrow">{{ selectedProduct() === 'free' ? 'Free Workshop' : 'Paid Masterclass' }}</p>
+        <h2>Tell us about yourself.</h2>
+        <p>Fill in your details to complete enrollment.</p>
+      </div>
+
+      <form class="contact-form enroll-form" (ngSubmit)="onSubmit()">
+        <div class="contact-form__row">
+          <div class="contact-form__field">
+            <label for="enroll-name">Full Name *</label>
+            <input id="enroll-name" type="text" [(ngModel)]="formData.name" name="name" placeholder="Your full name" required>
+          </div>
+          <div class="contact-form__field">
+            <label for="enroll-email">Email *</label>
+            <input id="enroll-email" type="email" [(ngModel)]="formData.email" name="email" placeholder="you&#64;example.com" required>
+          </div>
+        </div>
+        <div class="contact-form__row">
+          <div class="contact-form__field">
+            <label for="enroll-phone">Phone *</label>
+            <input id="enroll-phone" type="tel" [(ngModel)]="formData.phone" name="phone" placeholder="+91 9XXXXXXXXX" required>
+          </div>
+          <div class="contact-form__field">
+            <label for="enroll-type">Learner Type *</label>
+            <select id="enroll-type" [(ngModel)]="formData.learnerType" name="learnerType" required>
+              <option value="" disabled>Select your learner type</option>
+              <option value="College Student">College Student</option>
+              <option value="Fresher">Fresher</option>
+              <option value="Early Professional">Early Professional</option>
+              <option value="Knowledge Seeker">Knowledge Seeker</option>
+            </select>
+          </div>
+        </div>
+        <div class="contact-form__field">
+          <label for="enroll-goal">Your Goal</label>
+          <textarea id="enroll-goal" [(ngModel)]="formData.goal" name="goal" rows="3" placeholder="What do you hope to achieve from this workshop?"></textarea>
+        </div>
+        <div class="enroll-form__actions">
+          <button type="submit" class="button button--primary button--lg button--shadow" [disabled]="isSubmitting()">
+            {{ isSubmitting() ? 'Processing...' : (selectedProduct() === 'paid' ? 'Pay & Enroll' : 'Enroll for Free') }}
+          </button>
+          <button type="button" class="button button--ghost" (click)="selectedProduct.set(''); formData.productId = ''">Back</button>
+        </div>
+        @if (errorMessage()) {
+          <div class="contact-error">
+            <p>{{ errorMessage() }}</p>
+          </div>
+        }
+      </form>
+    }
+  </div>
+</section>

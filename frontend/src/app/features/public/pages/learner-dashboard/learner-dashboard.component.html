@@ -1,0 +1,44 @@
+<section class="page-hero mesh-bg">
+  <div class="gradient-orb gradient-orb--teal" style="width:500px;height:500px;top:-100px;right:-120px;"></div>
+  <div class="page-shell page-hero__inner">
+    <p class="eyebrow">Learner Dashboard</p>
+    <h1>Your onboarding, next steps, and workshop access in one place.</h1>
+  </div>
+</section>
+
+<section class="section reveal-on-scroll">
+  <div class="page-shell">
+    @if (loading()) {
+      <div class="dashboard-loading">
+        <div class="dashboard-loading__spinner"></div>
+        <p>Loading your dashboard...</p>
+      </div>
+    } @else if (error()) {
+      <div class="dashboard-error">
+        <h2>Oops!</h2>
+        <p>{{ error() }}</p>
+        <a routerLink="/" class="button button--primary">Go to Home</a>
+      </div>
+    } @else if (enrollment()) {
+      <div class="dashboard-grid">
+        <div class="dashboard-card">
+          <p class="eyebrow">Enrollment</p>
+          <h3>{{ enrollment().product_name || 'Workshop' }}</h3>
+          <p>Status: <strong>{{ enrollment().status || 'Confirmed' }}</strong></p>
+          <p>Name: {{ enrollment().learner_name }}</p>
+          <p>Email: {{ enrollment().learner_email }}</p>
+        </div>
+        <div class="dashboard-card">
+          <p class="eyebrow">Onboarding</p>
+          <h3>Next Steps</h3>
+          <p>{{ enrollment().onboarding_notes || 'Check your email for workshop details and preparation instructions.' }}</p>
+        </div>
+        <div class="dashboard-card">
+          <p class="eyebrow">Workshop</p>
+          <h3>Access Details</h3>
+          <p>{{ enrollment().workshop_details || 'Workshop link and schedule will be shared before the session starts.' }}</p>
+        </div>
+      </div>
+    }
+  </div>
+</section>

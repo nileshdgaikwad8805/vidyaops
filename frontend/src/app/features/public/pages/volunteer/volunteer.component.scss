@@ -1,0 +1,32 @@
+:host { display: block; }
+
+.volunteer-form input[type="file"] {
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px dashed var(--line-strong);
+  background: var(--surface-alt);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.volunteer-form input[type="file"]:hover {
+  border-color: var(--teal);
+  background: var(--surface);
+}
+
+.contact-error {
+  padding: 16px 20px;
+  border-radius: var(--radius-md);
+  background: rgba(239,68,68,0.06);
+  border: 1px solid rgba(239,68,68,0.15);
+  color: #b91c1c;
+}
+
+.contact-error p {
+  margin: 0;
+  font-size: 0.88rem;
+  font-weight: 500;
+}

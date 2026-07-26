@@ -94,6 +94,26 @@ export const routes: Routes = [
           import('./features/public/pages/contact/contact.component').then(m => m.ContactComponent),
       },
       {
+        path: 'volunteer',
+        loadComponent: () =>
+          import('./features/public/pages/volunteer/volunteer.component').then(m => m.VolunteerComponent),
+      },
+      {
+        path: 'enroll',
+        loadComponent: () =>
+          import('./features/public/pages/enroll/enroll.component').then(m => m.EnrollComponent),
+      },
+      {
+        path: 'payment-success',
+        loadComponent: () =>
+          import('./features/public/pages/payment-success/payment-success.component').then(m => m.PaymentSuccessComponent),
+      },
+      {
+        path: 'learner-dashboard',
+        loadComponent: () =>
+          import('./features/public/pages/learner-dashboard/learner-dashboard.component').then(m => m.LearnerDashboardComponent),
+      },
+      {
         path: '**',
         loadComponent: () =>
           import('./features/public/pages/not-found/not-found.component').then(m => m.NotFoundComponent),

@@ -1,0 +1,75 @@
+<section class="page-hero mesh-bg">
+  <div class="gradient-orb gradient-orb--teal" style="width:500px;height:500px;top:-100px;right:-120px;"></div>
+  <div class="gradient-orb gradient-orb--gold" style="width:400px;height:400px;bottom:-150px;left:-80px;"></div>
+  <div class="page-shell page-hero__inner">
+    <p class="eyebrow">Volunteer With Us</p>
+    <h1>Share your expertise. <span class="gradient-text">Build your brand.</span></h1>
+    <p>Join VidyaOps as a volunteer trainer. Contribute to the tech community, gain visibility, and help learners bridge the gap between academics and industry.</p>
+  </div>
+</section>
+
+<section class="section reveal-on-scroll">
+  <div class="page-shell">
+    <div class="section-heading">
+      <p class="eyebrow">Apply Now</p>
+      <h2>Tell us about yourself.</h2>
+      <p>Fill out the form below and our team will review your application.</p>
+    </div>
+
+    @if (submitted()) {
+      <div class="contact-success">
+        <div class="contact-success__icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <h3>Thank you for applying!</h3>
+        <p>Your volunteer application has been received. Our team will review it and get back to you within 3 business days.</p>
+        <a routerLink="/" class="button button--primary" style="margin-top:16px;">Back to Home</a>
+      </div>
+    } @else {
+      <form class="contact-form volunteer-form" (ngSubmit)="onSubmit()">
+        <div class="contact-form__row">
+          <div class="contact-form__field">
+            <label for="vol-name">Full Name *</label>
+            <input id="vol-name" type="text" [(ngModel)]="formData.name" name="name" placeholder="Your full name" required>
+          </div>
+          <div class="contact-form__field">
+            <label for="vol-email">Email *</label>
+            <input id="vol-email" type="email" [(ngModel)]="formData.email" name="email" placeholder="you&#64;example.com" required>
+          </div>
+        </div>
+        <div class="contact-form__row">
+          <div class="contact-form__field">
+            <label for="vol-phone">Phone</label>
+            <input id="vol-phone" type="tel" [(ngModel)]="formData.phone" name="phone" placeholder="+91 9XXXXXXXXX">
+          </div>
+          <div class="contact-form__field">
+            <label for="vol-linkedin">LinkedIn URL</label>
+            <input id="vol-linkedin" type="url" [(ngModel)]="formData.linkedin_url" name="linkedin_url" placeholder="https://linkedin.com/in/yourprofile">
+          </div>
+        </div>
+        <div class="contact-form__field">
+          <label for="vol-topic">Topic of Choice *</label>
+          <input id="vol-topic" type="text" [(ngModel)]="formData.topic_of_choice" name="topic_of_choice" placeholder="e.g. AWS Cloud Fundamentals, Python for Data Analysis" required>
+        </div>
+        <div class="contact-form__row">
+          <div class="contact-form__field">
+            <label for="vol-resume">Resume (PDF)</label>
+            <input id="vol-resume" type="file" accept=".pdf,.doc,.docx" (change)="onFileChange($event, 'resume')">
+          </div>
+          <div class="contact-form__field">
+            <label for="vol-photo">Photo (JPG/PNG)</label>
+            <input id="vol-photo" type="file" accept="image/*" (change)="onFileChange($event, 'photo')">
+          </div>
+        </div>
+        <button type="submit" class="button button--primary button--lg button--shadow" [disabled]="isSubmitting()">
+          {{ isSubmitting() ? 'Submitting...' : 'Submit Application' }}
+        </button>
+        @if (errorMessage()) {
+          <div class="contact-error">
+            <p>{{ errorMessage() }}</p>
+          </div>
+        }
+      </form>
+    }
+  </div>
+</section>
