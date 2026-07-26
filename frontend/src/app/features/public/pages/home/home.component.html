@@ -1,14 +1,14 @@
 <!-- Hero -->
 <section class="page-hero mesh-bg">
-  <div class="gradient-orb gradient-orb--teal" style="width:500px;height:500px;top:-100px;right:-100px;"></div>
-  <div class="gradient-orb gradient-orb--gold" style="width:400px;height:400px;bottom:-150px;left:-80px;"></div>
+  <div class="gradient-orb gradient-orb--teal" style="width:600px;height:600px;top:-120px;right:-140px;"></div>
+  <div class="gradient-orb gradient-orb--gold" style="width:450px;height:450px;bottom:-180px;left:-100px;"></div>
   <div class="page-shell page-hero__inner" style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;">
     <div class="page-hero__content">
       <p class="eyebrow">Practical Tech Training</p>
       <h1>Build real skills for a real career in tech.</h1>
       <p>Hands-on workshops, guided learning tracks, and enterprise-ready programs across Cloud, Data, AI, and Cybersecurity. We bridge the gap between academic knowledge and career readiness.</p>
       <div class="page-hero__actions">
-        <a routerLink="/services" class="button button--primary button--lg">Explore Services</a>
+        <a routerLink="/services" class="button button--primary button--lg button--shadow">Explore Services</a>
         <a routerLink="/contact" class="button button--secondary button--lg">Talk to Us</a>
       </div>
       <div class="home-hero__signals">
@@ -21,6 +21,12 @@
       <div class="hero-visual-card" style="position:relative;">
         <div class="hero-shell">
           <div class="hero-command">
+            <div class="hero-command__header">
+              <span class="hero-command__dot hero-command__dot--red"></span>
+              <span class="hero-command__dot hero-command__dot--yellow"></span>
+              <span class="hero-command__dot hero-command__dot--green"></span>
+              <span class="hero-command__title">VidyaOps Learning Paths</span>
+            </div>
             <div class="hero-command__grid">
               <div class="hero-stack">
                 <span>Cloud</span>
@@ -54,7 +60,7 @@
 </section>
 
 <!-- Stats -->
-<section class="section">
+<section class="section reveal-on-scroll">
   <div class="page-shell">
     <div class="impact-strip">
       @for (stat of stats; track stat.label) {
@@ -68,15 +74,15 @@
 </section>
 
 <!-- Services -->
-<section class="section section--alt">
+<section class="section section--alt reveal-on-scroll">
   <div class="page-shell">
     <div class="section-heading">
       <p class="eyebrow">Our Services</p>
       <h2>Comprehensive technology solutions across training, development, and digital learning.</h2>
     </div>
     <div class="service-showcase">
-      @for (card of services; track card.title) {
-        <article class="service-showcase__card">
+      @for (card of services; track card.title; let i = $index) {
+        <article class="service-showcase__card reveal-on-scroll" [attr.data-delay]="(i * 100).toString()">
           <span class="service-showcase__badge">{{ card.badge }}</span>
           <h3>{{ card.title }}</h3>
           <p>{{ card.text }}</p>
@@ -90,15 +96,15 @@
 </section>
 
 <!-- Case Studies -->
-<section class="section">
+<section class="section reveal-on-scroll">
   <div class="page-shell">
     <div class="section-heading">
       <p class="eyebrow">Case Studies &amp; Research Reports</p>
       <h2>Real outcomes from real engagements.</h2>
     </div>
     <div class="case-studies-grid">
-      @for (cs of caseStudies; track cs.title) {
-        <article class="case-card">
+      @for (cs of caseStudies; track cs.title; let i = $index) {
+        <article class="case-card reveal-on-scroll" [attr.data-delay]="(i * 100).toString()">
           <span class="case-card__badge">{{ cs.badge }}</span>
           <h3>{{ cs.title }}</h3>
           <p>{{ cs.text }}</p>
@@ -112,15 +118,15 @@
 </section>
 
 <!-- Why VidyaOps -->
-<section class="section section--alt">
+<section class="section section--alt reveal-on-scroll">
   <div class="page-shell">
     <div class="section-heading">
       <p class="eyebrow">Why VidyaOps</p>
       <h2>The difference between training and transformation.</h2>
     </div>
     <div class="feature-grid">
-      @for (item of whyUs; track item.title) {
-        <article class="impact-card">
+      @for (item of whyUs; track item.title; let i = $index) {
+        <article class="impact-card reveal-on-scroll" [attr.data-delay]="(i * 100).toString()">
           <strong>{{ item.title }}</strong>
           <p>{{ item.text }}</p>
         </article>
@@ -130,15 +136,15 @@
 </section>
 
 <!-- Testimonials -->
-<section class="section">
+<section class="section reveal-on-scroll">
   <div class="page-shell">
     <div class="section-heading">
       <p class="eyebrow">What Learners Say</p>
       <h2>Stories from students who took the first step with VidyaOps.</h2>
     </div>
     <div class="testimonial-grid">
-      @for (t of testimonials; track t.title) {
-        <article class="testimonial-card">
+      @for (t of testimonials; track t.title; let i = $index) {
+        <article class="testimonial-card reveal-on-scroll" [attr.data-delay]="(i * 100).toString()">
           <blockquote>{{ t.text }}</blockquote>
           <div class="testimonial-card__author">
             <strong>&mdash; {{ t.title }}</strong>
@@ -151,7 +157,7 @@
 </section>
 
 <!-- CSR -->
-<section class="section section--alt mesh-bg">
+<section class="section section--alt mesh-bg reveal-on-scroll">
   <div class="page-shell">
     <div class="section-heading">
       <p class="eyebrow">CSR Initiatives</p>
@@ -159,8 +165,8 @@
       <p>Technology education should be accessible to everyone. These initiatives are how we make that real.</p>
     </div>
     <div class="initiatives-grid">
-      @for (card of csr; track card.title) {
-        <article class="initiatives-card">
+      @for (card of csr; track card.title; let i = $index) {
+        <article class="initiatives-card reveal-on-scroll" [attr.data-delay]="(i * 100).toString()">
           <h3>{{ card.title }}</h3>
           <p>{{ card.text }}</p>
         </article>
@@ -170,7 +176,7 @@
 </section>
 
 <!-- Partners -->
-<section class="section">
+<section class="section reveal-on-scroll">
   <div class="page-shell">
     <div class="section-heading" style="text-align:center;max-width:100%;">
       <p class="eyebrow">Partners</p>
@@ -185,16 +191,17 @@
 </section>
 
 <!-- CTA -->
-<section class="section">
+<section class="section reveal-on-scroll">
   <div class="page-shell">
-    <div class="section home-cta">
+    <div class="section home-cta home-cta--enhanced">
       <div class="gradient-orb gradient-orb--teal" style="width:300px;height:300px;top:-100px;right:-80px;"></div>
+      <div class="gradient-orb gradient-orb--gold" style="width:250px;height:250px;bottom:-80px;left:-60px;"></div>
       <div class="home-cta__content">
         <p class="eyebrow">{{ cta.eyebrow }}</p>
         <h2>{{ cta.title }}</h2>
         <p>{{ cta.text }}</p>
         <div class="home-cta__actions">
-          <a [routerLink]="cta.primaryPath" class="button button--primary button--lg">{{ cta.primaryLabel }}</a>
+          <a [routerLink]="cta.primaryPath" class="button button--primary button--lg button--shadow">{{ cta.primaryLabel }}</a>
           @if (cta.secondaryLabel && cta.secondaryPath) {
             <a [routerLink]="cta.secondaryPath" class="button button--secondary button--lg">{{ cta.secondaryLabel }}</a>
           }

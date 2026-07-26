@@ -1,32 +1,36 @@
-<section class="page-hero page-hero--split reveal is-visible">
-  <div class="page-hero__content">
-    <p class="eyebrow">{{ hero().eyebrow }}</p>
-    <h1>{{ hero().title }}</h1>
-    <p>{{ hero().description }}</p>
+<section class="page-hero page-hero--split mesh-bg">
+  <div class="gradient-orb gradient-orb--teal" style="width:500px;height:500px;top:-100px;right:-120px;"></div>
+  <div class="gradient-orb gradient-orb--gold" style="width:400px;height:400px;bottom:-150px;left:-80px;"></div>
+  <div class="page-shell page-hero__inner">
+    <div class="page-hero__content">
+      <p class="eyebrow">{{ hero().eyebrow }}</p>
+      <h1>{{ hero().title }}</h1>
+      <p>{{ hero().description }}</p>
 
-    @if (hero().chips?.length) {
-      <div class="page-hero__chips">
-        @for (chip of hero().chips; track chip) {
-          <span>{{ chip }}</span>
+      @if (hero().chips?.length) {
+        <div class="page-hero__chips">
+          @for (chip of hero().chips; track chip) {
+            <span>{{ chip }}</span>
+          }
+        </div>
+      }
+    </div>
+
+    @if (hero().panelTitle) {
+      <aside class="page-hero__panel">
+        @if (hero().panelLabel) {
+          <p class="page-hero__panel-label">{{ hero().panelLabel }}</p>
         }
-      </div>
+        <strong>{{ hero().panelTitle }}</strong>
+
+        @if (hero().panelItems?.length) {
+          <ul class="page-hero__list">
+            @for (item of hero().panelItems; track item) {
+              <li>{{ item }}</li>
+            }
+          </ul>
+        }
+      </aside>
     }
   </div>
-
-  @if (hero().panelTitle) {
-    <aside class="page-hero__panel">
-      @if (hero().panelLabel) {
-        <p class="page-hero__panel-label">{{ hero().panelLabel }}</p>
-      }
-      <strong>{{ hero().panelTitle }}</strong>
-
-      @if (hero().panelItems?.length) {
-        <ul class="page-hero__list">
-          @for (item of hero().panelItems; track item) {
-            <li>{{ item }}</li>
-          }
-        </ul>
-      }
-    </aside>
-  }
 </section>

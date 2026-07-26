@@ -1,11 +1,40 @@
-<section class="page-hero">
-  <div class="page-hero__inner">
-    <p class="eyebrow">404</p>
+<section class="page-hero not-found-hero mesh-bg">
+  <div class="gradient-orb gradient-orb--teal" style="width:500px;height:500px;top:-100px;right:-120px;"></div>
+  <div class="gradient-orb gradient-orb--gold" style="width:400px;height:400px;bottom:-150px;left:-80px;"></div>
+  <div class="page-shell page-hero__inner not-found-hero__content">
+    <div class="not-found-hero__code">
+      <span class="not-found-hero__digit">4</span>
+      <span class="not-found-hero__digit not-found-hero__digit--accent">0</span>
+      <span class="not-found-hero__digit">4</span>
+    </div>
     <h1>Page not found</h1>
     <p>The page you are looking for does not exist or has been moved. Let us help you find your way back.</p>
     <div class="page-hero__actions">
-      <a routerLink="/" class="button button--primary">Go Home</a>
-      <a routerLink="/contact" class="button">Contact Us</a>
+      <a routerLink="/" class="button button--primary button--lg button--shadow">Go Home</a>
+      <a routerLink="/contact" class="button button--secondary button--lg">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal-on-scroll">
+  <div class="page-shell">
+    <div class="section-heading" style="text-align:center;max-width:100%;">
+      <p class="eyebrow">Quick Links</p>
+      <h2>Here are some pages you might find useful.</h2>
+    </div>
+    <div class="feature-grid feature-grid--3" style="max-width:900px;margin:0 auto;">
+      <a routerLink="/services" class="impact-card not-found-link reveal-on-scroll" data-delay="100">
+        <strong>Services</strong>
+        <p>Cloud, Data, AI, Cybersecurity training and enterprise solutions.</p>
+      </a>
+      <a routerLink="/workshops" class="impact-card not-found-link reveal-on-scroll" data-delay="200">
+        <strong>Workshops</strong>
+        <p>Free and paid hands-on workshops across technology domains.</p>
+      </a>
+      <a routerLink="/contact" class="impact-card not-found-link reveal-on-scroll" data-delay="300">
+        <strong>Contact</strong>
+        <p>Reach us via email, WhatsApp, or fill out an inquiry form.</p>
+      </a>
     </div>
   </div>
 </section>

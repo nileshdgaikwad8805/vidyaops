@@ -1,0 +1,51 @@
+:host { display: block; }
+
+.not-found-hero__content {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.not-found-hero__code {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.not-found-hero__digit {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 10vw, 8rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--line-strong);
+  letter-spacing: -0.04em;
+  transition: transform 0.3s var(--ease);
+}
+
+.not-found-hero__digit:hover {
+  transform: translateY(-4px);
+}
+
+.not-found-hero__digit--accent {
+  background: linear-gradient(135deg, var(--teal), var(--gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.not-found-link {
+  text-decoration: none;
+  cursor: pointer;
+  text-align: center;
+  padding: 36px 28px;
+}
+
+.not-found-link strong {
+  font-size: 1.1rem;
+}
+
+.not-found-link:hover {
+  border-color: var(--teal);
+  box-shadow: var(--glow-teal);
+}

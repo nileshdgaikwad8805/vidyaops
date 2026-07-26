@@ -3,95 +3,102 @@
 
   @for (section of page.sections; track $index) {
     <section class="section" [class.section--alt]="$index % 2 === 1">
-      <div class="section-heading">
-        @if (section.eyebrow) {
-          <p class="eyebrow">{{ section.eyebrow }}</p>
-        }
-        <h2>{{ section.heading }}</h2>
-        @if (section.intro) {
-          <p>{{ section.intro }}</p>
+      <div class="page-shell">
+        <div class="section-heading reveal-on-scroll">
+          @if (section.eyebrow) {
+            <p class="eyebrow">{{ section.eyebrow }}</p>
+          }
+          <h2>{{ section.heading }}</h2>
+          @if (section.intro) {
+            <p>{{ section.intro }}</p>
+          }
+        </div>
+
+        @switch (section.layout) {
+          @case ('cards') {
+            @if (section.cards) {
+              <div class="feature-grid">
+                @for (card of section.cards; track card.title; let i = $index) {
+                  <article class="impact-card reveal-on-scroll" [attr.data-delay]="(i * 100).toString()">
+                    @if (card.badge) {
+                      <span class="impact-card__badge">{{ card.badge }}</span>
+                    }
+                    <strong>{{ card.title }}</strong>
+                    <p>{{ card.text }}</p>
+                    @if (card.link && card.linkText) {
+                      <a [routerLink]="card.link" class="link">{{ card.linkText }} &rarr;</a>
+                    }
+                  </article>
+                }
+              </div>
+            }
+          }
+
+          @case ('stats') {
+            @if (section.stats) {
+              <div class="impact-strip reveal-on-scroll">
+                @for (stat of section.stats; track stat.label) {
+                  <div>
+                    <strong class="stat-number" [attr.data-count]="stat.count">{{ stat.value }}</strong>
+                    <span>{{ stat.label }}</span>
+                  </div>
+                }
+              </div>
+            }
+          }
+
+          @case ('faq') {
+            @if (section.faqs) {
+              <div class="faq-list reveal-on-scroll">
+                @for (faq of section.faqs; track faq.question) {
+                  <details class="faq-item">
+                    <summary>{{ faq.question }}</summary>
+                    <p>{{ faq.answer }}</p>
+                  </details>
+                }
+              </div>
+            }
+          }
+
+          @case ('list') {
+            @if (section.bulletGroups) {
+              <div class="content-list reveal-on-scroll">
+                @for (group of section.bulletGroups; track group.title) {
+                  <div class="content-list__group">
+                    <h3>{{ group.title }}</h3>
+                    <ul>
+                      @for (item of group.items; track item) {
+                        <li>{{ item }}</li>
+                      }
+                    </ul>
+                  </div>
+                }
+              </div>
+            }
+          }
         }
       </div>
-
-      @switch (section.layout) {
-        @case ('cards') {
-          @if (section.cards) {
-            <div class="feature-grid">
-              @for (card of section.cards; track card.title) {
-                <article class="impact-card">
-                  @if (card.badge) {
-                    <span class="impact-card__badge">{{ card.badge }}</span>
-                  }
-                  <strong>{{ card.title }}</strong>
-                  <p>{{ card.text }}</p>
-                  @if (card.link && card.linkText) {
-                    <a [routerLink]="card.link" class="link">{{ card.linkText }} &rarr;</a>
-                  }
-                </article>
-              }
-            </div>
-          }
-        }
-
-        @case ('stats') {
-          @if (section.stats) {
-            <div class="impact-strip">
-              @for (stat of section.stats; track stat.label) {
-                <div>
-                  <strong class="stat-number" [attr.data-count]="stat.count">{{ stat.value }}</strong>
-                  <span>{{ stat.label }}</span>
-                </div>
-              }
-            </div>
-          }
-        }
-
-        @case ('faq') {
-          @if (section.faqs) {
-            <div class="faq-list">
-              @for (faq of section.faqs; track faq.question) {
-                <details class="faq-item">
-                  <summary>{{ faq.question }}</summary>
-                  <p>{{ faq.answer }}</p>
-                </details>
-              }
-            </div>
-          }
-        }
-
-        @case ('list') {
-          @if (section.bulletGroups) {
-            <div class="content-list">
-              @for (group of section.bulletGroups; track group.title) {
-                <div class="content-list__group">
-                  <h3>{{ group.title }}</h3>
-                  <ul>
-                    @for (item of group.items; track item) {
-                      <li>{{ item }}</li>
-                    }
-                  </ul>
-                </div>
-              }
-            </div>
-          }
-        }
-      }
     </section>
   }
 
   @if (page.cta; as cta) {
-    <section class="section home-cta">
-      <div class="home-cta__content">
-        @if (cta.eyebrow) {
-          <p class="eyebrow">{{ cta.eyebrow }}</p>
-        }
-        <h2>{{ cta.title }}</h2>
-        <p>{{ cta.text }}</p>
-        <div class="home-cta__actions">
-          <a [routerLink]="cta.primaryPath" class="button button--primary">{{ cta.primaryLabel }}</a>
-          @if (cta.secondaryLabel && cta.secondaryPath) {
-            <a [routerLink]="cta.secondaryPath" class="button">{{ cta.secondaryLabel }}</a>
-          }
+    <section class="section reveal-on-scroll">
+      <div class="page-shell">
+        <div class="section home-cta">
+          <div class="gradient-orb gradient-orb--teal" style="width:300px;height:300px;top:-100px;right:-80px;"></div>
+          <div class="home-cta__content">
+            @if (cta.eyebrow) {
+              <p class="eyebrow">{{ cta.eyebrow }}</p>
+            }
+            <h2>{{ cta.title }}</h2>
+            <p>{{ cta.text }}</p>
+            <div class="home-cta__actions">
+              <a [routerLink]="cta.primaryPath" class="button button--primary button--lg button--shadow">{{ cta.primaryLabel }}</a>
+              @if (cta.secondaryLabel && cta.secondaryPath) {
+                <a [routerLink]="cta.secondaryPath" class="button button--secondary button--lg">{{ cta.secondaryLabel }}</a>
+              }
+            </div>
+          </div>
         </div>
       </div>
     </section>

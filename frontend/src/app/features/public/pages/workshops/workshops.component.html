@@ -1,40 +1,70 @@
-<section class="page-hero">
-  <div class="page-hero__inner">
+<section class="page-hero mesh-bg">
+  <div class="gradient-orb gradient-orb--teal" style="width:500px;height:500px;top:-100px;right:-120px;"></div>
+  <div class="gradient-orb gradient-orb--gold" style="width:400px;height:400px;bottom:-150px;left:-80px;"></div>
+  <div class="page-shell page-hero__inner">
     <p class="eyebrow">Upcoming Workshops</p>
-    <h1>Learn by doing - join a <span class="gradient-text">hands-on workshop</span> built for real momentum.</h1>
+    <h1>Learn by doing &mdash; join a <span class="gradient-text">hands-on workshop</span> built for real momentum.</h1>
     <p>Every VidyaOps workshop is designed around hands-on practice, not passive lectures. Free and paid options are available across Cloud, Data Analysis, AI, and Cybersecurity.</p>
+    <div class="page-hero__chips">
+      <span>Free Workshops</span>
+      <span>Paid Masterclasses</span>
+      <span>Certification Prep</span>
+      <span>Live Projects</span>
+    </div>
   </div>
 </section>
 
-<section class="section">
-  <div class="section-heading">
-    <p class="eyebrow">Browse Workshops</p>
-    <h2>Find the right session for your learning goals.</h2>
-  </div>
-  <div class="workshop-grid">
-    @for (w of workshops(); track w.title) {
-      <article class="workshop-card">
-        <p class="workshop-card__type">{{ w.type }}</p>
-        <h3>{{ w.title }}</h3>
-        <p>{{ w.description }}</p>
-        <ul class="workshop-meta">
-          <li>{{ w.schedule_text }}</li>
-          <li>{{ w.duration_text }}</li>
-          <li>{{ w.level_text }}</li>
-        </ul>
-        <a class="button" [routerLink]="w.cta_link">{{ w.cta_text }}</a>
-      </article>
-    }
+<section class="section reveal-on-scroll">
+  <div class="page-shell">
+    <div class="section-heading">
+      <p class="eyebrow">Browse Workshops</p>
+      <h2>Find the right session for your learning goals.</h2>
+    </div>
+    <div class="workshop-grid">
+      @for (w of workshops(); track w.title; let i = $index) {
+        <article class="workshop-card reveal-on-scroll" [attr.data-delay]="(i * 100).toString()">
+          <div class="workshop-card__header">
+            <p class="workshop-card__type">{{ w.type }}</p>
+          </div>
+          <div class="workshop-card__body">
+            <h3>{{ w.title }}</h3>
+            <p>{{ w.description }}</p>
+            <ul class="workshop-meta">
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                {{ w.schedule_text }}
+              </li>
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                {{ w.duration_text }}
+              </li>
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                {{ w.level_text }}
+              </li>
+            </ul>
+          </div>
+          <div class="workshop-card__footer">
+            <a class="button button--primary button--shadow" [routerLink]="w.cta_link">{{ w.cta_text }}</a>
+          </div>
+        </article>
+      }
+    </div>
   </div>
 </section>
 
-<section class="section home-cta">
-  <div class="home-cta__content">
-    <p class="eyebrow">Ready to start?</p>
-    <h2>Ready to join a workshop?</h2>
-    <p>Every workshop is designed around hands-on practice, mentor guidance, and real-world relevance. Talk to our team to find the right starting point for your learning goals.</p>
-    <div class="home-cta__actions">
-      <a routerLink="/contact" class="button button--primary">Talk to Our Team</a>
+<section class="section reveal-on-scroll">
+  <div class="page-shell">
+    <div class="home-cta">
+      <div class="gradient-orb gradient-orb--teal" style="width:300px;height:300px;top:-80px;right:-60px;"></div>
+      <div class="home-cta__content">
+        <p class="eyebrow">Ready to start?</p>
+        <h2>Ready to join a workshop?</h2>
+        <p>Every workshop is designed around hands-on practice, mentor guidance, and real-world relevance. Talk to our team to find the right starting point for your learning goals.</p>
+        <div class="home-cta__actions">
+          <a routerLink="/contact" class="button button--primary button--lg button--shadow">Talk to Our Team</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
