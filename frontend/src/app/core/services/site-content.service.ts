@@ -192,6 +192,9 @@ export class SiteContentService {
               { title: 'Practical first', text: 'Every session uses labs, real tools, and project-based learning instead of theory-only teaching.' },
               { title: 'Learner focused', text: 'Programs meet learners where they are, whether they are early in college or just starting career exploration.' },
               { title: 'Accessible growth', text: 'Free workshops and guided learning paths reduce the barrier to building real capability.' },
+              { title: 'Industry grounded', text: 'Curriculum is shaped by what employers actually need, not just what textbooks cover.' },
+              { title: 'Community backed', text: 'Learning does not end with the session. Learners get access to communities, mentors, and ongoing support.' },
+              { title: 'Outcome driven', text: 'We measure success by learner capability growth, not just attendance numbers or certificates issued.' },
             ],
           },
           {
@@ -200,9 +203,12 @@ export class SiteContentService {
             intro: 'Every learner gets the right starting point, the right content, and the right support.',
             layout: 'cards',
             cards: [
-              { badge: '01', title: 'Discover', text: 'We understand the learner’s background, goals, and skill level before recommending a path.' },
+              { badge: '01', title: 'Discover', text: 'We understand the learner\'s background, goals, and skill level before recommending a path.' },
               { badge: '02', title: 'Design', text: 'We shape a training plan around useful and career-relevant outcomes.' },
               { badge: '03', title: 'Deliver', text: 'We run guided sessions with hands-on labs and real-world application.' },
+              { badge: '04', title: 'Assess', text: 'We measure skill growth through practical assessments, not just attendance tracking.' },
+              { badge: '05', title: 'Support', text: 'We provide ongoing doubt-clearing, community access, and career guidance after the program ends.' },
+              { badge: '06', title: 'Evolve', text: 'We update our curriculum regularly based on learner feedback, industry changes, and emerging technology trends.' },
             ],
           },
           {
@@ -258,7 +264,9 @@ export class SiteContentService {
             cards: [
               { title: 'Hands-on by default', text: 'Every engagement focuses on usable outcomes instead of passive content. Labs, projects, and real tools are central to every service.' },
               { title: 'Built for different audiences', text: 'Students, freshers, institutions, and corporate teams each get tailored delivery. We do not use a one-size-fits-all approach.' },
+              { title: 'Domain expertise', text: 'Our team specializes in Cloud, Data, AI, and Cybersecurity with practitioners who work in these domains daily, not just teach about them.' },
               { title: 'Flexible execution', text: 'Programs can be delivered online, on-site, or in blended formats. Software projects follow agile workflows with regular demos.' },
+              { title: 'Honest pricing', text: 'Transparent scope, clear deliverables, and no hidden costs. You know what you are paying for before any work begins.' },
               { title: 'End-to-end support', text: 'From initial consultation to post-delivery support, we stay engaged to ensure the outcomes meet your expectations.' },
             ],
           },
@@ -274,8 +282,11 @@ export class SiteContentService {
             layout: 'cards',
             cards: [
               { badge: '01', title: 'Tell us what you need', text: 'Share your goals, audience, timeline, and constraints. We will listen carefully and ask the right questions.' },
-              { badge: '02', title: 'We recommend an approach', text: 'Based on your needs, we suggest the right service, format, and program structure with clear scope and pricing.' },
-              { badge: '03', title: 'We deliver with quality', text: 'Once aligned, we execute with structured milestones, regular updates, and a focus on outcomes you can measure.' },
+              { badge: '02', title: 'We assess the situation', text: 'We review your current setup, team capabilities, and existing resources to understand where the right intervention creates the most value.' },
+              { badge: '03', title: 'We recommend an approach', text: 'Based on your needs, we suggest the right service, format, and program structure with clear scope and pricing.' },
+              { badge: '04', title: 'You validate the plan', text: 'We walk through the proposal together, answer questions, and adjust the scope before any commitment is made.' },
+              { badge: '05', title: 'We deliver with quality', text: 'Once aligned, we execute with structured milestones, regular updates, and a focus on outcomes you can measure.' },
+              { badge: '06', title: 'We stay engaged', text: 'After delivery, we check in on results, gather feedback, and explore how the next phase of work can build on what was achieved.' },
             ],
           },
         ],
@@ -318,7 +329,10 @@ export class SiteContentService {
             cards: [
               { badge: '01', title: 'Foundation tracks', text: 'Clear entry points for learners exploring Cloud, Data, AI, or Cybersecurity for the first time. Concepts are introduced with practical context so learners understand both the what and the why.' },
               { badge: '02', title: 'Hands-on labs', text: 'Practical exercises that connect concepts to real implementation. Learners work with actual cloud consoles, CLI tools, and security dashboards instead of just reading about them.' },
-              { badge: '03', title: 'Certification support', text: 'Guidance for preparation strategy, timed practice sessions, and structured doubt-clearing so learners approach the exam with confidence and not anxiety.' },
+              { badge: '03', title: 'Mentor-led sessions', text: 'Instructor-led workshops and doubt-clearing sessions where learners ask questions, work through challenges, and get personalized guidance on tricky topics.' },
+              { badge: '04', title: 'Practice assessments', text: 'Timed mock tests and quiz sessions that simulate the real exam environment, helping learners identify weak areas and build confidence before test day.' },
+              { badge: '05', title: 'Certification support', text: 'Guidance for preparation strategy, timed practice sessions, and structured doubt-clearing so learners approach the exam with confidence and not anxiety.' },
+              { badge: '06', title: 'Career placement guidance', text: 'Resume building, portfolio creation, and interview preparation support so certified learners can translate their credentials into career opportunities.' },
             ],
           },
           {
@@ -331,6 +345,8 @@ export class SiteContentService {
               { title: 'Data Analysis', text: 'Excel, SQL, Power BI, and Python-based data workflows. Learners build dashboards, run queries, and present insights using tools employers actually use.' },
               { title: 'Artificial Intelligence', text: 'Foundations of machine learning, prompt engineering, and AI tooling with practical projects that demonstrate real-world application beyond surface-level tutorials.' },
               { title: 'Cybersecurity', text: 'Security fundamentals, threat analysis, network security, and compliance readiness with hands-on labs that simulate real attack-and-defense scenarios.' },
+              { title: 'DevOps and SRE', text: 'CI/CD pipelines, container orchestration, monitoring, and site reliability practices that bridge development and operations for faster, more reliable delivery.' },
+              { title: 'Full-Stack Development', text: 'End-to-end web development certifications covering frontend frameworks, backend APIs, databases, and deployment workflows with project-based assessment.' },
             ],
           },
           {
@@ -341,7 +357,9 @@ export class SiteContentService {
               { badge: '01', title: 'Skill assessment', text: 'We evaluate the learner current knowledge, academic background, and career goals to recommend the right certification track and starting point.' },
               { badge: '02', title: 'Structured learning', text: 'Content is delivered in focused modules with instructor-led explanations, reading material, and guided exercises that build week by week.' },
               { badge: '03', title: 'Lab practice', text: 'Learners get dedicated time in sandbox environments to practice configurations, run commands, and troubleshoot real scenarios.' },
-              { badge: '04', title: 'Exam readiness', text: 'Mock tests, revision cycles, and doubt-clearing sessions ensure learners are fully prepared before attempting the actual certification exam.' },
+              { badge: '04', title: 'Peer collaboration', text: 'Group exercises, discussion forums, and study groups help learners reinforce concepts through teaching and collaborative problem-solving.' },
+              { badge: '05', title: 'Mentor review', text: 'Regular one-on-one sessions with instructors provide personalized feedback, address specific challenges, and keep learners on track.' },
+              { badge: '06', title: 'Exam readiness', text: 'Mock tests, revision cycles, and doubt-clearing sessions ensure learners are fully prepared before attempting the actual certification exam.' },
             ],
           },
           {
@@ -385,6 +403,8 @@ export class SiteContentService {
               { title: 'Small batch sizes', text: 'Limited seats per batch ensure every learner gets individual attention, feedback, and support from instructors.' },
               { title: 'Career guidance', text: 'Beyond certification, learners get guidance on how to present their skills, build portfolios, and prepare for interviews.' },
               { title: 'Affordable pathways', text: 'Free introductory workshops help learners test the waters before committing to a full certification track.' },
+              { title: 'Industry-relevant content', text: 'Curriculum is updated regularly to match current exam patterns, tool versions, and industry requirements so what you learn stays relevant.' },
+              { title: 'Community and alumni network', text: 'Graduates join a growing community of certified professionals who share opportunities, resources, and continued learning support.' },
             ],
           },
         ],
@@ -427,7 +447,10 @@ export class SiteContentService {
             cards: [
               { badge: '01', title: 'Architecture and planning', text: 'Define scope, technical architecture, and roadmap with clarity before a single line of code is written. We help you avoid costly pivots later by getting the foundation right.' },
               { badge: '02', title: 'Modern engineering', text: 'Build maintainable systems using proven frameworks, clean code practices, CI/CD pipelines, and deployment workflows that your team can extend and support.' },
-              { badge: '03', title: 'Long-term support', text: 'Continue improving the product after launch with bug fixes, performance tuning, feature enhancements, and infrastructure monitoring.' },
+              { badge: '03', title: 'Quality assurance', text: 'Automated testing, code reviews, and performance validation at every stage catch issues early and ensure the product meets real-world reliability standards.' },
+              { badge: '04', title: 'Deployment and DevOps', text: 'Production deployment with infrastructure-as-code, containerization, monitoring, and rollback strategies that keep systems stable from day one.' },
+              { badge: '05', title: 'Performance optimization', text: 'Load testing, database tuning, caching strategies, and frontend optimization ensure the product performs well under real usage conditions.' },
+              { badge: '06', title: 'Long-term support', text: 'Continue improving the product after launch with bug fixes, performance tuning, feature enhancements, and infrastructure monitoring.' },
             ],
           },
           {
@@ -440,6 +463,8 @@ export class SiteContentService {
               { title: 'Mobile applications', text: 'Cross-platform and native mobile solutions for iOS and Android. Focused on performance, offline support, and a clean user experience.' },
               { title: 'Enterprise systems', text: 'Integrations, workflows, and data platforms that connect teams, automate processes, and scale with your organization.' },
               { title: 'API and backend services', text: 'RESTful APIs, microservices, and backend infrastructure designed for reliability, security, and future growth.' },
+              { title: 'E-commerce platforms', text: 'Custom online stores, payment integrations, inventory management, and order processing systems built for specific business models.' },
+              { title: 'Data dashboards and analytics', text: 'Real-time dashboards, reporting tools, and analytics interfaces that turn raw data into actionable insights for decision-makers.' },
             ],
           },
           {
@@ -450,7 +475,9 @@ export class SiteContentService {
               { badge: '01', title: 'Discovery', text: 'We sit with stakeholders, understand user needs, map workflows, and document requirements so nothing is assumed or overlooked.' },
               { badge: '02', title: 'Design and prototype', text: 'Wireframes, system design, and interactive prototypes validate the approach before full-scale development begins.' },
               { badge: '03', title: 'Build and test', text: 'Iterative development with regular demos, automated testing, and code reviews ensure quality stays high throughout.' },
-              { badge: '04', title: 'Deploy and iterate', text: 'Production deployment with monitoring, user feedback loops, and planned iteration cycles to keep the product improving.' },
+              { badge: '04', title: 'Security and compliance', text: 'Security best practices, data protection, and compliance requirements are woven into the development process, not bolted on after delivery.' },
+              { badge: '05', title: 'Performance optimization', text: 'Load testing, database tuning, caching strategies, and frontend optimization ensure the product performs well under real usage conditions.' },
+              { badge: '06', title: 'Deploy and iterate', text: 'Production deployment with monitoring, user feedback loops, and planned iteration cycles to keep the product improving.' },
             ],
           },
           {
@@ -493,6 +520,9 @@ export class SiteContentService {
               { title: 'Startups and founders', text: 'MVP development, rapid prototyping, and technical co-pilot support for teams that need to validate ideas quickly and ship with limited resources.' },
               { title: 'Educational institutions', text: 'Custom portals, learning management systems, and administrative tools designed for the specific workflows of colleges and training organizations.' },
               { title: 'Small and mid-size businesses', text: 'Internal tools, customer portals, and automation solutions that solve real operational problems without over-engineering.' },
+              { title: 'Nonprofits and social enterprises', text: 'Technology solutions built for impact, including donation platforms, community tools, and program management systems that work within tight budgets.' },
+              { title: 'Growing product companies', text: 'Feature development, platform scaling, and technical debt reduction for teams that have a product in market and need to grow sustainably.' },
+              { title: 'Government and public sector', text: 'Digital solutions for government agencies, public institutions, and civic organizations that need reliable, secure, and accessible technology.' },
             ],
           },
         ],
@@ -536,6 +566,9 @@ export class SiteContentService {
               { badge: '01', title: 'Custom content design', text: 'Build learning content around real learners, roles, and training outcomes. Every module is designed for a specific audience with a specific goal, not generic content repurposed from the web.' },
               { badge: '02', title: 'Platform-enabled learning', text: 'Deploy on LMS platforms, custom portals, or cloud-hosted solutions that give administrators progress tracking, completion reports, and learner analytics.' },
               { badge: '03', title: 'Engaging delivery formats', text: 'Use video explainers, interactive quizzes, scenario-based exercises, and modular design to keep learners active instead of passive consumers of content.' },
+              { badge: '04', title: 'Assessment and certification', text: 'Design quizzes, practical assignments, and certification exams that measure genuine competence, not just completion.' },
+              { badge: '05', title: 'Localization and accessibility', text: 'Content is adapted for different languages, accessibility standards, and device types so learning reaches everyone regardless of their setup.' },
+              { badge: '06', title: 'Analytics and reporting', text: 'Built-in dashboards track learner progress, engagement patterns, completion rates, and assessment scores to inform continuous improvement.' },
             ],
           },
           {
@@ -548,6 +581,8 @@ export class SiteContentService {
               { title: 'LMS integration', text: 'Setup, customization, and content population on platforms like Moodle, Canvas, or custom-built learning portals with reporting and certification features.' },
               { title: 'Gamified experiences', text: 'Points, badges, leaderboards, and challenge-based modules that increase completion rates and make learning feel rewarding instead of tedious.' },
               { title: 'Multimedia content', text: 'Video production, animated explainers, infographics, and interactive simulations that bring complex topics to life for visual and hands-on learners.' },
+              { title: 'Virtual labs and simulations', text: 'Interactive lab environments where learners practice skills in realistic sandbox settings without needing local installations or complex setup.' },
+              { title: 'Microlearning libraries', text: 'Bite-sized learning units organized by topic that let learners build knowledge incrementally during short breaks or dedicated study time.' },
             ],
           },
           {
@@ -557,8 +592,10 @@ export class SiteContentService {
             cards: [
               { badge: '01', title: 'Audience analysis', text: 'We study who the learners are, how they learn, what they already know, and what success looks like before designing any content.' },
               { badge: '02', title: 'Content architecture', text: 'We structure the learning journey into modules, milestones, and assessments that build competence progressively.' },
-              { badge: '03', title: 'Production', text: 'Content is created using professional tools with attention to visual quality, pacing, interactivity, and accessibility.' },
-              { badge: '04', title: 'Deploy and measure', text: 'Launch on the chosen platform with analytics in place to track engagement, completion, and learner performance over time.' },
+              { badge: '03', title: 'Story and script development', text: 'Every module begins with a clear narrative, learning objectives, and structured script that keeps content focused and engaging.' },
+              { badge: '04', title: 'Production', text: 'Content is created using professional tools with attention to visual quality, pacing, interactivity, and accessibility.' },
+              { badge: '05', title: 'Review and iteration', text: 'Stakeholder reviews, learner beta testing, and feedback incorporation ensure the content works before full deployment.' },
+              { badge: '06', title: 'Deploy and measure', text: 'Launch on the chosen platform with analytics in place to track engagement, completion, and learner performance over time.' },
             ],
           },
           {
@@ -601,6 +638,8 @@ export class SiteContentService {
               { title: 'Flexible platforms', text: 'We work with your existing LMS or build custom solutions based on your audience size, budget, and administrative needs.' },
               { title: 'Measurable outcomes', text: 'Every deployment includes analytics and reporting so you can see what is working, what is not, and where to improve.' },
               { title: 'Affordable production', text: 'Scaled content production options that match your budget, from rapid video-based modules to fully interactive multimedia experiences.' },
+              { title: 'Rapid turnaround', text: 'Our production pipeline is designed for speed without sacrificing quality, getting learning content into learners hands faster than traditional approaches.' },
+              { title: 'Ongoing partnership', text: 'We stay involved after launch with content updates, learner feedback analysis, and continuous improvement recommendations.' },
             ],
           },
         ],
@@ -643,7 +682,10 @@ export class SiteContentService {
             cards: [
               { badge: '01', title: 'Need-based curriculum', text: 'Programs are mapped to the target audience, role requirements, and skill maturity level. We do not waste time covering what learners already know.' },
               { badge: '02', title: 'Flexible scheduling', text: 'Delivery models fit the practical realities of colleges and working teams. Weekend batches, evening sessions, multi-week sprints, or intensive bootcamps.' },
-              { badge: '03', title: 'Visible outcomes', text: 'Learning goals, progress checkpoints, and completion metrics stay transparent throughout the engagement so stakeholders see real value.' },
+              { badge: '03', title: 'Hands-on labs', text: 'Every program includes practical exercises, real tool exposure, and project-based work so learners build skills they can apply immediately.' },
+              { badge: '04', title: 'Progress tracking', text: 'Regular assessments, completion dashboards, and skill benchmarks give administrators clear visibility into learner progress throughout the program.' },
+              { badge: '05', title: 'Instructor quality', text: 'Experienced practitioners deliver sessions, not just trainers. They bring real project stories, industry context, and practical insights to every class.' },
+              { badge: '06', title: 'Visible outcomes', text: 'Learning goals, progress checkpoints, and completion metrics stay transparent throughout the engagement so stakeholders see real value.' },
             ],
           },
           {
@@ -656,6 +698,8 @@ export class SiteContentService {
               { title: 'Data and Analytics', text: 'SQL, Excel, Power BI, and Python-based data training for teams that need to work with data, build dashboards, and make data-driven decisions.' },
               { title: 'AI and Machine Learning', text: 'Foundational AI literacy, prompt engineering, and applied ML workshops for teams that need to understand and use AI tools in their daily work.' },
               { title: 'Cybersecurity', text: 'Security awareness, threat identification, and compliance training for IT teams, developers, and organizational staff who handle sensitive data.' },
+              { title: 'DevOps and SRE', text: 'CI/CD practices, containerization, monitoring, and incident response training for teams that manage production systems and need reliable deployment workflows.' },
+              { title: 'Software development', text: 'Full-stack development training covering modern frameworks, API design, database management, and testing practices for development teams.' },
             ],
           },
           {
@@ -665,8 +709,10 @@ export class SiteContentService {
             cards: [
               { badge: '01', title: 'Needs assessment', text: 'We analyze your team current skills, gaps, and organizational goals to build a training plan that targets what matters most.' },
               { badge: '02', title: 'Curriculum design', text: 'Content is structured around practical outcomes with modules, labs, and assessments aligned to real job requirements.' },
-              { badge: '03', title: 'Delivery and facilitation', text: 'Experienced instructors deliver sessions with hands-on exercises, real-world examples, and interactive workshops.' },
-              { badge: '04', title: 'Evaluation and reporting', text: 'Post-training assessments, completion reports, and feedback loops ensure measurable impact and continuous improvement.' },
+              { badge: '03', title: 'Pilot delivery', text: 'A small batch pilot validates the curriculum, timing, and delivery approach before rolling out to larger groups.' },
+              { badge: '04', title: 'Delivery and facilitation', text: 'Experienced instructors deliver sessions with hands-on exercises, real-world examples, and interactive workshops.' },
+              { badge: '05', title: 'Assessment and feedback', text: 'Mid-program and end-program assessments measure skill growth, gather learner feedback, and identify areas for improvement.' },
+              { badge: '06', title: 'Evaluation and reporting', text: 'Post-training assessments, completion reports, and feedback loops ensure measurable impact and continuous improvement.' },
             ],
           },
           {
@@ -707,7 +753,9 @@ export class SiteContentService {
             cards: [
               { title: 'Customization over generic content', text: 'Every program is built from scratch around your audience, their skill level, and your organizational goals.' },
               { title: 'Practical, not theoretical', text: 'Sessions use real tools, real data, and real scenarios so learners can apply what they learn immediately.' },
+              { title: 'Experienced instructors', text: 'Our trainers are working practitioners who bring industry context, project stories, and practical insights beyond textbook knowledge.' },
               { title: 'Scalable delivery', text: 'From small team workshops to large-batch institutional programs, we scale our delivery without losing quality.' },
+              { title: 'Flexible formats', text: 'Online, on-site, hybrid, weekend, or intensive formats that fit the real scheduling constraints of working teams and college groups.' },
               { title: 'Post-training support', text: 'Learners get access to resources, doubt-clearing channels, and community support after the formal program ends.' },
             ],
           },
@@ -762,7 +810,10 @@ export class SiteContentService {
             cards: [
               { badge: '01', title: 'Real problem solving', text: 'Interns contribute to meaningful work instead of isolated theory tasks. Projects are sourced from real organizational needs or guided research challenges.' },
               { badge: '02', title: 'Guided review cycles', text: 'Regular mentor feedback helps learners improve both clarity and execution quality. Code reviews, design critiques, and progress check-ins are built into the process.' },
-              { badge: '03', title: 'Portfolio-ready outcomes', text: 'Interns leave with documented project work, GitHub contributions, and presentation-ready talking points for interviews and career conversations.' },
+              { badge: '03', title: 'Structured milestones', text: 'Clear weekly or bi-weekly milestones keep projects on track and give interns measurable progress points throughout the program.' },
+              { badge: '04', title: 'Tool and workflow exposure', text: 'Interns work with the same tools, version control systems, and collaboration workflows used in professional development environments.' },
+              { badge: '05', title: 'Peer learning', text: 'Working alongside other interns and junior team members creates a collaborative environment where everyone learns from shared challenges.' },
+              { badge: '06', title: 'Portfolio-ready outcomes', text: 'Interns leave with documented project work, GitHub contributions, and presentation-ready talking points for interviews and career conversations.' },
             ],
           },
           {
@@ -784,8 +835,10 @@ export class SiteContentService {
             cards: [
               { badge: '01', title: 'Application and screening', text: 'Submit your application with your academic background and interests. We match you to a track based on your goals and current skill level.' },
               { badge: '02', title: 'Onboarding and orientation', text: 'Get familiar with tools, workflows, project expectations, and mentor communication channels before starting hands-on work.' },
-              { badge: '03', title: 'Project execution', text: 'Work on assigned tasks and projects with regular mentor check-ins. Track progress through milestones and deliverables.' },
-              { badge: '04', title: 'Review and certification', text: 'Present your work, receive feedback, and get an internship completion certificate with details of your contributions and skills demonstrated.' },
+              { badge: '03', title: 'Guided sprints', text: 'Work in structured sprint cycles with clear deliverables, daily standups, and weekly reviews that mirror professional development practices.' },
+              { badge: '04', title: 'Project execution', text: 'Work on assigned tasks and projects with regular mentor check-ins. Track progress through milestones and deliverables.' },
+              { badge: '05', title: 'Midpoint review', text: 'A formal check-in at the halfway mark assesses progress, identifies challenges, and adjusts the project scope if needed.' },
+              { badge: '06', title: 'Review and certification', text: 'Present your work, receive feedback, and get an internship completion certificate with details of your contributions and skills demonstrated.' },
             ],
           },
           {
@@ -826,6 +879,8 @@ export class SiteContentService {
             cards: [
               { title: 'Mentor relationships', text: 'Direct access to experienced professionals who provide guidance, feedback, and career advice throughout the program.' },
               { title: 'Real-world exposure', text: 'Understand how technology projects work in practice, including collaboration, version control, documentation, and delivery expectations.' },
+              { title: 'Technical depth', text: 'Go beyond surface-level tutorials to understand why decisions are made, trade-offs considered, and how production systems actually work.' },
+              { title: 'Communication skills', text: 'Regular presentations, documentation writing, and team discussions build the soft skills that matter in interviews and workplace success.' },
               { title: 'Interview readiness', text: 'Concrete project stories, demonstrated skills, and presentation experience that make interviews more confident and credible.' },
               { title: 'Community access', text: 'Join the VidyaOps alumni network for ongoing support, job referrals, and continued learning opportunities after the internship.' },
             ],
@@ -870,7 +925,10 @@ export class SiteContentService {
             cards: [
               { badge: '01', title: 'Stronger access', text: 'Partnerships expand reach and improve access to practical technology education for learners who might not find it otherwise.' },
               { badge: '02', title: 'Shared execution', text: 'Programs combine partner context and audience knowledge with VidyaOps training delivery expertise and curriculum design.' },
-              { badge: '03', title: 'Real ecosystem value', text: 'Collaboration models create outcomes beyond a single session, including ongoing programs, talent pipelines, and community growth.' },
+              { badge: '03', title: 'Resource optimization', text: 'Partners share infrastructure, content, and instructor resources to deliver higher-quality programs at lower per-learner cost.' },
+              { badge: '04', title: 'Community building', text: 'Collaborative programs create lasting communities of learners, mentors, and practitioners who continue supporting each other.' },
+              { badge: '05', title: 'Talent pipeline', text: 'Institution and corporate partnerships create a structured flow of trained, job-ready candidates who already know the partner ecosystem.' },
+              { badge: '06', title: 'Real ecosystem value', text: 'Collaboration models create outcomes beyond a single session, including ongoing programs, talent pipelines, and community growth.' },
             ],
           },
           {
@@ -923,8 +981,10 @@ export class SiteContentService {
             cards: [
               { badge: '01', title: 'Conversation and alignment', text: 'We start with understanding your goals, audience, constraints, and what success looks like for your organization.' },
               { badge: '02', title: 'Program design', text: 'Together we design the program structure, content scope, delivery format, timeline, and shared responsibilities.' },
-              { badge: '03', title: 'Execution', text: 'VidyaOps handles training delivery, content creation, and learner management while you manage audience reach and logistics.' },
-              { badge: '04', title: 'Review and continuation', text: 'After delivery, we review outcomes together and explore opportunities for continued or expanded partnerships.' },
+              { badge: '03', title: 'Pilot delivery', text: 'A small-scale pilot validates the approach, gathers learner feedback, and refines the program before full rollout.' },
+              { badge: '04', title: 'Full execution', text: 'VidyaOps handles training delivery, content creation, and learner management while you manage audience reach and logistics.' },
+              { badge: '05', title: 'Impact measurement', text: 'Learner assessments, feedback surveys, and completion metrics demonstrate program value to all stakeholders.' },
+              { badge: '06', title: 'Review and continuation', text: 'After delivery, we review outcomes together and explore opportunities for continued or expanded partnerships.' },
             ],
           },
           {
@@ -935,6 +995,8 @@ export class SiteContentService {
               { title: 'Curriculum quality', text: 'Training content is practical, current, and designed for real skill outcomes rather than surface-level engagement.' },
               { title: 'Delivery reliability', text: 'Structured processes, professional instructors, and consistent quality regardless of program size or format.' },
               { title: 'Learner focus', text: 'We care about whether learners actually gain capability, not just whether seats were filled or events happened.' },
+              { title: 'Transparent reporting', text: 'Partners receive regular updates, learner progress data, and program metrics so there are no surprises about impact.' },
+              { title: 'Shared branding', text: 'Co-branded programs give partners visibility and credit while VidyaOps manages the training delivery quality.' },
               { title: 'Long-term thinking', text: 'We prefer partnerships that grow over time, with each program building on the outcomes of the previous one.' },
             ],
           },
@@ -978,7 +1040,10 @@ export class SiteContentService {
             cards: [
               { badge: '01', title: 'Starter workshops', text: 'Low-risk entry points for learners exploring a topic for the first time. Free and paid options let you test the water before committing to a deeper program.' },
               { badge: '02', title: 'Deep-dive programs', text: 'Structured learning experiences with more practice, guidance, and accountability. These tracks include projects, mentor reviews, and outcome-focused milestones.' },
-              { badge: '03', title: 'Group and institutional formats', text: 'Programs tailored for colleges, teams, and coordinated learner cohorts with shared schedules, progress tracking, and group-based learning outcomes.' },
+              { badge: '03', title: 'Bootcamps', text: 'Intensive, time-bound programs that compress weeks of learning into focused sprints for learners who need fast skill acquisition.' },
+              { badge: '04', title: 'Self-paced tracks', text: 'Flexible learning paths with pre-recorded content, automated assessments, and optional mentor check-ins for independent learners.' },
+              { badge: '05', title: 'Mentorship programs', text: 'One-on-one or small-group mentoring sessions focused on career guidance, portfolio review, and personalized learning plans.' },
+              { badge: '06', title: 'Group and institutional formats', text: 'Programs tailored for colleges, teams, and coordinated learner cohorts with shared schedules, progress tracking, and group-based learning outcomes.' },
             ],
           },
           {
@@ -991,6 +1056,8 @@ export class SiteContentService {
               { title: 'Data Analysis', text: 'Excel, SQL, Power BI, and Python for data workflows. Build dashboards, run analyses, and present insights using tools employers actually use.' },
               { title: 'Artificial Intelligence', text: 'AI foundations, prompt engineering, and applied ML projects. Learn how to use and build with AI tools in practical, career-relevant contexts.' },
               { title: 'Cybersecurity', text: 'Security fundamentals, threat analysis, and compliance readiness with hands-on lab scenarios that simulate real-world challenges.' },
+              { title: 'Full-Stack Development', text: 'End-to-end web development covering frontend frameworks, backend APIs, databases, and deployment with project-based portfolio building.' },
+              { title: 'DevOps and Cloud Operations', text: 'CI/CD pipelines, containerization, monitoring, and infrastructure management for teams that build and maintain production systems.' },
             ],
           },
           {
@@ -1028,6 +1095,9 @@ export class SiteContentService {
             cards: [
               { title: 'Practical and relevant', text: 'The workshops and tracks focus on real tools and real workflows. What I learned is directly useful in my coursework and interviews.' },
               { title: 'Supportive mentors', text: 'Instructors are patient, knowledgeable, and genuinely invested in helping learners understand, not just complete the syllabus.' },
+              { title: 'Flexible learning', text: 'The option to start with a free workshop and then choose a deeper track made it easy to commit without pressure.' },
+              { title: 'Portfolio building', text: 'Every track includes project work that becomes part of my portfolio. That concrete proof of skills matters more than any certificate alone.' },
+              { title: 'Community feel', text: 'Learning alongside other motivated students and getting guidance from practitioners made the experience feel collaborative, not transactional.' },
               { title: 'Career confidence', text: 'After completing a track, I had projects to show and skills I could talk about in interviews. That made a real difference.' },
             ],
           },
