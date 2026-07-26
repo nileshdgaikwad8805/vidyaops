@@ -1,144 +1,205 @@
 <!-- Hero -->
-<section class="page-hero">
-  <div class="page-hero__inner">
-    <p class="eyebrow">Practical Tech Training</p>
-    <h1>
-      Hands-on workshops, guided learning tracks, and enterprise-ready programs.
-      We bridge the gap between academic knowledge and career readiness.
-    </h1>
-    <div class="page-hero__actions">
-      <a routerLink="/services" class="button button--primary">Explore Services</a>
-      <a routerLink="/contact" class="button">Talk to Us</a>
+<section class="page-hero mesh-bg">
+  <div class="gradient-orb gradient-orb--teal" style="width:500px;height:500px;top:-100px;right:-100px;"></div>
+  <div class="gradient-orb gradient-orb--gold" style="width:400px;height:400px;bottom:-150px;left:-80px;"></div>
+  <div class="page-shell page-hero__inner" style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;">
+    <div class="page-hero__content">
+      <p class="eyebrow">Practical Tech Training</p>
+      <h1>Build real skills for a real career in tech.</h1>
+      <p>Hands-on workshops, guided learning tracks, and enterprise-ready programs across Cloud, Data, AI, and Cybersecurity. We bridge the gap between academic knowledge and career readiness.</p>
+      <div class="page-hero__actions">
+        <a routerLink="/services" class="button button--primary button--lg">Explore Services</a>
+        <a routerLink="/contact" class="button button--secondary button--lg">Talk to Us</a>
+      </div>
+      <div class="home-hero__signals">
+        <span><strong>1000+</strong> Learners Trained</span>
+        <span><strong>50+</strong> Workshops Delivered</span>
+        <span><strong>4.9/5</strong> Learner Rating</span>
+      </div>
+    </div>
+    <div class="page-hero__visual">
+      <div class="hero-visual-card" style="position:relative;">
+        <div class="hero-shell">
+          <div class="hero-command">
+            <div class="hero-command__grid">
+              <div class="hero-stack">
+                <span>Cloud</span>
+                <small>AWS · Azure · GCP</small>
+              </div>
+              <div class="hero-stack">
+                <span>Data</span>
+                <small>SQL · Python · BI</small>
+              </div>
+              <div class="hero-stack">
+                <span>AI</span>
+                <small>ML · GenAI · NLP</small>
+              </div>
+            </div>
+            <div class="hero-stack" style="margin-top:12px;">
+              <div class="hero-stack">
+                <span>Cyber</span>
+                <small>Security · Forensics</small>
+              </div>
+              <div class="hero-stack">
+                <span>DevOps</span>
+                <small>CI/CD · Docker</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="dot-pattern" style="bottom:-20px;right:-20px;width:160px;height:160px;opacity:0.3;"></div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- Stats -->
-<section class="impact-strip">
-  @for (stat of stats; track stat.label) {
-    <div>
-      <strong class="stat-number" [attr.data-count]="stat.count">{{ stat.value }}</strong>
-      <span>{{ stat.label }}</span>
+<section class="section">
+  <div class="page-shell">
+    <div class="impact-strip">
+      @for (stat of stats; track stat.label) {
+        <div>
+          <strong class="stat-number" [attr.data-count]="stat.count">{{ stat.value }}</strong>
+          <span>{{ stat.label }}</span>
+        </div>
+      }
     </div>
-  }
+  </div>
 </section>
 
 <!-- Services -->
-<section class="section">
-  <div class="section-heading">
-    <p class="eyebrow">Our Services</p>
-    <h2>Comprehensive technology solutions across training, development, and digital learning.</h2>
-  </div>
-  <div class="service-showcase">
-    @for (card of services; track card.title) {
-      <article class="service-showcase__card">
-        <span class="service-showcase__badge">{{ card.badge }}</span>
-        <h3>{{ card.title }}</h3>
-        <p>{{ card.text }}</p>
-        @if (card.link && card.linkText) {
-          <a [routerLink]="card.link" class="link">{{ card.linkText }} &rarr;</a>
-        }
-      </article>
-    }
+<section class="section section--alt">
+  <div class="page-shell">
+    <div class="section-heading">
+      <p class="eyebrow">Our Services</p>
+      <h2>Comprehensive technology solutions across training, development, and digital learning.</h2>
+    </div>
+    <div class="service-showcase">
+      @for (card of services; track card.title) {
+        <article class="service-showcase__card">
+          <span class="service-showcase__badge">{{ card.badge }}</span>
+          <h3>{{ card.title }}</h3>
+          <p>{{ card.text }}</p>
+          @if (card.link && card.linkText) {
+            <a [routerLink]="card.link" class="link animated-underline">{{ card.linkText }} &rarr;</a>
+          }
+        </article>
+      }
+    </div>
   </div>
 </section>
 
 <!-- Case Studies -->
-<section class="section section--alt">
-  <div class="section-heading">
-    <p class="eyebrow">Case Studies &amp; Research Reports</p>
-    <h2>Real outcomes from real engagements.</h2>
-  </div>
-  <div class="case-studies-grid">
-    @for (cs of caseStudies; track cs.title) {
-      <article class="case-card">
-        <span class="case-card__badge">{{ cs.badge }}</span>
-        <h3>{{ cs.title }}</h3>
-        <p>{{ cs.text }}</p>
-        @if (cs.link && cs.linkText) {
-          <a [routerLink]="cs.link" class="link">{{ cs.linkText }} &rarr;</a>
-        }
-      </article>
-    }
+<section class="section">
+  <div class="page-shell">
+    <div class="section-heading">
+      <p class="eyebrow">Case Studies &amp; Research Reports</p>
+      <h2>Real outcomes from real engagements.</h2>
+    </div>
+    <div class="case-studies-grid">
+      @for (cs of caseStudies; track cs.title) {
+        <article class="case-card">
+          <span class="case-card__badge">{{ cs.badge }}</span>
+          <h3>{{ cs.title }}</h3>
+          <p>{{ cs.text }}</p>
+          @if (cs.link && cs.linkText) {
+            <a [routerLink]="cs.link" class="link animated-underline">{{ cs.linkText }} &rarr;</a>
+          }
+        </article>
+      }
+    </div>
   </div>
 </section>
 
 <!-- Why VidyaOps -->
-<section class="section">
-  <div class="section-heading">
-    <p class="eyebrow">Why VidyaOps</p>
-    <h2>The difference between training and transformation.</h2>
-  </div>
-  <div class="feature-grid">
-    @for (item of whyUs; track item.title) {
-      <article class="impact-card">
-        <strong>{{ item.title }}</strong>
-        <p>{{ item.text }}</p>
-      </article>
-    }
+<section class="section section--alt">
+  <div class="page-shell">
+    <div class="section-heading">
+      <p class="eyebrow">Why VidyaOps</p>
+      <h2>The difference between training and transformation.</h2>
+    </div>
+    <div class="feature-grid">
+      @for (item of whyUs; track item.title) {
+        <article class="impact-card">
+          <strong>{{ item.title }}</strong>
+          <p>{{ item.text }}</p>
+        </article>
+      }
+    </div>
   </div>
 </section>
 
 <!-- Testimonials -->
-<section class="section section--alt">
-  <div class="section-heading">
-    <p class="eyebrow">What Learners Say</p>
-    <h2>Stories from students who took the first step with VidyaOps.</h2>
-  </div>
-  <div class="testimonial-grid">
-    @for (t of testimonials; track t.title) {
-      <article class="testimonial-card">
-        <blockquote>{{ t.text }}</blockquote>
-        <div class="testimonial-card__author">
-          <strong>&mdash; {{ t.title }}</strong>
-          <span>{{ t.badge }}</span>
-        </div>
-      </article>
-    }
+<section class="section">
+  <div class="page-shell">
+    <div class="section-heading">
+      <p class="eyebrow">What Learners Say</p>
+      <h2>Stories from students who took the first step with VidyaOps.</h2>
+    </div>
+    <div class="testimonial-grid">
+      @for (t of testimonials; track t.title) {
+        <article class="testimonial-card">
+          <blockquote>{{ t.text }}</blockquote>
+          <div class="testimonial-card__author">
+            <strong>&mdash; {{ t.title }}</strong>
+            <span>{{ t.badge }}</span>
+          </div>
+        </article>
+      }
+    </div>
   </div>
 </section>
 
 <!-- CSR -->
-<section class="section section--alt">
-  <div class="section-heading">
-    <p class="eyebrow">CSR Initiatives</p>
-    <h2>Giving back through purpose-driven programs.</h2>
-    <p>Technology education should be accessible to everyone. These initiatives are how we make that real.</p>
-  </div>
-  <div class="initiatives-grid">
-    @for (card of csr; track card.title) {
-      <article class="initiatives-card">
-        <h3>{{ card.title }}</h3>
-        <p>{{ card.text }}</p>
-      </article>
-    }
+<section class="section section--alt mesh-bg">
+  <div class="page-shell">
+    <div class="section-heading">
+      <p class="eyebrow">CSR Initiatives</p>
+      <h2>Giving back through purpose-driven programs.</h2>
+      <p>Technology education should be accessible to everyone. These initiatives are how we make that real.</p>
+    </div>
+    <div class="initiatives-grid">
+      @for (card of csr; track card.title) {
+        <article class="initiatives-card">
+          <h3>{{ card.title }}</h3>
+          <p>{{ card.text }}</p>
+        </article>
+      }
+    </div>
   </div>
 </section>
 
 <!-- Partners -->
 <section class="section">
-  <div class="section-heading">
-    <p class="eyebrow">Partners</p>
-    <h2>We collaborate with institutions, startups, and technology leaders to make training accessible and industry-aligned.</h2>
-  </div>
-  <div class="partners-strip">
-    @for (p of partners; track p) {
-      <span>{{ p }}</span>
-    }
+  <div class="page-shell">
+    <div class="section-heading" style="text-align:center;max-width:100%;">
+      <p class="eyebrow">Partners</p>
+      <h2 style="max-width:60ch;margin-inline:auto;">We collaborate with institutions, startups, and technology leaders to make training accessible and industry-aligned.</h2>
+    </div>
+    <div class="partners-strip">
+      @for (p of partners; track p) {
+        <span class="animated-underline">{{ p }}</span>
+      }
+    </div>
   </div>
 </section>
 
 <!-- CTA -->
-<section class="section home-cta">
-  <div class="home-cta__content">
-    <p class="eyebrow">{{ cta.eyebrow }}</p>
-    <h2>{{ cta.title }}</h2>
-    <p>{{ cta.text }}</p>
-    <div class="home-cta__actions">
-      <a [routerLink]="cta.primaryPath" class="button button--primary">{{ cta.primaryLabel }}</a>
-      @if (cta.secondaryLabel && cta.secondaryPath) {
-        <a [routerLink]="cta.secondaryPath" class="button">{{ cta.secondaryLabel }}</a>
-      }
+<section class="section">
+  <div class="page-shell">
+    <div class="section home-cta">
+      <div class="gradient-orb gradient-orb--teal" style="width:300px;height:300px;top:-100px;right:-80px;"></div>
+      <div class="home-cta__content">
+        <p class="eyebrow">{{ cta.eyebrow }}</p>
+        <h2>{{ cta.title }}</h2>
+        <p>{{ cta.text }}</p>
+        <div class="home-cta__actions">
+          <a [routerLink]="cta.primaryPath" class="button button--primary button--lg">{{ cta.primaryLabel }}</a>
+          @if (cta.secondaryLabel && cta.secondaryPath) {
+            <a [routerLink]="cta.secondaryPath" class="button button--secondary button--lg">{{ cta.secondaryLabel }}</a>
+          }
+        </div>
+      </div>
     </div>
   </div>
 </section>
