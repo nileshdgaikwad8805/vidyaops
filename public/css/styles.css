@@ -326,6 +326,33 @@ a:hover { color: var(--accent-light); }
   z-index: 1;
 }
 
+/* ── Hero rotating text ── */
+.hero-rotating {
+  display: inline-block;
+  position: relative;
+  vertical-align: bottom;
+  height: 1.1em;
+  overflow: hidden;
+  color: var(--accent);
+}
+.hero-rotating__word {
+  display: block;
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  opacity: 0;
+  animation: heroWordRotate 8s ease-in-out infinite;
+}
+.hero-rotating__word:nth-child(1) { animation-delay: 0s; }
+.hero-rotating__word:nth-child(2) { animation-delay: 2s; }
+.hero-rotating__word:nth-child(3) { animation-delay: 4s; }
+.hero-rotating__word:nth-child(4) { animation-delay: 6s; }
+@keyframes heroWordRotate {
+  0%, 18% { opacity: 0; transform: translateY(20px); }
+  3%, 15% { opacity: 1; transform: translateY(0); }
+  20%, 100% { opacity: 0; transform: translateY(-20px); }
+}
+
 /* ── 10. Section ── */
 .section { padding: 140px 0; position: relative; }
 .section:last-of-type { border-bottom: none; }
