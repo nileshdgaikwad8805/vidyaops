@@ -101,6 +101,14 @@
         <button type="submit" class="button button--primary button--lg button--shadow" [disabled]="isSubmitting()">
           {{ isSubmitting() ? 'Sending...' : 'Send Inquiry' }}
         </button>
+        @if (errorMessage()) {
+          <div class="contact-error">
+            <p>{{ errorMessage() }}</p>
+            <button type="button" class="button button--secondary" (click)="openMailFallback()">
+              Open Email Client
+            </button>
+          </div>
+        }
       </form>
     }
   </div>

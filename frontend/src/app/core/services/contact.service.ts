@@ -3,22 +3,35 @@ import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 
 import { ContactInquiry } from '../models/site.models';
-import { RuntimeConfigService } from './runtime-config.service';
+
+const WEB3FORMS_ACCESS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContactService {
   private readonly http = inject(HttpClient);
-  private readonly runtimeConfig = inject(RuntimeConfigService);
 
   async submitInquiry(payload: ContactInquiry): Promise<void> {
-    await firstValueFrom(
-      this.http.post(this.runtimeConfig.apiUrl('/api/contact'), {
-        ...payload,
-        source: payload.source || 'angular_contact_form',
-      }),
+    const body = {
+      access_key: WEB3FORMS_ACCESS_KEY,
+      subject: `New VidyaOps Inquiry from ${payload.name}`,
+      name: payload.name,
+      email: payload.email,
+      phone: payload.phone || '',
+      organization: payload.organization || '',
+      interest: payload.interest || '',
+      message: payload.message,
+      from_name: 'VidyaOps Website',
+    };
+
+    const response = await firstValueFrom(
+      this.http.post<{ success: boolean }>('https://api.web3forms.com/submit', body),
     );
+
+    if (!response.success) {
+      throw new Error('Form submission failed');
+    }
   }
 
   openInquiryEmail(payload: ContactInquiry): void {

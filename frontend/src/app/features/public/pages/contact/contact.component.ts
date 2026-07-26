@@ -15,6 +15,7 @@ export class ContactComponent {
 
   readonly submitted = signal(false);
   readonly isSubmitting = signal(false);
+  readonly errorMessage = signal('');
 
   formData: ContactInquiry = {
     name: '',
@@ -28,13 +29,20 @@ export class ContactComponent {
   async onSubmit(): Promise<void> {
     if (this.isSubmitting()) return;
     this.isSubmitting.set(true);
+    this.errorMessage.set('');
     try {
       await this.contactService.submitInquiry(this.formData);
       this.submitted.set(true);
     } catch {
-      this.contactService.openInquiryEmail(this.formData);
+      this.errorMessage.set(
+        'Unable to send online. Click below to open your email client instead.'
+      );
     } finally {
       this.isSubmitting.set(false);
     }
+  }
+
+  openMailFallback(): void {
+    this.contactService.openInquiryEmail(this.formData);
   }
 }
