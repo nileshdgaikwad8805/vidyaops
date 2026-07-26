@@ -1,0 +1,144 @@
+<!-- Hero -->
+<section class="page-hero">
+  <div class="page-hero__inner">
+    <p class="eyebrow">Practical Tech Training</p>
+    <h1>
+      Hands-on workshops, guided learning tracks, and enterprise-ready programs.
+      We bridge the gap between academic knowledge and career readiness.
+    </h1>
+    <div class="page-hero__actions">
+      <a routerLink="/services" class="button button--primary">Explore Services</a>
+      <a routerLink="/contact" class="button">Talk to Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="impact-strip">
+  @for (stat of stats; track stat.label) {
+    <div>
+      <strong class="stat-number" [attr.data-count]="stat.count">{{ stat.value }}</strong>
+      <span>{{ stat.label }}</span>
+    </div>
+  }
+</section>
+
+<!-- Services -->
+<section class="section">
+  <div class="section-heading">
+    <p class="eyebrow">Our Services</p>
+    <h2>Comprehensive technology solutions across training, development, and digital learning.</h2>
+  </div>
+  <div class="service-showcase">
+    @for (card of services; track card.title) {
+      <article class="service-showcase__card">
+        <span class="service-showcase__badge">{{ card.badge }}</span>
+        <h3>{{ card.title }}</h3>
+        <p>{{ card.text }}</p>
+        @if (card.link && card.linkText) {
+          <a [routerLink]="card.link" class="link">{{ card.linkText }} &rarr;</a>
+        }
+      </article>
+    }
+  </div>
+</section>
+
+<!-- Case Studies -->
+<section class="section section--alt">
+  <div class="section-heading">
+    <p class="eyebrow">Case Studies &amp; Research Reports</p>
+    <h2>Real outcomes from real engagements.</h2>
+  </div>
+  <div class="case-studies-grid">
+    @for (cs of caseStudies; track cs.title) {
+      <article class="case-card">
+        <span class="case-card__badge">{{ cs.badge }}</span>
+        <h3>{{ cs.title }}</h3>
+        <p>{{ cs.text }}</p>
+        @if (cs.link && cs.linkText) {
+          <a [routerLink]="cs.link" class="link">{{ cs.linkText }} &rarr;</a>
+        }
+      </article>
+    }
+  </div>
+</section>
+
+<!-- Why VidyaOps -->
+<section class="section">
+  <div class="section-heading">
+    <p class="eyebrow">Why VidyaOps</p>
+    <h2>The difference between training and transformation.</h2>
+  </div>
+  <div class="feature-grid">
+    @for (item of whyUs; track item.title) {
+      <article class="impact-card">
+        <strong>{{ item.title }}</strong>
+        <p>{{ item.text }}</p>
+      </article>
+    }
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="section section--alt">
+  <div class="section-heading">
+    <p class="eyebrow">What Learners Say</p>
+    <h2>Stories from students who took the first step with VidyaOps.</h2>
+  </div>
+  <div class="testimonial-grid">
+    @for (t of testimonials; track t.title) {
+      <article class="testimonial-card">
+        <blockquote>{{ t.text }}</blockquote>
+        <div class="testimonial-card__author">
+          <strong>&mdash; {{ t.title }}</strong>
+          <span>{{ t.badge }}</span>
+        </div>
+      </article>
+    }
+  </div>
+</section>
+
+<!-- CSR -->
+<section class="section section--alt">
+  <div class="section-heading">
+    <p class="eyebrow">CSR Initiatives</p>
+    <h2>Giving back through purpose-driven programs.</h2>
+    <p>Technology education should be accessible to everyone. These initiatives are how we make that real.</p>
+  </div>
+  <div class="initiatives-grid">
+    @for (card of csr; track card.title) {
+      <article class="initiatives-card">
+        <h3>{{ card.title }}</h3>
+        <p>{{ card.text }}</p>
+      </article>
+    }
+  </div>
+</section>
+
+<!-- Partners -->
+<section class="section">
+  <div class="section-heading">
+    <p class="eyebrow">Partners</p>
+    <h2>We collaborate with institutions, startups, and technology leaders to make training accessible and industry-aligned.</h2>
+  </div>
+  <div class="partners-strip">
+    @for (p of partners; track p) {
+      <span>{{ p }}</span>
+    }
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section home-cta">
+  <div class="home-cta__content">
+    <p class="eyebrow">{{ cta.eyebrow }}</p>
+    <h2>{{ cta.title }}</h2>
+    <p>{{ cta.text }}</p>
+    <div class="home-cta__actions">
+      <a [routerLink]="cta.primaryPath" class="button button--primary">{{ cta.primaryLabel }}</a>
+      @if (cta.secondaryLabel && cta.secondaryPath) {
+        <a [routerLink]="cta.secondaryPath" class="button">{{ cta.secondaryLabel }}</a>
+      }
+    </div>
+  </div>
+</section>

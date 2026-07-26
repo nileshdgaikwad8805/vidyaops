@@ -1,0 +1,32 @@
+<section class="page-hero page-hero--split reveal is-visible">
+  <div class="page-hero__content">
+    <p class="eyebrow">{{ hero().eyebrow }}</p>
+    <h1>{{ hero().title }}</h1>
+    <p>{{ hero().description }}</p>
+
+    @if (hero().chips?.length) {
+      <div class="page-hero__chips">
+        @for (chip of hero().chips; track chip) {
+          <span>{{ chip }}</span>
+        }
+      </div>
+    }
+  </div>
+
+  @if (hero().panelTitle) {
+    <aside class="page-hero__panel">
+      @if (hero().panelLabel) {
+        <p class="page-hero__panel-label">{{ hero().panelLabel }}</p>
+      }
+      <strong>{{ hero().panelTitle }}</strong>
+
+      @if (hero().panelItems?.length) {
+        <ul class="page-hero__list">
+          @for (item of hero().panelItems; track item) {
+            <li>{{ item }}</li>
+          }
+        </ul>
+      }
+    </aside>
+  }
+</section>

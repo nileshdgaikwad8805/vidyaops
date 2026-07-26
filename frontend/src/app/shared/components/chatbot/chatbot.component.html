@@ -1,0 +1,45 @@
+<section class="chatbot" aria-label="VidyaOps chatbot">
+  <button
+    class="chatbot__toggle"
+    type="button"
+    [attr.aria-expanded]="isOpen()"
+    aria-controls="chatbot-panel"
+    (click)="toggle()"
+  >
+    Ask VidyaOps AI
+  </button>
+
+  <div class="chatbot__panel" id="chatbot-panel" [hidden]="!isOpen()">
+    <div class="chatbot__header">
+      <div>
+        <strong>VidyaOps AI</strong>
+        <p>Ask about trainings, workshops, and contact details.</p>
+      </div>
+      <button class="chatbot__close" type="button" aria-label="Close chatbot" (click)="close()">Close</button>
+    </div>
+
+    <div class="chatbot__messages" aria-live="polite">
+      @for (message of messages(); track $index) {
+        <div class="chatbot__bubble" [class.chatbot__bubble--user]="message.sender === 'user'" [class.chatbot__bubble--bot]="message.sender === 'bot'">
+          {{ message.text }}
+        </div>
+      }
+
+      @if (isLoading()) {
+        <div class="chatbot__bubble chatbot__bubble--bot">Thinking...</div>
+      }
+    </div>
+
+    <form class="chatbot__form" (ngSubmit)="sendMessage()">
+      <input
+        class="chatbot__input"
+        type="text"
+        name="message"
+        placeholder="Ask about AI training, workshops, contact..."
+        autocomplete="off"
+        [(ngModel)]="draft"
+      />
+      <button class="button" type="submit">Send</button>
+    </form>
+  </div>
+</section>

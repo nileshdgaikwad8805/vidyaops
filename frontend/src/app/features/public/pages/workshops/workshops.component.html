@@ -1,0 +1,40 @@
+<section class="page-hero">
+  <div class="page-hero__inner">
+    <p class="eyebrow">Upcoming Workshops</p>
+    <h1>Learn by doing - join a <span class="gradient-text">hands-on workshop</span> built for real momentum.</h1>
+    <p>Every VidyaOps workshop is designed around hands-on practice, not passive lectures. Free and paid options are available across Cloud, Data Analysis, AI, and Cybersecurity.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-heading">
+    <p class="eyebrow">Browse Workshops</p>
+    <h2>Find the right session for your learning goals.</h2>
+  </div>
+  <div class="workshop-grid">
+    @for (w of workshops(); track w.title) {
+      <article class="workshop-card">
+        <p class="workshop-card__type">{{ w.type }}</p>
+        <h3>{{ w.title }}</h3>
+        <p>{{ w.description }}</p>
+        <ul class="workshop-meta">
+          <li>{{ w.schedule_text }}</li>
+          <li>{{ w.duration_text }}</li>
+          <li>{{ w.level_text }}</li>
+        </ul>
+        <a class="button" [routerLink]="w.cta_link">{{ w.cta_text }}</a>
+      </article>
+    }
+  </div>
+</section>
+
+<section class="section home-cta">
+  <div class="home-cta__content">
+    <p class="eyebrow">Ready to start?</p>
+    <h2>Ready to join a workshop?</h2>
+    <p>Every workshop is designed around hands-on practice, mentor guidance, and real-world relevance. Talk to our team to find the right starting point for your learning goals.</p>
+    <div class="home-cta__actions">
+      <a routerLink="/contact" class="button button--primary">Talk to Our Team</a>
+    </div>
+  </div>
+</section>

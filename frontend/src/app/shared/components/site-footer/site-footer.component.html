@@ -1,0 +1,41 @@
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__brand">
+      <a class="brand-mark" routerLink="/">
+        <span class="brand-mark__icon">
+          <img src="assets/vidyaops-logo.jpeg?v=2" alt="VidyaOps logo" />
+        </span>
+        <span class="brand-mark__text">
+          <span class="brand-mark__name">VidyaOps</span>
+          <span class="brand-mark__tag">Knowledge is the power.</span>
+        </span>
+      </a>
+      <p>practical tech training for individuals, teams, and enterprises across Cloud, Data, AI, and Cybersecurity.</p>
+    </div>
+
+    <div class="site-footer__links">
+      <h4>Services</h4>
+      @for (link of serviceLinks; track link.path) {
+        <a [routerLink]="link.path">{{ link.label }}</a>
+      }
+    </div>
+
+    <div class="site-footer__links">
+      <h4>Company</h4>
+      <a routerLink="/about">About</a>
+      <a routerLink="/contact">Contact</a>
+      <a routerLink="/privacy">Privacy Policy</a>
+      <a routerLink="/terms">Terms of Service</a>
+    </div>
+
+    <div class="site-footer__links">
+      <h4>Connect</h4>
+      <a href="https://wa.me/919503685152" target="_blank" rel="noreferrer">WhatsApp</a>
+      <a href="mailto:info@vidyaops.com">Email Us</a>
+    </div>
+  </div>
+
+  <div class="site-footer__bottom">
+    <p>&copy; 2026 VidyaOps. All rights reserved.</p>
+  </div>
+</footer>

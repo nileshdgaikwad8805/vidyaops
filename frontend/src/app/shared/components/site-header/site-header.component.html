@@ -1,0 +1,40 @@
+<header class="site-header">
+  <a class="brand-mark" routerLink="/" (click)="closeMenus()">
+    <span class="brand-mark__icon">
+      <img src="assets/vidyaops-logo.jpeg?v=2" alt="VidyaOps logo" />
+    </span>
+    <span class="brand-mark__text">
+      <span class="brand-mark__name">VidyaOps</span>
+      <span class="brand-mark__tag">Knowledge is the power.</span>
+    </span>
+  </a>
+
+  <button
+    class="nav-toggle"
+    type="button"
+    [attr.aria-expanded]="navOpen()"
+    aria-controls="site-nav"
+    aria-label="Open menu"
+    (click)="toggleNav()"
+  >
+    <span></span><span></span><span></span>
+  </button>
+
+  <nav class="site-nav" id="site-nav" [class.is-open]="navOpen()">
+    <a routerLink="/" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenus()">Home</a>
+    <a routerLink="/about" routerLinkActive="is-active" (click)="closeMenus()">About</a>
+    <div class="nav-group" [class.is-open]="servicesOpen()" [class.is-active]="isServicesRoute()">
+      <a routerLink="/services" [class.is-active]="isServicesRoute()" (click)="toggleServicesMenu($event)">Services</a>
+      <div class="nav-dropdown">
+        @for (link of serviceLinks; track link.path) {
+          <a [routerLink]="link.path" (click)="closeMenus()">{{ link.label }}</a>
+        }
+      </div>
+    </div>
+    <a routerLink="/programs" routerLinkActive="is-active" (click)="closeMenus()">Programs</a>
+    <a routerLink="/workshops" routerLinkActive="is-active" (click)="closeMenus()">Workshops</a>
+    <a routerLink="/contact" routerLinkActive="is-active" (click)="closeMenus()">Contact</a>
+  </nav>
+
+  <a class="button button--ghost" routerLink="/contact">Talk to Us</a>
+</header>
