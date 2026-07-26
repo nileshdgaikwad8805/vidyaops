@@ -712,3 +712,26 @@ async function loadSiteContent() {
 
 loadSiteContent();
 
+if (typeof Swiper !== "undefined") {
+  new Swiper(".service-swiper", {
+    slidesPerView: 1,
+    spaceBetween: 24,
+    pagination: { el: ".service-pagination", clickable: true },
+    breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } },
+  });
+
+  new Swiper(".case-swiper", {
+    slidesPerView: 1,
+    spaceBetween: 24,
+    pagination: { el: ".case-pagination", clickable: true },
+    breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } },
+  });
+
+  new Swiper(".testimonial-swiper", {
+    slidesPerView: 1,
+    spaceBetween: 24,
+    pagination: { el: ".testimonial-pagination", clickable: true },
+    breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } },
+  });
+}
+
