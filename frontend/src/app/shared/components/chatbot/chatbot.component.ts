@@ -19,25 +19,32 @@ export class ChatbotComponent {
   readonly messages = signal<Array<{ sender: 'bot' | 'user'; text: string }>>([
     {
       sender: 'bot',
-      text: 'Hi, I am VidyaOps AI. I can answer questions about trainings, workshops, and how to contact VidyaOps.',
+      text: 'Hi! I am VidyaOps AI assistant. I can help you with:\n\n• Training programs & certifications\n• Free & paid workshops\n• Corporate training\n• Pricing & scheduling\n• Contact information\n\nWhat would you like to know?',
     },
   ]);
   readonly isLoading = signal(false);
 
   private readonly leadSteps: Array<keyof LeadCaptureData> = ['name', 'contact', 'learnerType', 'interest'];
   private readonly leadPrompts: Record<keyof LeadCaptureData, string> = {
-    name: 'Great. What is your name?',
+    name: 'Great! What is your name?',
     contact: 'How should VidyaOps contact you? Share your phone number or email.',
     learnerType: 'Are you a college student, fresher, early professional, or knowledge seeker?',
     interest: 'Which area are you most interested in: Cloud, Data Analysis, AI, Cybersecurity, Free Workshop, or Paid Workshop?',
   };
   private readonly counselorPrompts = [
-    'I can help you choose the best VidyaOps path. First, are you a college student, fresher, early professional, or knowledge seeker?',
-    'Which area are you most interested in right now: Cloud, Data Analysis, AI, Cybersecurity, or workshops in general?',
-    'What is your main goal right now: explore a topic, build practical skills, prepare for a career start, or choose the right first step?',
+    'I can guide you like a VidyaOps counselor. I will ask 3 quick questions, then recommend the best starting path.\n\nFirst, are you a college student, fresher, early professional, working professional, or part of a team/institution?',
+    'Which area are you most interested in: Cloud, Data Analysis, AI, Cybersecurity, Software Development, or workshops in general?',
+    'What is your main goal right now: explore a topic, build practical skills, prepare for a career start, earn a certification, or choose the right first step?',
   ];
-  private readonly highIntentPatterns = ['enroll', 'join', 'register', 'book', 'call me', 'contact me', 'interested'];
-  private readonly counselorPatterns = ['which course', 'which program', 'help me choose', 'recommend', 'suggest', 'best path'];
+  private readonly highIntentPatterns = [
+    'enroll', 'join', 'register', 'book', 'call me', 'contact me', 'interested',
+    'sign up', 'start', 'begin', 'apply', 'admission', 'admissions',
+  ];
+  private readonly counselorPatterns = [
+    'which course', 'which program', 'help me choose', 'recommend', 'suggest',
+    'best path', 'what should i', 'guide me', 'confused', 'not sure',
+    'what do you suggest', 'help me decide',
+  ];
 
   private leadCaptureActive = false;
   private leadStepIndex = 0;
@@ -108,7 +115,7 @@ export class ChatbotComponent {
   private startLeadCapture(): void {
     this.leadCaptureActive = true;
     this.leadStepIndex = 0;
-    this.pushMessage('I can help you get started. I will collect a few details so VidyaOps can guide you better.', 'bot');
+    this.pushMessage('I can help you get started! I will collect a few details so VidyaOps can guide you better.', 'bot');
     this.pushMessage(this.leadPrompts[this.leadSteps[this.leadStepIndex]], 'bot');
   }
 
@@ -121,7 +128,7 @@ export class ChatbotComponent {
       this.leadCaptureActive = false;
       await this.chatbotService.saveLead({ ...this.leadData });
       this.pushMessage(
-        `Thanks ${this.leadData.name}. Your details are saved. Open the contact page to see them pre-filled, or continue on WhatsApp for a faster reply.`,
+        `Thanks ${this.leadData.name}! Your details are saved. Open the contact page to see them pre-filled, or continue on WhatsApp at +91 9503685152 for a faster reply.`,
         'bot',
       );
       return;
@@ -133,7 +140,6 @@ export class ChatbotComponent {
   private startCounselorFlow(): void {
     this.counselorActive = true;
     this.counselorStepIndex = 0;
-    this.pushMessage('I can guide you like a VidyaOps counselor. I will ask 3 quick questions, then recommend the best starting path.', 'bot');
     this.pushMessage(this.counselorPrompts[this.counselorStepIndex], 'bot');
   }
 
@@ -166,4 +172,3 @@ export class ChatbotComponent {
     this.messages.update((messages) => [...messages, { text, sender }]);
   }
 }
-

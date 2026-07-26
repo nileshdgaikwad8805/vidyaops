@@ -6,16 +6,19 @@
     aria-controls="chatbot-panel"
     (click)="toggle()"
   >
-    Ask VidyaOps AI
+    @if (!isOpen()) {
+      <span class="chatbot__toggle-icon">💬</span>
+    }
+    {{ isOpen() ? 'Close' : 'Ask AI' }}
   </button>
 
   <div class="chatbot__panel" id="chatbot-panel" [hidden]="!isOpen()">
     <div class="chatbot__header">
       <div>
         <strong>VidyaOps AI</strong>
-        <p>Ask about trainings, workshops, and contact details.</p>
+        <p>Ask about trainings, workshops, pricing, and more.</p>
       </div>
-      <button class="chatbot__close" type="button" aria-label="Close chatbot" (click)="close()">Close</button>
+      <button class="chatbot__close" type="button" aria-label="Close chatbot" (click)="close()">×</button>
     </div>
 
     <div class="chatbot__messages" aria-live="polite">
@@ -26,7 +29,11 @@
       }
 
       @if (isLoading()) {
-        <div class="chatbot__bubble chatbot__bubble--bot">Thinking...</div>
+        <div class="chatbot__bubble chatbot__bubble--bot chatbot__bubble--loading">
+          <span class="chatbot__typing-dot"></span>
+          <span class="chatbot__typing-dot"></span>
+          <span class="chatbot__typing-dot"></span>
+        </div>
       }
     </div>
 
@@ -35,11 +42,11 @@
         class="chatbot__input"
         type="text"
         name="message"
-        placeholder="Ask about AI training, workshops, contact..."
+        placeholder="Ask about AI training, workshops..."
         autocomplete="off"
         [(ngModel)]="draft"
       />
-      <button class="button" type="submit">Send</button>
+      <button class="button button--primary" type="submit" [disabled]="!draft().trim() || isLoading()">Send</button>
     </form>
   </div>
 </section>
