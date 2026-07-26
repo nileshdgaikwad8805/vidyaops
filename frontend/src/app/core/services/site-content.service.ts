@@ -23,12 +23,12 @@ export class SiteContentService {
 
   readonly serviceLinks: NavLink[] = [
     { label: 'All Services', path: '/services', pageKey: 'services' },
-    { label: 'IT Training & Certifications', path: '/services/certifications', pageKey: 'services' },
-    { label: 'Software Development', path: '/services/software-development', pageKey: 'services' },
-    { label: 'Digital Learning', path: '/services/digital-learning', pageKey: 'services' },
-    { label: 'Corporate Training', path: '/services/corporate-training', pageKey: 'services' },
-    { label: 'R&D Internship', path: '/services/rd-internship', pageKey: 'services' },
-    { label: 'Collaborations', path: '/services/collaborations', pageKey: 'services' },
+    { label: 'IT Training & Certifications', path: '/certifications', pageKey: 'certifications' },
+    { label: 'Software Development', path: '/software-development', pageKey: 'software-development' },
+    { label: 'Digital Learning', path: '/digital-learning', pageKey: 'digital-learning' },
+    { label: 'Corporate Training', path: '/corporate-training', pageKey: 'corporate-training' },
+    { label: 'R&D Internship', path: '/rd-internship', pageKey: 'rd-internship' },
+    { label: 'Collaborations', path: '/collaborations', pageKey: 'collaborations' },
   ];
 
   readonly homeStats: StatItem[] = [
@@ -42,42 +42,42 @@ export class SiteContentService {
     {
       title: 'IT Training & Certifications',
       text: 'Instructor-led and self-paced training across Cloud, Data, AI, and Cybersecurity with practical labs and certification pathways.',
-      link: '/services/certifications',
+      link: '/certifications',
       linkText: 'Learn more',
       badge: '01',
     },
     {
       title: 'Software Development',
       text: 'Custom web, mobile, and enterprise software delivery with architecture, prototyping, deployment, and maintenance support.',
-      link: '/services/software-development',
+      link: '/software-development',
       linkText: 'Learn more',
       badge: '02',
     },
     {
       title: 'Digital Learning',
       text: 'Custom eLearning content, LMS solutions, gamified modules, and multimedia experiences for scalable learning programs.',
-      link: '/services/digital-learning',
+      link: '/digital-learning',
       linkText: 'Learn more',
       badge: '03',
     },
     {
       title: 'Corporate Training',
       text: 'Structured upskilling programs for teams, colleges, and organized learner groups with measurable outcomes.',
-      link: '/services/corporate-training',
+      link: '/corporate-training',
       linkText: 'Learn more',
       badge: '04',
     },
     {
       title: 'R&D Internship',
       text: 'Mentored internship experiences that expose students and freshers to practical Cloud, AI, and Data workflows.',
-      link: '/services/rd-internship',
+      link: '/rd-internship',
       linkText: 'Learn more',
       badge: '05',
     },
     {
       title: 'Collaborations',
       text: 'Partnerships with institutions, startups, and enterprises that create real-world learning and innovation outcomes.',
-      link: '/services/collaborations',
+      link: '/collaborations',
       linkText: 'Learn more',
       badge: '06',
     },
@@ -88,7 +88,7 @@ export class SiteContentService {
       badge: 'Cloud Training',
       title: 'Cloud Training for College Batches',
       text: 'Delivered structured AWS and Azure fundamentals across three engineering college batches with strong lab completion rates.',
-      link: '/services/certifications',
+      link: '/certifications',
       linkText: 'Read case study',
     },
     {
