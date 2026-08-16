@@ -35,6 +35,104 @@
   overflow: hidden;
 }
 
+/* ── Learning paths visual ── */
+.path-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.path-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 16px;
+  border-radius: 12px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+  transition: transform 0.3s var(--ease), border-color var(--transition), box-shadow var(--transition);
+}
+.path-card:hover {
+  transform: translateX(4px);
+  border-color: rgba(13,148,136,0.45);
+  box-shadow: var(--glow-teal);
+}
+.path-card__icon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  color: #fff;
+  flex-shrink: 0;
+  transition: transform var(--transition);
+}
+.path-card:hover .path-card__icon { transform: scale(1.08); }
+.path-card__icon--cloud { background: linear-gradient(135deg, #0d9488, #0f766e); }
+.path-card__icon--data { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+.path-card__icon--ai { background: linear-gradient(135deg, #8b5cf6, #6d28d9); }
+.path-card__icon--cyber { background: linear-gradient(135deg, #ef4444, #b91c1c); }
+.path-card__icon--devops { background: linear-gradient(135deg, #d97706, #b45309); }
+.path-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+.path-card__name {
+  font-size: 0.93rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.2;
+}
+.path-card__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.path-card__chips small {
+  font-size: 0.66rem;
+  font-weight: 600;
+  color: var(--teal-dark);
+  background: rgba(13,148,136,0.09);
+  border: 1px solid rgba(13,148,136,0.18);
+  padding: 2px 9px;
+  border-radius: 100px;
+  letter-spacing: 0.02em;
+}
+.path-card__arrow {
+  margin-left: auto;
+  color: var(--muted);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  transition: color var(--transition), transform var(--transition);
+}
+.path-card:hover .path-card__arrow {
+  color: var(--teal);
+  transform: translateX(3px);
+}
+.path-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--line);
+}
+.path-footer__badge {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--muted);
+  background: var(--surface-alt);
+  border: 1px solid var(--line);
+  padding: 5px 12px;
+  border-radius: 100px;
+  letter-spacing: 0.04em;
+}
+
 .home-cta--enhanced::after {
   content: "";
   position: absolute;
