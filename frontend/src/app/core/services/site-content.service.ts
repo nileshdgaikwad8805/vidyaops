@@ -32,7 +32,7 @@ export class SiteContentService {
   ];
 
   readonly homeStats: StatItem[] = [
-    { value: '500+', count: 500, label: 'Students Trained' },
+    { value: '500+', count: 500, label: 'Learners Trained' },
     { value: '50+', count: 50, label: 'Workshops Delivered' },
     { value: '4', count: 4, label: 'Core Domains' },
     { value: '95%', count: 95, label: 'Positive Feedback' },
