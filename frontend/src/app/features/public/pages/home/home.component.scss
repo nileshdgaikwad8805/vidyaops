@@ -38,8 +38,13 @@
 /* ── Learning paths visual ── */
 .path-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+@media (max-width: 1024px) { .path-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 640px) {
+  .path-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .path-box__name { font-size: 0.8rem; }
 }
 .path-box {
   display: flex;
@@ -73,7 +78,6 @@
   box-shadow: var(--shadow-lg);
 }
 .path-box:hover::before { opacity: 1; }
-.path-box:last-child { grid-column: 1 / -1; }
 .path-box__icon {
   display: grid;
   place-items: center;

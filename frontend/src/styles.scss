@@ -316,6 +316,47 @@ a:hover { color: var(--teal-dark); }
   justify-content: center;
   z-index: 1;
 }
+
+/* ── 9b. Centered editorial hero ── */
+.home-hero--centered {
+  text-align: center;
+  display: block;
+}
+.home-hero--centered .home-hero__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  max-width: 860px;
+}
+.home-hero--centered .eyebrow { margin-bottom: 24px; }
+.home-hero--centered h1 {
+  margin: 0 0 24px;
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 5.6vw, 4.6rem);
+  font-weight: 700;
+  line-height: 1.09;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  max-width: 16ch;
+}
+.home-hero--centered > .page-shell p {
+  margin: 0 0 40px;
+  font-size: 1.12rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  max-width: 56ch;
+}
+.home-hero--centered .home-hero__actions { justify-content: center; }
+.home-hero--centered .home-hero__signals { justify-content: center; }
+.text-gradient {
+  background: linear-gradient(120deg, var(--teal), var(--gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
 .hero-logo { display: block; width: 80%; max-width: 300px; height: auto; margin: 0 auto 20px; border-radius: var(--radius-md); }
 .hero-shell { position: relative; padding: 0; overflow: hidden; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); }
 .hero-shell::before {

@@ -1,104 +1,95 @@
 <!-- Hero -->
-<section class="page-hero mesh-bg">
+<section class="page-hero home-hero--centered mesh-bg">
   <div class="gradient-orb gradient-orb--teal" style="width:600px;height:600px;top:-120px;right:-140px;"></div>
   <div class="gradient-orb gradient-orb--gold" style="width:450px;height:450px;bottom:-180px;left:-100px;"></div>
-  <div class="page-shell page-hero__inner" style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;">
-    <div class="page-hero__content">
-      <p class="eyebrow">Practical Tech Training</p>
-      <h1>Build real skills for a real career in tech.</h1>
-      <p>Hands-on workshops, guided learning tracks, and enterprise-ready programs across Cloud, Data, AI, and Cybersecurity. We bridge the gap between academic knowledge and career readiness.</p>
-      <div class="page-hero__actions">
-        <a routerLink="/services" class="button button--primary button--lg button--shadow">Explore Services</a>
-        <a routerLink="/contact" class="button button--secondary button--lg">Talk to Us</a>
-      </div>
-      <div class="home-hero__signals">
-        <span><strong>500+</strong> Learners Trained</span>
-        <span><strong>50+</strong> Workshops Delivered</span>
-        <span><strong>95%</strong> Positive Feedback</span>
-      </div>
+  <div class="page-shell home-hero__inner">
+    <p class="eyebrow">Practical Tech Training</p>
+    <h1>Build real skills for a<br />real <span class="text-gradient">career in tech.</span></h1>
+    <p>Hands-on workshops, guided learning tracks, and enterprise-ready programs across Cloud, Data, AI, and Cybersecurity. We bridge the gap between academic knowledge and career readiness.</p>
+    <div class="home-hero__actions">
+      <a routerLink="/services" class="button button--primary button--lg button--shadow">Explore Services</a>
+      <a routerLink="/contact" class="button button--secondary button--lg">Talk to Us</a>
     </div>
-    <div class="page-hero__visual">
-      <div class="hero-visual-card" style="position:relative;">
-        <div class="hero-shell">
-          <div class="hero-command">
-            <div class="hero-command__header">
-              <span class="hero-command__dot hero-command__dot--red"></span>
-              <span class="hero-command__dot hero-command__dot--yellow"></span>
-              <span class="hero-command__dot hero-command__dot--green"></span>
-              <span class="hero-command__title">VidyaOps Learning Paths</span>
-            </div>
+    <div class="home-hero__signals">
+      <span><strong>500+</strong> Learners Trained</span>
+      <span><strong>50+</strong> Workshops Delivered</span>
+      <span><strong>95%</strong> Positive Feedback</span>
+    </div>
+  </div>
+</section>
 
-            <div class="path-grid">
-              <a class="path-box" routerLink="/programs">
-                <span class="path-box__icon path-box__icon--cloud">
-                  <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
-                </span>
-                <strong class="path-box__name">Cloud Engineering</strong>
-                <span class="path-box__chips">
-                  <small>AWS</small>
-                  <small>Azure</small>
-                  <small>GCP</small>
-                </span>
-              </a>
+<!-- Learning Paths -->
+<section class="section reveal-on-scroll">
+  <div class="page-shell">
+    <div class="section-heading" style="text-align:center;max-width:100%;">
+      <p class="eyebrow">Learning Paths</p>
+      <h2 style="max-width:24ch;margin-inline:auto;">Structured tracks across the technologies that matter.</h2>
+    </div>
+    <div class="path-grid">
+      <a class="path-box" routerLink="/programs">
+        <span class="path-box__icon path-box__icon--cloud">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+        </span>
+        <strong class="path-box__name">Cloud Engineering</strong>
+        <span class="path-box__chips">
+          <small>AWS</small>
+          <small>Azure</small>
+          <small>GCP</small>
+        </span>
+      </a>
 
-              <a class="path-box" routerLink="/programs">
-                <span class="path-box__icon path-box__icon--data">
-                  <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-                </span>
-                <strong class="path-box__name">Data Analytics</strong>
-                <span class="path-box__chips">
-                  <small>SQL</small>
-                  <small>Python</small>
-                  <small>BI Tools</small>
-                </span>
-              </a>
+      <a class="path-box" routerLink="/programs">
+        <span class="path-box__icon path-box__icon--data">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </span>
+        <strong class="path-box__name">Data Analytics</strong>
+        <span class="path-box__chips">
+          <small>SQL</small>
+          <small>Python</small>
+          <small>BI Tools</small>
+        </span>
+      </a>
 
-              <a class="path-box" routerLink="/programs">
-                <span class="path-box__icon path-box__icon--ai">
-                  <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
-                </span>
-                <strong class="path-box__name">AI &amp; Machine Learning</strong>
-                <span class="path-box__chips">
-                  <small>ML</small>
-                  <small>GenAI</small>
-                  <small>NLP</small>
-                </span>
-              </a>
+      <a class="path-box" routerLink="/programs">
+        <span class="path-box__icon path-box__icon--ai">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+        </span>
+        <strong class="path-box__name">AI &amp; Machine Learning</strong>
+        <span class="path-box__chips">
+          <small>ML</small>
+          <small>GenAI</small>
+          <small>NLP</small>
+        </span>
+      </a>
 
-              <a class="path-box" routerLink="/programs">
-                <span class="path-box__icon path-box__icon--cyber">
-                  <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                </span>
-                <strong class="path-box__name">Cyber Security &amp; Forensics</strong>
-                <span class="path-box__chips">
-                  <small>Security</small>
-                  <small>Forensics</small>
-                  <small>Threat Ops</small>
-                </span>
-              </a>
+      <a class="path-box" routerLink="/programs">
+        <span class="path-box__icon path-box__icon--cyber">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </span>
+        <strong class="path-box__name">Cyber Security &amp; Forensics</strong>
+        <span class="path-box__chips">
+          <small>Security</small>
+          <small>Forensics</small>
+          <small>Threat Ops</small>
+        </span>
+      </a>
 
-              <a class="path-box" routerLink="/programs">
-                <span class="path-box__icon path-box__icon--devops">
-                  <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4m0 14v4M4.22 4.22l2.83 2.83m9.9 9.9 2.83 2.83M1 12h4m14 0h4M4.22 19.78l2.83-2.83m9.9-9.9 2.83-2.83"/></svg>
-                </span>
-                <strong class="path-box__name">DevOps &amp; Automation</strong>
-                <span class="path-box__chips">
-                  <small>CI/CD</small>
-                  <small>Docker</small>
-                  <small>Kubernetes</small>
-                </span>
-              </a>
-            </div>
-
-            <div class="path-footer">
-              <span class="path-footer__badge">Certification Ready</span>
-              <span class="path-footer__badge">Hands-on Labs</span>
-              <span class="path-footer__badge">Mentor Guided</span>
-            </div>
-          </div>
-        </div>
-        <div class="dot-pattern" style="bottom:-20px;right:-20px;width:160px;height:160px;opacity:0.3;"></div>
-      </div>
+      <a class="path-box" routerLink="/programs">
+        <span class="path-box__icon path-box__icon--devops">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4m0 14v4M4.22 4.22l2.83 2.83m9.9 9.9 2.83 2.83M1 12h4m14 0h4M4.22 19.78l2.83-2.83m9.9-9.9 2.83-2.83"/></svg>
+        </span>
+        <strong class="path-box__name">DevOps &amp; Automation</strong>
+        <span class="path-box__chips">
+          <small>CI/CD</small>
+          <small>Docker</small>
+          <small>Kubernetes</small>
+        </span>
+      </a>
+    </div>
+    <div class="path-footer">
+      <span class="path-footer__badge">Certification Ready</span>
+      <span class="path-footer__badge">Hands-on Labs</span>
+      <span class="path-footer__badge">Mentor Guided</span>
     </div>
   </div>
 </section>
