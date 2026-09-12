@@ -30,6 +30,14 @@
   background: linear-gradient(135deg, var(--gold), var(--gold-light));
 }
 
+.contact-method-card a {
+  color: var(--teal);
+  font-weight: 600;
+}
+.contact-method-card a[href*="wa.me"] {
+  color: #128c7e;
+}
+
 .contact-success {
   text-align: center;
   padding: 48px 32px;
