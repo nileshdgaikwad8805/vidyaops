@@ -444,8 +444,8 @@ a:hover { color: var(--teal-dark); }
   gap: 8px;
   font-size: 0.7rem;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
+  text-transform: none;
+  letter-spacing: 0.14em;
   color: var(--teal);
 }
 .eyebrow::before {
@@ -595,7 +595,7 @@ a:hover { color: var(--teal-dark); }
   margin-bottom: 8px;
   letter-spacing: -0.04em;
 }
-.impact-strip span { font-size: 0.85rem; color: var(--muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; }
+.impact-strip span { font-size: 0.85rem; color: var(--muted); font-weight: 500; text-transform: none; letter-spacing: 0.02em; }
 
 /* ── 13. Case study cards ── */
 .case-studies-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
@@ -837,13 +837,11 @@ a:hover { color: var(--teal-dark); }
   z-index: 1;
   line-height: 1.7;
 }
-.home-cta .button {
-  position: relative;
-  z-index: 1;
-  background: linear-gradient(135deg, var(--teal), var(--teal-light));
-  color: #fff;
-}
-.home-cta .button:hover { box-shadow: var(--glow-teal); }
+.home-cta .button { position: relative; z-index: 1; }
+.home-cta .button--primary { background: linear-gradient(135deg, var(--teal), var(--teal-light)); color: #fff; }
+.home-cta .button--primary:hover { box-shadow: var(--glow-teal); }
+.home-cta .button--secondary { background: transparent; color: var(--teal); border: 1.5px solid var(--teal); }
+.home-cta .button--secondary:hover { background: var(--teal-50); box-shadow: none; }
 .home-cta__panel { padding: 32px; }
 .home-cta__actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; position: relative; z-index: 1; }
 .home-cta--gradient {}
@@ -1469,8 +1467,9 @@ a:hover { color: var(--teal-dark); }
 }
 .page-hero p { font-size: 1.05rem; color: var(--text-secondary); line-height: 1.7; max-width: 52ch; position: relative; z-index: 1; }
 .page-hero--split { display: block; }
-.page-hero--split .page-hero__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+.page-hero--split .page-hero__inner { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: start; }
 .page-hero--split h1 { max-width: none; }
+.page-hero--split .page-hero__panel { max-width: 680px; }
 .page-hero__content { position: relative; z-index: 1; }
 .page-hero__panel { position: relative; z-index: 1; }
 .page-hero__panel strong { display: block; font-size: 1.2rem; margin-bottom: 14px; line-height: 1.4; }
@@ -2144,6 +2143,7 @@ a:hover { color: var(--teal-dark); }
   .section--lg { padding: 80px 0; }
   .section-heading h2 { font-size: clamp(1.8rem, 6vw, 2.6rem); }
   .site-footer__inner { grid-template-columns: 1fr 1fr; gap: 28px; }
+  .site-footer__inner .site-footer__brand { grid-column: 1 / -1; }
   .whatsapp-float { right: 16px; bottom: 16px; padding: 12px 18px; font-size: 0.85rem; }
   .chatbot { right: 16px; bottom: 72px; }
   .chatbot__panel { width: calc(100vw - 32px); }
