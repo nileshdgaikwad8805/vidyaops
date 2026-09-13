@@ -13,9 +13,12 @@ import { Workshop } from '../../../../core/models/site.models';
 export class WorkshopsComponent implements OnInit {
   private readonly workshopsService = inject(WorkshopsService);
 
-  workshops = signal<Workshop[]>([]);
+  workshops = signal<Workshop[]>(this.workshopsService.fallbackWorkshops);
 
   ngOnInit(): void {
-    this.workshopsService.getWorkshops().then(w => this.workshops.set(w));
+    void this.workshopsService
+      .getWorkshops()
+      .then(w => this.workshops.set(w))
+      .catch(() => {});
   }
 }

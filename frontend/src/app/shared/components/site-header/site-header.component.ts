@@ -37,7 +37,12 @@ export class SiteHeaderComponent {
     this.servicesOpen.set(false);
   }
 
-  isServicesRoute(): boolean {
-    return this.currentUrl().startsWith('/services');
+isServicesRoute(): boolean {
+    const url = this.currentUrl();
+    return this.serviceLinks.some((link) => url.startsWith(link.path));
+  }
+
+  isApplyRoute(): boolean {
+    return this.currentUrl().startsWith('/rd-internship');
   }
 }

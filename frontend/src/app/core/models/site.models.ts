@@ -34,6 +34,7 @@ export interface HeroContent {
   title: string;
   description: string;
   chips?: string[];
+  cta?: { label: string; path: string };
   panelLabel?: string;
   panelTitle?: string;
   panelItems?: string[];
@@ -43,7 +44,8 @@ export interface ContentSection {
   eyebrow?: string;
   heading: string;
   intro?: string;
-  layout?: 'cards' | 'stats' | 'faq' | 'list';
+  layout?: 'cards' | 'stats' | 'faq' | 'list' | 'process';
+  columns?: number;
   cards?: FeatureCard[];
   stats?: StatItem[];
   faqs?: FaqItem[];

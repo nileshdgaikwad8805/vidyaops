@@ -17,7 +17,7 @@
         @switch (section.layout) {
           @case ('cards') {
             @if (section.cards) {
-              <div class="feature-grid">
+              <div class="feature-grid" [class.feature-grid--2]="section.columns === 2" [class.feature-grid--3]="section.columns === 3">
                 @for (card of section.cards; track card.title; let i = $index) {
                   <article class="impact-card reveal-on-scroll" [attr.data-delay]="(i * 100).toString()">
                     @if (card.badge) {
@@ -26,9 +26,25 @@
                     <strong>{{ card.title }}</strong>
                     <p>{{ card.text }}</p>
                     @if (card.link && card.linkText) {
-                      <a [routerLink]="card.link" class="link">{{ card.linkText }} &rarr;</a>
+                      <a [routerLink]="card.link" class="link">{{ card.linkText }}</a>
                     }
                   </article>
+                }
+              </div>
+            }
+          }
+
+          @case ('process') {
+            @if (section.cards) {
+              <div class="process-steps reveal-on-scroll">
+                @for (card of section.cards; track card.title) {
+                  <div class="process-step">
+                    @if (card.badge) {
+                      <span class="process-step__num">{{ card.badge }}</span>
+                    }
+                    <h4>{{ card.title }}</h4>
+                    <p>{{ card.text }}</p>
+                  </div>
                 }
               </div>
             }

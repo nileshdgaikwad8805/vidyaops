@@ -37,6 +37,10 @@
       <a routerLink="/contact" routerLinkActive="is-active" (click)="closeMenus()">Contact</a>
     </nav>
 
-    <a class="button-link" routerLink="/contact" style="margin-left:auto;flex-shrink:0;">Talk to Us &rarr;</a>
+    @if (isApplyRoute()) {
+      <a class="button button--primary" routerLink="/volunteer" style="margin-left:auto;flex-shrink:0;">Apply Now</a>
+    } @else {
+      <a class="button button--primary" routerLink="/contact" style="margin-left:auto;flex-shrink:0;">Talk to Us</a>
+    }
   </div>
 </header>

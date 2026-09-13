@@ -237,7 +237,8 @@ export class SiteContentService {
         hero: {
           eyebrow: 'Our Services',
           title: 'Comprehensive technology solutions across training, development, and digital learning.',
-          description: 'From individual certification preparation to enterprise capability building, VidyaOps delivers practical learning and execution support.',
+description: 'From individual certification preparation to enterprise capability building, VidyaOps delivers practical learning and execution support.',
+          cta: { label: 'Talk to Us', path: '/contact' },
           chips: ['Training', 'Development', 'Digital Learning', 'Corporate Enablement'],
           panelLabel: 'What we cover',
           panelTitle: 'End-to-end capability building.',
@@ -443,14 +444,29 @@ export class SiteContentService {
             eyebrow: 'How we support software delivery',
             heading: 'End-to-end development from idea to production and beyond.',
             intro: 'Every project starts with understanding the problem, not just the feature list. We help businesses define what to build, how to build it, and how to keep it running.',
-            layout: 'cards',
-            cards: [
-              { badge: '01', title: 'Architecture and planning', text: 'Define scope, technical architecture, and roadmap with clarity before a single line of code is written. We help you avoid costly pivots later by getting the foundation right.' },
-              { badge: '02', title: 'Modern engineering', text: 'Build maintainable systems using proven frameworks, clean code practices, CI/CD pipelines, and deployment workflows that your team can extend and support.' },
-              { badge: '03', title: 'Quality assurance', text: 'Automated testing, code reviews, and performance validation at every stage catch issues early and ensure the product meets real-world reliability standards.' },
-              { badge: '04', title: 'Deployment and DevOps', text: 'Production deployment with infrastructure-as-code, containerization, monitoring, and rollback strategies that keep systems stable from day one.' },
-              { badge: '05', title: 'Performance optimization', text: 'Load testing, database tuning, caching strategies, and frontend optimization ensure the product performs well under real usage conditions.' },
-              { badge: '06', title: 'Long-term support', text: 'Continue improving the product after launch with bug fixes, performance tuning, feature enhancements, and infrastructure monitoring.' },
+            layout: 'list',
+            bulletGroups: [
+              {
+                title: 'Plan and architect',
+                items: [
+                  'Scope, technical architecture, and roadmap defined before a line of code is written.',
+                  'Requirements grounded in real user workflows so nothing is assumed or overlooked.',
+                ],
+              },
+              {
+                title: 'Build with quality',
+                items: [
+                  'Maintainable systems using proven frameworks, clean code, and CI/CD pipelines.',
+                  'Automated testing, code reviews, and performance validation at every stage.',
+                ],
+              },
+              {
+                title: 'Operate and improve',
+                items: [
+                  'Production deployment with infrastructure-as-code, monitoring, and rollback strategies.',
+                  'Post-launch support with bug fixes, tuning, feature enhancements, and infrastructure monitoring.',
+                ],
+              },
             ],
           },
           {
@@ -470,7 +486,7 @@ export class SiteContentService {
           {
             eyebrow: 'Our development process',
             heading: 'A structured approach that reduces risk and improves delivery quality.',
-            layout: 'cards',
+            layout: 'process',
             cards: [
               { badge: '01', title: 'Discovery', text: 'We sit with stakeholders, understand user needs, map workflows, and document requirements so nothing is assumed or overlooked.' },
               { badge: '02', title: 'Design and prototype', text: 'Wireframes, system design, and interactive prototypes validate the approach before full-scale development begins.' },
@@ -663,6 +679,7 @@ export class SiteContentService {
           eyebrow: 'Corporate Training',
           title: 'Structured upskilling programs for teams, colleges, and organized learner groups.',
           description: 'VidyaOps designs custom training programs with role-specific curricula, delivery flexibility, and progress visibility.',
+          cta: { label: 'Talk to Us', path: '/contact' },
           chips: ['Teams', 'Institutions', 'Colleges', 'Custom delivery'],
           panelLabel: 'Program design',
           panelTitle: 'Built around measurable competency growth.',
@@ -705,7 +722,7 @@ export class SiteContentService {
           {
             eyebrow: 'How we design programs',
             heading: 'A structured process that ensures training delivers real value.',
-            layout: 'cards',
+            layout: 'process',
             cards: [
               { badge: '01', title: 'Needs assessment', text: 'We analyze your team current skills, gaps, and organizational goals to build a training plan that targets what matters most.' },
               { badge: '02', title: 'Curriculum design', text: 'Content is structured around practical outcomes with modules, labs, and assessments aligned to real job requirements.' },
@@ -718,32 +735,11 @@ export class SiteContentService {
           {
             eyebrow: 'Engagement models',
             heading: 'Flexible ways to work with VidyaOps based on your organization needs.',
-            layout: 'list',
-            bulletGroups: [
-              {
-                title: 'College and institutional programs',
-                items: [
-                  'Semester-long or multi-week training integrated into academic schedules.',
-                  'Lab-based workshops for final-year students and pre-placement training.',
-                  'Faculty development programs to build internal training capacity.',
-                ],
-              },
-              {
-                title: 'Corporate team training',
-                items: [
-                  'Batch-based upskilling programs for IT and non-IT teams.',
-                  'Leadership and manager-focused technology literacy workshops.',
-                  'Certification preparation tracks for teams needing formal credentials.',
-                ],
-              },
-              {
-                title: 'Custom and hybrid models',
-                items: [
-                  'Blended learning combining online modules with in-person workshops.',
-                  'Long-term training partnerships with quarterly refresh cycles.',
-                  'Event-based training for hackathons, innovation sprints, and tech days.',
-                ],
-              },
+            layout: 'cards',
+            cards: [
+              { title: 'College and institutional programs', text: 'Semester-long or multi-week training integrated into academic schedules, lab-based workshops for final-year students, pre-placement training, and faculty development programs to build internal capacity.' },
+              { title: 'Corporate team training', text: 'Batch-based upskilling for IT and non-IT teams, leadership and manager-focused technology literacy workshops, and certification preparation tracks for teams needing formal credentials.' },
+              { title: 'Custom and hybrid models', text: 'Blended learning combining online modules with in-person workshops, long-term partnerships with quarterly refresh cycles, and event-based training for hackathons, innovation sprints, and tech days.' },
             ],
           },
           {
@@ -791,6 +787,7 @@ export class SiteContentService {
           eyebrow: 'R&D Internship',
           title: 'Hands-on internship experiences for learners who need real project exposure.',
           description: 'Students and freshers work on practical Cloud, AI, and Data challenges with mentor support and structured feedback.',
+          cta: { label: 'Apply Now', path: '/volunteer' },
           chips: ['Projects', 'Mentorship', 'Real tools', 'Career readiness'],
           panelLabel: 'What learners gain',
           panelTitle: 'Exposure that feels like real work.',
@@ -821,6 +818,7 @@ export class SiteContentService {
             heading: 'Internship tracks across the most relevant technology domains.',
             intro: 'Each track provides domain-specific mentorship, tools, and project exposure that matches current industry demand.',
             layout: 'cards',
+            columns: 2,
             cards: [
               { title: 'Cloud and DevOps', text: 'Work with AWS, Azure, or GCP infrastructure. Learn deployment, monitoring, CI/CD pipelines, and cloud architecture through real project work.' },
               { title: 'Data Analysis and Engineering', text: 'Build data pipelines, create dashboards, run analysis on real datasets, and learn tools like Python, SQL, Power BI, and Excel for practical data work.' },
@@ -831,7 +829,7 @@ export class SiteContentService {
           {
             eyebrow: 'How the internship works',
             heading: 'From application to completion, a clear and supportive journey.',
-            layout: 'cards',
+            layout: 'process',
             cards: [
               { badge: '01', title: 'Application and screening', text: 'Submit your application with your academic background and interests. We match you to a track based on your goals and current skill level.' },
               { badge: '02', title: 'Onboarding and orientation', text: 'Get familiar with tools, workflows, project expectations, and mentor communication channels before starting hands-on work.' },
@@ -906,6 +904,7 @@ export class SiteContentService {
           eyebrow: 'Collaborations',
           title: 'Partnerships that bring practical learning and innovation closer to real communities.',
           description: 'VidyaOps collaborates with institutions, startups, and enterprises to deliver stronger learner outcomes and more applied programs.',
+          cta: { label: 'Start a Partnership', path: '/contact' },
           chips: ['Institutions', 'Startups', 'Enterprises', 'CSR'],
           panelLabel: 'Collaboration areas',
           panelTitle: 'Built for shared outcomes.',
@@ -936,6 +935,7 @@ export class SiteContentService {
             heading: 'Flexible partnership structures built around different organizational needs.',
             intro: 'Whether you are a college, a startup, a corporation, or a nonprofit, there is a collaboration model that fits your goals.',
             layout: 'cards',
+            columns: 2,
             cards: [
               { title: 'Co-branded workshops', text: 'Jointly designed and delivered workshops that combine VidyaOps training content with partner branding, audience reach, and venue support.' },
               { title: 'Institutional training programs', text: 'Semester-length or multi-week training integrated into college curricula, placement preparation, or faculty development initiatives.' },
@@ -946,38 +946,17 @@ export class SiteContentService {
           {
             eyebrow: 'Who we partner with',
             heading: 'Collaborations designed for different types of organizations.',
-            layout: 'list',
-            bulletGroups: [
-              {
-                title: 'Educational institutions',
-                items: [
-                  'Engineering colleges and universities looking to add practical training to their curriculum.',
-                  'Training centers and coaching institutes wanting to offer technology certification programs.',
-                  'Student clubs and technical communities organizing workshops and hackathons.',
-                ],
-              },
-              {
-                title: 'Startups and technology companies',
-                items: [
-                  'Startups seeking technical interns or project collaborators for early-stage products.',
-                  'Technology companies wanting to sponsor training programs as part of their community initiatives.',
-                  'Product companies looking for pilot users and feedback from trained learner communities.',
-                ],
-              },
-              {
-                title: 'Enterprises and CSR teams',
-                items: [
-                  'Corporations funding technology education through CSR programs.',
-                  'Industry bodies and trade organizations running skill development initiatives.',
-                  'Government and semi-government organizations supporting digital literacy and employment programs.',
-                ],
-              },
+            layout: 'cards',
+            cards: [
+              { title: 'Educational institutions', text: 'Engineering colleges and universities adding practical training to their curriculum, training centers and coaching institutes offering technology certification programs, and student clubs and technical communities organizing workshops and hackathons.' },
+              { title: 'Startups and technology companies', text: 'Startups seeking technical interns or project collaborators for early-stage products, technology companies sponsoring training as community initiatives, and product companies looking for pilot users and feedback from trained learner communities.' },
+              { title: 'Enterprises and CSR teams', text: 'Corporations funding technology education through CSR programs, industry bodies and trade organizations running skill development initiatives, and government organizations supporting digital literacy and employment programs.' },
             ],
           },
           {
             eyebrow: 'What a collaboration looks like',
             heading: 'A clear process from first conversation to delivered program.',
-            layout: 'cards',
+            layout: 'process',
             cards: [
               { badge: '01', title: 'Conversation and alignment', text: 'We start with understanding your goals, audience, constraints, and what success looks like for your organization.' },
               { badge: '02', title: 'Program design', text: 'Together we design the program structure, content scope, delivery format, timeline, and shared responsibilities.' },
@@ -1038,12 +1017,12 @@ export class SiteContentService {
             intro: 'Not every learner needs the same thing. VidyaOps offers a range of program formats from low-commitment workshops to structured multi-week tracks.',
             layout: 'cards',
             cards: [
-              { badge: '01', title: 'Starter workshops', text: 'Low-risk entry points for learners exploring a topic for the first time. Free and paid options let you test the water before committing to a deeper program.' },
-              { badge: '02', title: 'Deep-dive programs', text: 'Structured learning experiences with more practice, guidance, and accountability. These tracks include projects, mentor reviews, and outcome-focused milestones.' },
-              { badge: '03', title: 'Bootcamps', text: 'Intensive, time-bound programs that compress weeks of learning into focused sprints for learners who need fast skill acquisition.' },
-              { badge: '04', title: 'Self-paced tracks', text: 'Flexible learning paths with pre-recorded content, automated assessments, and optional mentor check-ins for independent learners.' },
-              { badge: '05', title: 'Mentorship programs', text: 'One-on-one or small-group mentoring sessions focused on career guidance, portfolio review, and personalized learning plans.' },
-              { badge: '06', title: 'Group and institutional formats', text: 'Programs tailored for colleges, teams, and coordinated learner cohorts with shared schedules, progress tracking, and group-based learning outcomes.' },
+              { badge: '01', title: 'Starter workshops', text: 'Low-risk entry points for learners exploring a topic for the first time. Free and paid options let you test the water before committing to a deeper program.', link: '/contact', linkText: 'Learn More' },
+              { badge: '02', title: 'Deep-dive programs', text: 'Structured learning experiences with more practice, guidance, and accountability. These tracks include projects, mentor reviews, and outcome-focused milestones.', link: '/contact', linkText: 'Learn More' },
+              { badge: '03', title: 'Bootcamps', text: 'Intensive, time-bound programs that compress weeks of learning into focused sprints for learners who need fast skill acquisition.', link: '/contact', linkText: 'Learn More' },
+              { badge: '04', title: 'Self-paced tracks', text: 'Flexible learning paths with pre-recorded content, automated assessments, and optional mentor check-ins for independent learners.', link: '/contact', linkText: 'Learn More' },
+              { badge: '05', title: 'Mentorship programs', text: 'One-on-one or small-group mentoring sessions focused on career guidance, portfolio review, and personalized learning plans.', link: '/contact', linkText: 'Learn More' },
+              { badge: '06', title: 'Group and institutional formats', text: 'Programs tailored for colleges, teams, and coordinated learner cohorts with shared schedules, progress tracking, and group-based learning outcomes.', link: '/contact', linkText: 'Learn More' },
             ],
           },
           {
@@ -1052,12 +1031,12 @@ export class SiteContentService {
             intro: 'Each domain has its own curriculum, lab environment, and learning path designed for practical competence, not just theory.',
             layout: 'cards',
             cards: [
-              { title: 'Cloud Computing', text: 'AWS, Azure, and GCP training from fundamentals to advanced architecture. Hands-on labs, deployment practice, and certification preparation paths.' },
-              { title: 'Data Analysis', text: 'Excel, SQL, Power BI, and Python for data workflows. Build dashboards, run analyses, and present insights using tools employers actually use.' },
-              { title: 'Artificial Intelligence', text: 'AI foundations, prompt engineering, and applied ML projects. Learn how to use and build with AI tools in practical, career-relevant contexts.' },
-              { title: 'Cybersecurity', text: 'Security fundamentals, threat analysis, and compliance readiness with hands-on lab scenarios that simulate real-world challenges.' },
-              { title: 'Full-Stack Development', text: 'End-to-end web development covering frontend frameworks, backend APIs, databases, and deployment with project-based portfolio building.' },
-              { title: 'DevOps and Cloud Operations', text: 'CI/CD pipelines, containerization, monitoring, and infrastructure management for teams that build and maintain production systems.' },
+              { title: 'Cloud Computing', text: 'AWS, Azure, and GCP training from fundamentals to advanced architecture. Hands-on labs, deployment practice, and certification preparation paths.', link: '/contact', linkText: 'Learn More' },
+              { title: 'Data Analysis', text: 'Excel, SQL, Power BI, and Python for data workflows. Build dashboards, run analyses, and present insights using tools employers actually use.', link: '/contact', linkText: 'Learn More' },
+              { title: 'Artificial Intelligence', text: 'AI foundations, prompt engineering, and applied ML projects. Learn how to use and build with AI tools in practical, career-relevant contexts.', link: '/contact', linkText: 'Learn More' },
+              { title: 'Cybersecurity', text: 'Security fundamentals, threat analysis, and compliance readiness with hands-on lab scenarios that simulate real-world challenges.', link: '/contact', linkText: 'Learn More' },
+              { title: 'Full-Stack Development', text: 'End-to-end web development covering frontend frameworks, backend APIs, databases, and deployment with project-based portfolio building.', link: '/contact', linkText: 'Learn More' },
+              { title: 'DevOps and Cloud Operations', text: 'CI/CD pipelines, containerization, monitoring, and infrastructure management for teams that build and maintain production systems.', link: '/contact', linkText: 'Learn More' },
             ],
           },
           {

@@ -7,6 +7,12 @@
       <h1>{{ hero().title }}</h1>
       <p>{{ hero().description }}</p>
 
+      @if (hero().cta; as cta) {
+        <div class="page-hero__actions">
+          <a [routerLink]="cta.path" class="button button--primary button--lg button--shadow">{{ cta.label }}</a>
+        </div>
+      }
+
       @if (hero().chips?.length) {
         <div class="page-hero__chips">
           @for (chip of hero().chips; track chip) {
