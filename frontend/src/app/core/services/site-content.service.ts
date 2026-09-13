@@ -34,14 +34,14 @@ export class SiteContentService {
   readonly homeStats: StatItem[] = [
     { value: '500+', count: 500, label: 'Learners Trained' },
     { value: '50+', count: 50, label: 'Workshops Delivered' },
-    { value: '4', count: 4, label: 'Core Domains' },
+    { value: '8+', count: 8, label: 'Career Tracks' },
     { value: '95%', count: 95, label: 'Positive Feedback' },
   ];
 
   readonly serviceCards: FeatureCard[] = [
     {
       title: 'IT Training & Certifications',
-      text: 'Instructor-led and self-paced training across Cloud, Data, AI, and Cybersecurity with practical labs and certification pathways.',
+      text: 'Instructor-led and self-paced training across the full IT spectrum — software, cloud, data, AI, cybersecurity, and networking — with practical labs and certification pathways.',
       link: '/certifications',
       linkText: 'Learn more',
       badge: '01',
@@ -69,7 +69,7 @@ export class SiteContentService {
     },
     {
       title: 'R&D Internship',
-      text: 'Mentored internship experiences that expose students and freshers to practical Cloud, AI, and Data workflows.',
+      text: 'Mentored internship experiences that expose students and freshers to real project work — full-stack, cloud, data, AI, and security.',
       link: '/rd-internship',
       linkText: 'Learn more',
       badge: '05',
@@ -97,7 +97,7 @@ export class SiteContentService {
       text: 'A six-week practical sprint where most participants produced portfolio-ready work and gained clearer career direction.',
       link: '/services',
       linkText: 'Read case study',
-    },
+},
     {
       badge: 'AI Workshop',
       title: 'AI Awareness Workshop',
@@ -105,11 +105,32 @@ export class SiteContentService {
       link: '/workshops',
       linkText: 'Read case study',
     },
+    {
+      badge: 'Software Delivery',
+      title: 'MVP Build for a Startup',
+      text: 'A focused delivery sprint turned a working prototype into a production-ready MVP — clean handovers, documented builds, and week-zero onboarding for the product team.',
+      link: '/software-development',
+      linkText: 'Read case study',
+    },
+    {
+      badge: 'Network & Infrastructure',
+      title: 'Campus Network Upskilling',
+      text: 'Hands-on LAN, Linux, and server-fundamentals labs that gave final-year students production-style IT practice and stronger placement readiness.',
+      link: '/programs',
+      linkText: 'Read case study',
+    },
+    {
+      badge: 'QA & Testing',
+      title: 'Automated QA Practice Build',
+      text: 'Designed an automated testing practice for a small product team — test plans, CI-integrated suites, and a reusable quality checklist.',
+      link: '/services',
+      linkText: 'Read case study',
+    },
   ];
 
   readonly whyVidyaOps: FeatureCard[] = [
     { title: '100% Hands-on', text: 'Live labs, coding exercises, and project work are part of every learning experience.' },
-    { title: 'Expert Mentors', text: 'Programs are led by practitioners working in Cloud, AI, Data, and Security right now.' },
+    { title: 'Expert Mentors', text: 'Programs are led by practitioners working across the IT spectrum right now.' },
     { title: 'Flexible Schedule', text: 'Weekend, evening, self-paced, and customized corporate delivery models are available.' },
     { title: 'Certification Ready', text: 'Structured preparation for industry-recognized certifications with guided support.' },
     { title: 'Small Batch Sizes', text: 'Learners get personal attention, real doubt clearing, and mentor interaction.' },
@@ -126,11 +147,26 @@ export class SiteContentService {
       title: 'Rohan K.',
       badge: 'Data Analysis Sprint',
       text: 'The exercises and mentor support made all the difference. Within weeks I had portfolio work I could show in interviews.',
-    },
+},
     {
       title: 'Sneha P.',
       badge: 'AI Career Starter',
       text: 'VidyaOps helped me build a roadmap and real skills I could use as a fresher.',
+    },
+    {
+      title: 'Arjun V.',
+      badge: 'Full-Stack Bootcamp',
+      text: 'The bootcamp took me from college projects to shipping a real application. Mentors pushed me on code quality, testing, and deployment.',
+    },
+    {
+      title: 'Kavya R.',
+      badge: 'Networking Fundamentals',
+      text: 'The server and networking labs felt like real IT work. I walked into my internship already comfortable with the fundamentals.',
+    },
+    {
+      title: 'Dev S.',
+      badge: 'QA Bootcamp',
+      text: 'Learning test plans, automation, and CI workflows completely changed how I think about software quality.',
     },
   ];
 
@@ -171,12 +207,12 @@ export class SiteContentService {
         hero: {
           eyebrow: 'About VidyaOps',
           title: 'We turn curiosity into practical capability for students and freshers.',
-          description: 'VidyaOps exists to close the gap between academic knowledge and career readiness through hands-on workshops, mentorship, and guided learning in Cloud, Data Analysis, AI, and Cybersecurity.',
+          description: 'VidyaOps exists to close the gap between academic knowledge and career readiness through hands-on workshops, mentorship, and guided learning across the full IT spectrum — software development, cloud, data, AI, cybersecurity, networking, and more.',
           chips: ['Practical-first', 'Hands-on', 'Learner guided', 'Career focused'],
           panelLabel: 'Our focus',
           panelTitle: 'Knowledge that turns into confidence.',
           panelItems: [
-            'Cloud, Data Analysis, AI, and Cybersecurity',
+            'Software, cloud, data, AI, cybersecurity, networking, and more',
             'Built for students, freshers, and early professionals',
             'Free and paid workshop pathways',
             'Mentorship-driven and community-backed learning',
@@ -265,7 +301,7 @@ description: 'From individual certification preparation to enterprise capability
             cards: [
               { title: 'Hands-on by default', text: 'Every engagement focuses on usable outcomes instead of passive content. Labs, projects, and real tools are central to every service.' },
               { title: 'Built for different audiences', text: 'Students, freshers, institutions, and corporate teams each get tailored delivery. We do not use a one-size-fits-all approach.' },
-              { title: 'Domain expertise', text: 'Our team specializes in Cloud, Data, AI, and Cybersecurity with practitioners who work in these domains daily, not just teach about them.' },
+              { title: 'Deep expertise', text: 'Our team works and trains across the full IT spectrum — software, cloud, data, AI, cybersecurity, and networking — with practitioners who use these skills daily, not just teach about them.' },
               { title: 'Flexible execution', text: 'Programs can be delivered online, on-site, or in blended formats. Software projects follow agile workflows with regular demos.' },
               { title: 'Honest pricing', text: 'Transparent scope, clear deliverables, and no hidden costs. You know what you are paying for before any work begins.' },
               { title: 'End-to-end support', text: 'From initial consultation to post-delivery support, we stay engaged to ensure the outcomes meet your expectations.' },
@@ -306,11 +342,11 @@ description: 'From individual certification preparation to enterprise capability
       {
         key: 'certifications',
         seoTitle: 'VidyaOps | IT Training & Certifications',
-        seoDescription: 'Practical certification-oriented training for Cloud, Data, AI, and Cybersecurity learners with hands-on labs, mentor support, and career guidance.',
+        seoDescription: 'Practical certification-oriented training for learners across the IT spectrum — cloud, data, AI, cybersecurity, software, and more — with hands-on labs, mentor support, and career guidance.',
         hero: {
           eyebrow: 'IT Training & Certifications',
           title: 'Certification-ready learning with practical labs and mentor guidance.',
-          description: 'Structured programs across Cloud, Data, AI, and Cybersecurity help learners build confidence while preparing for recognized credentials.',
+          description: 'Structured programs across the IT spectrum — cloud, data, AI, cybersecurity, software, and more — help learners build confidence while preparing for recognized credentials.',
           chips: ['AWS', 'Azure', 'Google Cloud', 'Cybersecurity'],
           panelLabel: 'Program fit',
           panelTitle: 'Best for learners who want both clarity and credentials.',
@@ -328,7 +364,7 @@ description: 'From individual certification preparation to enterprise capability
             intro: 'Every certification track is designed to build skills progressively, starting from fundamentals and moving toward exam-level competence with real lab work.',
             layout: 'cards',
             cards: [
-              { badge: '01', title: 'Foundation tracks', text: 'Clear entry points for learners exploring Cloud, Data, AI, or Cybersecurity for the first time. Concepts are introduced with practical context so learners understand both the what and the why.' },
+              { badge: '01', title: 'Foundation tracks', text: 'Clear entry points for learners exploring software, cloud, data, AI, or cybersecurity for the first time. Concepts are introduced with practical context so learners understand both the what and the why.' },
               { badge: '02', title: 'Hands-on labs', text: 'Practical exercises that connect concepts to real implementation. Learners work with actual cloud consoles, CLI tools, and security dashboards instead of just reading about them.' },
               { badge: '03', title: 'Mentor-led sessions', text: 'Instructor-led workshops and doubt-clearing sessions where learners ask questions, work through challenges, and get personalized guidance on tricky topics.' },
               { badge: '04', title: 'Practice assessments', text: 'Timed mock tests and quiz sessions that simulate the real exam environment, helping learners identify weak areas and build confidence before test day.' },
@@ -355,7 +391,7 @@ description: 'From individual certification preparation to enterprise capability
             heading: 'A step-by-step process that turns preparation into a clear, manageable journey.',
             layout: 'cards',
             cards: [
-              { badge: '01', title: 'Skill assessment', text: 'We evaluate the learner current knowledge, academic background, and career goals to recommend the right certification track and starting point.' },
+              { badge: '01', title: 'Skill assessment', text: 'We evaluate the learner\'s current knowledge, academic background, and career goals to recommend the right certification track and starting point.' },
               { badge: '02', title: 'Structured learning', text: 'Content is delivered in focused modules with instructor-led explanations, reading material, and guided exercises that build week by week.' },
               { badge: '03', title: 'Lab practice', text: 'Learners get dedicated time in sandbox environments to practice configurations, run commands, and troubleshoot real scenarios.' },
               { badge: '04', title: 'Peer collaboration', text: 'Group exercises, discussion forums, and study groups help learners reinforce concepts through teaching and collaborative problem-solving.' },
@@ -372,7 +408,7 @@ description: 'From individual certification preparation to enterprise capability
                 title: 'College students',
                 items: [
                   'Learners in B.Tech, BCA, MCA, or related programs who want practical skills alongside their degree.',
-                  'Students exploring Cloud, AI, or Security as a career focus area.',
+                  'Students exploring Cloud, AI, Software, or Security as a career focus area.',
                   'Learners preparing for campus placements and need industry-relevant credentials.',
                 ],
               },
@@ -380,7 +416,7 @@ description: 'From individual certification preparation to enterprise capability
                 title: 'Freshers and early professionals',
                 items: [
                   'Recent graduates looking to strengthen their resume with recognized certifications.',
-                  'Early professionals switching into Cloud, Data, or Security roles.',
+                  'Early professionals switching into Cloud, Data, Software, or Security roles.',
                   'Self-taught learners who want structured guidance and a verified credential.',
                 ],
               },
@@ -631,7 +667,7 @@ description: 'From individual certification preparation to enterprise capability
                 title: 'Corporate teams',
                 items: [
                   'Organizations onboarding new hires with structured digital learning paths.',
-                  'Teams upskilling in Cloud, AI, Data, or Security through online programs.',
+                  'Teams upskilling across the IT spectrum through online programs.',
                   'Compliance and certification training that needs tracking and reporting.',
                 ],
               },
@@ -654,7 +690,7 @@ description: 'From individual certification preparation to enterprise capability
               { title: 'Flexible platforms', text: 'We work with your existing LMS or build custom solutions based on your audience size, budget, and administrative needs.' },
               { title: 'Measurable outcomes', text: 'Every deployment includes analytics and reporting so you can see what is working, what is not, and where to improve.' },
               { title: 'Affordable production', text: 'Scaled content production options that match your budget, from rapid video-based modules to fully interactive multimedia experiences.' },
-              { title: 'Rapid turnaround', text: 'Our production pipeline is designed for speed without sacrificing quality, getting learning content into learners hands faster than traditional approaches.' },
+              { title: 'Rapid turnaround', text: 'Our production pipeline is designed for speed without sacrificing quality, getting learning content into learners\' hands faster than traditional approaches.' },
               { title: 'Ongoing partnership', text: 'We stay involved after launch with content updates, learner feedback analysis, and continuous improvement recommendations.' },
             ],
           },
@@ -693,7 +729,7 @@ description: 'From individual certification preparation to enterprise capability
         sections: [
           {
             eyebrow: 'What corporate clients get',
-            heading: 'Training programs designed around your team actual needs and constraints.',
+            heading: 'Training programs designed around your team\'s actual needs and constraints.',
             intro: 'Off-the-shelf training rarely solves real problems. We build programs that match your audience, their skill levels, and the outcomes your organization needs.',
             layout: 'cards',
             cards: [
@@ -711,7 +747,7 @@ description: 'From individual certification preparation to enterprise capability
             intro: 'Each domain program is designed with practical labs, real tool exposure, and assessment checkpoints to ensure learners actually gain capability.',
             layout: 'cards',
             cards: [
-              { title: 'Cloud Computing', text: 'AWS, Azure, and GCP training for teams migrating to cloud, managing infrastructure, or preparing for cloud certifications with hands-on lab environments.' },
+              { title: 'Cloud Computing', text: 'AWS, Azure, and GCP training for teams migrating to the cloud, managing infrastructure, or preparing for cloud certifications with hands-on lab environments.' },
               { title: 'Data and Analytics', text: 'SQL, Excel, Power BI, and Python-based data training for teams that need to work with data, build dashboards, and make data-driven decisions.' },
               { title: 'AI and Machine Learning', text: 'Foundational AI literacy, prompt engineering, and applied ML workshops for teams that need to understand and use AI tools in their daily work.' },
               { title: 'Cybersecurity', text: 'Security awareness, threat identification, and compliance training for IT teams, developers, and organizational staff who handle sensitive data.' },
@@ -724,7 +760,7 @@ description: 'From individual certification preparation to enterprise capability
             heading: 'A structured process that ensures training delivers real value.',
             layout: 'process',
             cards: [
-              { badge: '01', title: 'Needs assessment', text: 'We analyze your team current skills, gaps, and organizational goals to build a training plan that targets what matters most.' },
+              { badge: '01', title: 'Needs assessment', text: 'We analyze your team\'s current skills, gaps, and organizational goals to build a training plan that targets what matters most.' },
               { badge: '02', title: 'Curriculum design', text: 'Content is structured around practical outcomes with modules, labs, and assessments aligned to real job requirements.' },
               { badge: '03', title: 'Pilot delivery', text: 'A small batch pilot validates the curriculum, timing, and delivery approach before rolling out to larger groups.' },
               { badge: '04', title: 'Delivery and facilitation', text: 'Experienced instructors deliver sessions with hands-on exercises, real-world examples, and interactive workshops.' },
@@ -734,7 +770,7 @@ description: 'From individual certification preparation to enterprise capability
           },
           {
             eyebrow: 'Engagement models',
-            heading: 'Flexible ways to work with VidyaOps based on your organization needs.',
+            heading: 'Flexible ways to work with VidyaOps based on your organization\'s needs.',
             layout: 'cards',
             cards: [
               { title: 'College and institutional programs', text: 'Semester-long or multi-week training integrated into academic schedules, lab-based workshops for final-year students, pre-placement training, and faculty development programs to build internal capacity.' },
@@ -744,7 +780,7 @@ description: 'From individual certification preparation to enterprise capability
           },
           {
             eyebrow: 'Why organizations choose VidyaOps',
-            heading: 'Training that respects your team time and delivers real results.',
+            heading: 'Training that respects your team\'s time and delivers real results.',
             layout: 'cards',
             cards: [
               { title: 'Customization over generic content', text: 'Every program is built from scratch around your audience, their skill level, and your organizational goals.' },
@@ -782,11 +818,11 @@ description: 'From individual certification preparation to enterprise capability
       {
         key: 'rd-internship',
         seoTitle: 'VidyaOps | R&D Internship',
-        seoDescription: 'Hands-on R&D internship opportunities for students and freshers working on real problems in Cloud, AI, and Data with mentor support.',
+        seoDescription: 'Hands-on R&D internship opportunities for students and freshers working on real problems in software, cloud, AI, and data with mentor support.',
         hero: {
           eyebrow: 'R&D Internship',
           title: 'Hands-on internship experiences for learners who need real project exposure.',
-          description: 'Students and freshers work on practical Cloud, AI, and Data challenges with mentor support and structured feedback.',
+          description: 'Students and freshers work on practical software, cloud, data, AI, and security challenges with mentor support and structured feedback.',
           cta: { label: 'Apply Now', path: '/volunteer' },
           chips: ['Projects', 'Mentorship', 'Real tools', 'Career readiness'],
           panelLabel: 'What learners gain',
@@ -824,6 +860,8 @@ description: 'From individual certification preparation to enterprise capability
               { title: 'Data Analysis and Engineering', text: 'Build data pipelines, create dashboards, run analysis on real datasets, and learn tools like Python, SQL, Power BI, and Excel for practical data work.' },
               { title: 'AI and Machine Learning', text: 'Explore applied AI projects including model training, prompt engineering, data preprocessing, and building AI-powered applications with real datasets.' },
               { title: 'Cybersecurity', text: 'Learn threat analysis, network security fundamentals, vulnerability assessment, and security tooling through guided exercises and project-based work.' },
+              { title: 'Software Development', text: 'Build real applications end to end — frontend, backend, APIs, and databases — using modern frameworks, version control, and professional delivery workflows.' },
+              { title: 'Networking and IT Infrastructure', text: 'Explore networks, servers, and cloud infrastructure — configuration, monitoring, troubleshooting, and security basics through guided lab work.' },
             ],
           },
           {
@@ -849,7 +887,7 @@ description: 'From individual certification preparation to enterprise capability
                 items: [
                   'Students in B.Tech, BCA, MCA, or related programs looking for hands-on experience.',
                   'Learners in pre-final or final year who want real project work for their resume.',
-                  'Students exploring career paths in Cloud, AI, Data, or Security.',
+                  'Students exploring career paths across the IT spectrum.',
                 ],
               },
               {
@@ -886,7 +924,7 @@ description: 'From individual certification preparation to enterprise capability
         ],
         cta: {
           title: 'Ready to gain real internship experience?',
-          text: 'Apply for the VidyaOps R&D Internship and work on real projects with mentor support across Cloud, AI, Data, or Security.',
+          text: 'Apply for the VidyaOps R&D Internship and work on real projects with mentor support across the IT spectrum — software, cloud, data, AI, and security.',
           primaryLabel: 'Apply Now',
           primaryPath: '/volunteer',
           secondaryLabel: 'Talk to Us',
@@ -1017,7 +1055,7 @@ description: 'From individual certification preparation to enterprise capability
             intro: 'Not every learner needs the same thing. VidyaOps offers a range of program formats from low-commitment workshops to structured multi-week tracks.',
             layout: 'cards',
             cards: [
-              { badge: '01', title: 'Starter workshops', text: 'Low-risk entry points for learners exploring a topic for the first time. Free and paid options let you test the water before committing to a deeper program.', link: '/contact', linkText: 'Learn More' },
+              { badge: '01', title: 'Starter workshops', text: 'Low-risk entry points for learners exploring a topic for the first time. Free and paid options let you test the waters before committing to a deeper program.', link: '/contact', linkText: 'Learn More' },
               { badge: '02', title: 'Deep-dive programs', text: 'Structured learning experiences with more practice, guidance, and accountability. These tracks include projects, mentor reviews, and outcome-focused milestones.', link: '/contact', linkText: 'Learn More' },
               { badge: '03', title: 'Bootcamps', text: 'Intensive, time-bound programs that compress weeks of learning into focused sprints for learners who need fast skill acquisition.', link: '/contact', linkText: 'Learn More' },
               { badge: '04', title: 'Self-paced tracks', text: 'Flexible learning paths with pre-recorded content, automated assessments, and optional mentor check-ins for independent learners.', link: '/contact', linkText: 'Learn More' },
@@ -1062,7 +1100,7 @@ description: 'From individual certification preparation to enterprise capability
                 title: 'If you are part of a team or college',
                 items: [
                   'Explore group and institutional programs with shared schedules and progress tracking.',
-                  'Contact VidyaOps for custom program design that fits your group needs and timeline.',
+                  'Contact VidyaOps for custom program design that fits your group\'s needs and timeline.',
                 ],
               },
             ],

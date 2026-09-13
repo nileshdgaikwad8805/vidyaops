@@ -21,7 +21,7 @@ export class ChatbotService {
     services: 'VidyaOps offers 6 core services: IT Training & Certifications, Software Development, Digital Learning, Corporate Training, R&D Internships, and Collaborations.',
     workshops: 'VidyaOps runs both free and paid workshops. Free workshops are great entry points to explore a topic. Paid workshops offer deeper practice. Check the Workshops page for upcoming batches or contact us for the next schedule.',
     programs: 'VidyaOps offers three program formats: Starter Workshops (low-risk entry points), Deep-Dive Programs (structured learning with guidance), and Group/Institutional formats (tailored for colleges and teams). Visit the Programs page for details.',
-    certifications: 'VidyaOps provides certification-oriented training across Cloud (AWS, Azure, GCP), Data Analysis, AI, and Cybersecurity. Programs include foundation tracks, hands-on labs, and exam-focused support.',
+    certifications: 'VidyaOps provides certification-oriented training across the IT spectrum — Cloud (AWS, Azure, GCP), Data Analysis, AI, Cybersecurity, and more. Programs include foundation tracks, hands-on labs, and exam-focused support.',
     cloud: 'VidyaOps offers practical Cloud training covering AWS, Azure, and GCP fundamentals. Programs include guided labs, project work, and certification preparation. Suitable for students, freshers, and early professionals.',
     data: 'Our Data Analysis training covers practical data workflows, SQL, Python, BI tools, and career-relevant exercises. A great fit for learners who want to work with real datasets and build portfolio-ready work.',
     ai: 'VidyaOps provides AI training covering machine learning concepts, responsible AI use, practical tools, and GenAI exposure. Programs range from introductory workshops to structured career-focused tracks.',
@@ -29,7 +29,7 @@ export class ChatbotService {
     corporate: 'VidyaOps designs corporate training programs with customized curriculum, flexible scheduling (online, on-site, or blended), and progress tracking. Ideal for teams, colleges, and organized learner groups.',
     software: 'VidyaOps offers custom software development services including web apps, mobile apps, enterprise systems, architecture planning, MVP delivery, deployment, and long-term maintenance.',
     digital_learning: 'Our Digital Learning services include custom eLearning content design, LMS solutions, gamified modules, and multimedia learning experiences. Built for teams creating structured learning at scale.',
-    internship: 'VidyaOps R&D Internships give students and freshers hands-on experience working on real Cloud, AI, and Data projects. Includes mentor support, guided review cycles, and career confidence building.',
+    internship: 'VidyaOps R&D Internships give students and freshers hands-on experience working on real software, cloud, data, and AI projects. Includes mentor support, guided review cycles, and career confidence building.',
     collaborations: 'VidyaOps collaborates with institutions, startups, enterprises, and CSR programs. Collaboration areas include joint workshops, institutional programs, innovation projects, and outreach partnerships.',
     pricing: 'Pricing depends on the program format. Free workshops are available as accessible entry points. Paid workshops and training tracks have specific pricing shared during enrollment. Contact us at 9503685152 or info@vidyaops.com for current pricing details.',
     faq: 'Common questions: Who is it for? Students, freshers, professionals, and teams. Free and paid workshops? Yes, both are available. Custom programs? Yes, for colleges and corporate teams. How to choose? Contact us and we will guide you.',
@@ -38,9 +38,9 @@ export class ChatbotService {
     terms: 'VidyaOps website terms: the site shares information about services and workshops. Users should provide accurate inquiry info. Program details may evolve, so confirm specifics with our team.',
     csr: 'VidyaOps runs CSR initiatives in Education for All, Women Empowerment, Environmental Sustainability, Veteran Welfare, Rural Digital Inclusion, and Open-Source Contributions.',
     partners: 'VidyaOps partners with technology companies, educational institutions, startup ecosystems, CSR programs, and industry alliances to expand access to practical tech education.',
-    about: 'VidyaOps exists to close the gap between academic knowledge and career readiness. We build practical training experiences with hands-on workshops, mentorship, and guided learning in Cloud, Data, AI, and Cybersecurity.',
-    impact: 'VidyaOps has trained 500+ students, delivered 50+ workshops, covers 4 core domains, and maintains 95% positive feedback from learners.',
-    mentor: 'All VidyaOps programs are led by practitioners currently working in Cloud, AI, Data, and Security. Mentors provide hands-on guidance, doubt clearing, and career support.',
+    about: 'VidyaOps exists to close the gap between academic knowledge and career readiness. We build practical training experiences with hands-on workshops, mentorship, and guided learning across the full IT spectrum — software, cloud, data, AI, cybersecurity, and networking.',
+    impact: 'VidyaOps has trained 500+ students, delivered 50+ workshops, covers 8+ career tracks across the IT spectrum, and maintains 95% positive feedback from learners.',
+    mentor: 'All VidyaOps programs are led by practitioners currently working across the IT spectrum — software, cloud, data, AI, and security. Mentors provide hands-on guidance, doubt clearing, and career support.',
     hands_on: 'Every VidyaOps session uses live labs, coding exercises, project work, and real tools instead of theory-only teaching. This is our core philosophy.',
     schedule: 'VidyaOps offers flexible scheduling including weekend batches, evening sessions, self-paced options, and customized corporate delivery models. Contact us for the latest schedule.',
     whatsapp: 'You can message VidyaOps on WhatsApp at +91 9503685152 for quick responses about workshops, training schedules, pricing, or any questions.',
@@ -248,7 +248,7 @@ export class ChatbotService {
 
     // Free workshops
     if (lower.includes('free') || lower.includes('no cost') || lower.includes('without fee')) {
-      return 'VidyaOps offers free workshops as accessible entry points to explore Cloud, Data, AI, and Cybersecurity topics. Check the Workshops page or contact us to learn about upcoming free sessions.';
+      return 'VidyaOps offers free workshops as accessible entry points to explore topics across the IT spectrum — software, cloud, data, AI, cybersecurity, networking, and more. Check the Workshops page or contact us to learn about upcoming free sessions.';
     }
 
     // Paid workshops
@@ -327,7 +327,7 @@ export class ChatbotService {
     }
 
     // Default fallback
-    return 'I can help with VidyaOps trainings, workshops, services, pricing, contact info, and career guidance. You can ask about:\n\n• Cloud, Data, AI, or Cybersecurity training\n• Free and paid workshops\n• Corporate and institutional programs\n• Software development services\n• R&D internships and collaborations\n• Pricing and scheduling\n• How to get started\n\nWhat would you like to know?';
+    return 'I can help with VidyaOps trainings, workshops, services, pricing, contact info, and career guidance. You can ask about:\n\n• Software development, cloud, data, AI, cybersecurity, networking, or IT support training\n• Free and paid workshops\n• Corporate and institutional programs\n• R&D internships and collaborations\n• Pricing and scheduling\n• How to get started\n\nWhat would you like to know?';
   }
 
   private getLocalCounselorReply(learnerType: string, interest: string, goal: string): string {

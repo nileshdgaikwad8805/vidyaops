@@ -1,5 +1,149 @@
 :host { display: block; }
 
+/* ── Hero carousel ── */
+.hero-carousel {
+  position: relative;
+  overflow: hidden;
+  background: var(--surface-alt);
+}
+.hero-carousel__viewport {
+  position: relative;
+  height: clamp(320px, 46vw, 560px);
+  overflow: hidden;
+}
+.hero-carousel__track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.7s var(--ease);
+}
+.hero-carousel__slide {
+  position: relative;
+  flex: 0 0 100%;
+  margin: 0;
+}
+.hero-carousel__slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 28%;
+}
+.hero-carousel__caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 56px 24px 22px;
+  color: #fff;
+  font-size: 1.02rem;
+  font-weight: 600;
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.66));
+}
+.hero-carousel__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(0, 0, 0, 0.28);
+  color: #fff;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+.hero-carousel__arrow:hover { background: rgba(0, 0, 0, 0.52); }
+.hero-carousel__arrow--prev { left: 18px; }
+.hero-carousel__arrow--next { right: 18px; }
+.hero-carousel__dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 12px;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.hero-carousel__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 0;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+}
+.hero-carousel__dot.is-active {
+  background: #fff;
+  transform: scale(1.25);
+}
+
+/* ── Technology ticker ── */
+.tech-ticker {
+  position: relative;
+  overflow: hidden;
+  padding: 22px 0;
+  border-block: 1px solid var(--line);
+  background: var(--surface);
+  -webkit-mask-image: linear-gradient(90deg, #0000, #000 10%, #000 90%, #0000);
+  mask-image: linear-gradient(90deg, #0000, #000 10%, #000 90%, #0000);
+}
+.tech-ticker__sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+.tech-ticker__track {
+  display: flex;
+  width: max-content;
+  animation: tech-marquee 48s linear infinite;
+}
+.tech-ticker__group {
+  display: flex;
+  align-items: center;
+}
+.tech-ticker__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: 34px;
+  white-space: nowrap;
+}
+.tech-ticker__logo {
+  display: block;
+  width: 34px;
+  height: 34px;
+}
+.tech-ticker__name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text);
+}
+@keyframes tech-marquee {
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tech-ticker__track { animation: none; }
+  .tech-ticker__group[aria-hidden="true"] { display: none; }
+}
+
+.home-hero--centered { padding-top: 56px; }
+@media (max-width: 768px) {
+  .home-hero--centered { padding-top: 40px; }
+  .hero-carousel__viewport { height: 300px; }
+  .hero-carousel__arrow { width: 36px; height: 36px; }
+  .hero-carousel__arrow--prev { left: 12px; }
+  .hero-carousel__arrow--next { right: 12px; }
+}
+
 .hero-command__header {
   display: flex;
   align-items: center;
@@ -33,6 +177,58 @@
   border: 1px solid rgba(13,148,136,0.15);
   position: relative;
   overflow: hidden;
+}
+
+/* ── Learning paths visual ── */
+.hub-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 26px;
+}
+.hub-chips__item {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--teal-dark);
+  background: rgba(13, 148, 136, 0.08);
+  border: 1px solid rgba(13, 148, 136, 0.2);
+  padding: 7px 14px;
+  border-radius: 100px;
+  letter-spacing: 0.03em;
+  transition: background var(--transition), border-color var(--transition), transform var(--transition);
+}
+.hub-chips__item:hover {
+  background: rgba(13, 148, 136, 0.14);
+  border-color: rgba(13, 148, 136, 0.45);
+  transform: translateY(-1px);
+}
+
+.home-hero--centered .home-hero__inner > * {
+  animation: fadeInUp 0.7s var(--ease) both;
+}
+.home-hero--centered .home-hero__inner > :nth-child(2) { animation-delay: 0.08s; }
+.home-hero--centered .home-hero__inner > :nth-child(3) { animation-delay: 0.16s; }
+.home-hero--centered .home-hero__inner > :nth-child(4) { animation-delay: 0.24s; }
+.home-hero--centered .home-hero__inner > :nth-child(5) { animation-delay: 0.32s; }
+
+.path-box::after {
+  content: "";
+  position: absolute;
+  top: -120%;
+  bottom: -120%;
+  left: -30%;
+  width: 40%;
+  background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, 0.5) 50%, transparent 60%);
+  transform: translateX(-200%) skewX(-18deg);
+  transition: transform 0.8s var(--ease);
+  pointer-events: none;
+}
+.path-box:hover::after { transform: translateX(520%) skewX(-18deg); }
+
+@media (prefers-reduced-motion: reduce) {
+  .home-hero--centered .home-hero__inner > * { animation: none; }
+  .path-box::after { display: none; }
 }
 
 /* ── Learning paths visual ── */
@@ -94,6 +290,10 @@
 .path-box__icon--ai { background: linear-gradient(135deg, #8b5cf6, #6d28d9); }
 .path-box__icon--cyber { background: linear-gradient(135deg, #ef4444, #b91c1c); }
 .path-box__icon--devops { background: linear-gradient(135deg, #d97706, #b45309); }
+.path-box__icon--software { background: linear-gradient(135deg, #6366f1, #4338ca); }
+.path-box__icon--network { background: linear-gradient(135deg, #06b6d4, #0e7490); }
+.path-box__icon--qa { background: linear-gradient(135deg, #ec4899, #be185d); }
+.path-box__icon--support { background: linear-gradient(135deg, #64748b, #334155); }
 .path-box__name {
   font-size: 0.86rem;
   font-weight: 700;
