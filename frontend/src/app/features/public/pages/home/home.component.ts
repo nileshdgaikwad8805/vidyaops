@@ -62,9 +62,9 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   readonly heroSlides = [
     {
-      src: 'https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&fit=crop',
-      alt: 'Engineers writing and reviewing code together',
-      caption: 'Hands-on IT work — real code, real projects'
+      src: 'https://images.pexels.com/photos/7693692/pexels-photo-7693692.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&fit=crop',
+      alt: 'Team collaborating together in a meeting',
+      caption: 'Partnership and collaboration that drive real outcomes'
     },
     {
       src: 'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&fit=crop',

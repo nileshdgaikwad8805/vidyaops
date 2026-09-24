@@ -13,7 +13,7 @@
 |------|--------|
 | **Live site** | [https://vidyaops.com](https://vidyaops.com) |
 | **GitHub repo** | [https://github.com/nileshdgaikwad8805/vidyaops.git](https://github.com/nileshdgaikwad8805/vidyaops.git) |
-| **Local workspace** | `C:\Users\niles\Downloads\VidyaOps\LearnSkills` |
+| **Local workspace** | `D:\Projects\vidyaops` |
 | **App package name** | `vidyaops-site` |
 | **Contact** | +91 95036 85152 · info@vidyaops.com |
 
@@ -21,7 +21,7 @@
 
 ## Local Workspace
 
-The folder `LearnSkills` is a **mixed workspace** containing two largely separate projects:
+The folder `vidyaops` (at `D:\Projects\vidyaops`) is a **mixed workspace** containing two largely separate projects:
 
 | Project | Stack | Purpose |
 |---------|-------|---------|
@@ -47,7 +47,7 @@ The VidyaOps website code is the Node.js application tied to the **vidyaops** Gi
 ## Repository Structure
 
 ```text
-LearnSkills/
+vidyaops/
 ├── server.js                 # Entry: loads .env, DB, seeds, starts Express
 ├── app-config.js             # Env-driven config (platform, runtime, DB, APIs)
 ├── package.json              # "vidyaops-site"
@@ -286,7 +286,7 @@ Additional suggested work:
 
 ```powershell
 # Local development
-cd C:\Users\niles\Downloads\VidyaOps\LearnSkills
+cd D:\Projects\vidyaops
 npm install
 npm start
 # → http://127.0.0.1:3000
