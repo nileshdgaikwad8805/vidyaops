@@ -77,8 +77,8 @@ export class HomeComponent implements OnInit, OnDestroy {
       caption: 'Strategy and collaboration sessions that drive outcomes'
     },
     {
-      src: 'https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&fit=crop',
-      alt: 'Developer analyzing code on a laptop',
+      src: 'https://images.pexels.com/photos/14851464/pexels-photo-14851464.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&fit=crop',
+      alt: 'Colleagues having a meeting together',
       caption: 'Industry-aligned labs mirroring the real workplace'
     }
   ];
