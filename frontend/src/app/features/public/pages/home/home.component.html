@@ -28,7 +28,6 @@
       @for (slide of heroSlides; track slide.src) {
         <figure class="hero-carousel__slide" aria-hidden="true">
           <img [src]="slide.src" [alt]="slide.alt" width="1600" height="900" loading="lazy">
-          <figcaption class="hero-carousel__caption">{{ slide.caption }}</figcaption>
         </figure>
       }
     </div>
