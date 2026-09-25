@@ -2,6 +2,10 @@
 .env.zip
 node_modules
 data/*.db
+*.sqlite3
+reports/*_jobs_report.csv
+data/banners/
+data/uploads/
 server.out.log
 server.err.log
 .chrome-tmp
