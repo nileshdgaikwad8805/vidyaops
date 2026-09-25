@@ -207,6 +207,7 @@ export class SiteContentService {
         hero: {
           eyebrow: 'About VidyaOps',
           title: 'We turn curiosity into practical capability for students and freshers.',
+          titleHighlight: 'practical capability',
           description: 'VidyaOps exists to close the gap between academic knowledge and career readiness through hands-on workshops, mentorship, and guided learning across the full IT spectrum — software development, cloud, data, AI, cybersecurity, networking, and more.',
           chips: ['Practical-first', 'Hands-on', 'Learner guided', 'Career focused'],
           panelLabel: 'Our focus',
@@ -273,6 +274,7 @@ export class SiteContentService {
         hero: {
           eyebrow: 'Our Services',
           title: 'Comprehensive technology solutions across training, development, and digital learning.',
+          titleHighlight: 'technology solutions',
 description: 'From individual certification preparation to enterprise capability building, VidyaOps delivers practical learning and execution support.',
           cta: { label: 'Talk to Us', path: '/contact' },
           chips: ['Training', 'Development', 'Digital Learning', 'Corporate Enablement'],
@@ -346,6 +348,7 @@ description: 'From individual certification preparation to enterprise capability
         hero: {
           eyebrow: 'IT Training & Certifications',
           title: 'Certification-ready learning with practical labs and mentor guidance.',
+          titleHighlight: 'practical labs',
           description: 'Structured programs across the IT spectrum — cloud, data, AI, cybersecurity, software, and more — help learners build confidence while preparing for recognized credentials.',
           chips: ['AWS', 'Azure', 'Google Cloud', 'Cybersecurity'],
           panelLabel: 'Program fit',
@@ -464,6 +467,7 @@ description: 'From individual certification preparation to enterprise capability
         hero: {
           eyebrow: 'Software Development',
           title: 'Modern software delivery built around real business needs.',
+          titleHighlight: 'software delivery',
           description: 'VidyaOps designs and develops practical web, mobile, and enterprise solutions with a focus on delivery quality and long-term maintainability.',
           chips: ['Web apps', 'Mobile apps', 'Enterprise systems', 'Maintenance'],
           panelLabel: 'Typical outcomes',
@@ -597,6 +601,7 @@ description: 'From individual certification preparation to enterprise capability
         hero: {
           eyebrow: 'Digital Learning',
           title: 'Scalable digital learning experiences that make training easier to deliver and easier to complete.',
+          titleHighlight: 'digital learning',
           description: 'We design learning journeys, eLearning content, LMS workflows, and multimedia assets that improve engagement and trackability.',
           chips: ['eLearning', 'LMS', 'Gamification', 'Multimedia'],
           panelLabel: 'Ideal for',
@@ -714,6 +719,7 @@ description: 'From individual certification preparation to enterprise capability
         hero: {
           eyebrow: 'Corporate Training',
           title: 'Structured upskilling programs for teams, colleges, and organized learner groups.',
+          titleHighlight: 'upskilling programs',
           description: 'VidyaOps designs custom training programs with role-specific curricula, delivery flexibility, and progress visibility.',
           cta: { label: 'Talk to Us', path: '/contact' },
           chips: ['Teams', 'Institutions', 'Colleges', 'Custom delivery'],
@@ -822,6 +828,7 @@ description: 'From individual certification preparation to enterprise capability
         hero: {
           eyebrow: 'R&D Internship',
           title: 'Hands-on internship experiences for learners who need real project exposure.',
+          titleHighlight: 'real project exposure',
           description: 'Students and freshers work on practical software, cloud, data, AI, and security challenges with mentor support and structured feedback.',
           cta: { label: 'Apply Now', path: '/volunteer' },
           chips: ['Projects', 'Mentorship', 'Real tools', 'Career readiness'],
@@ -941,6 +948,7 @@ description: 'From individual certification preparation to enterprise capability
         hero: {
           eyebrow: 'Collaborations',
           title: 'Partnerships that bring practical learning and innovation closer to real communities.',
+          titleHighlight: 'practical learning',
           description: 'VidyaOps collaborates with institutions, startups, and enterprises to deliver stronger learner outcomes and more applied programs.',
           cta: { label: 'Start a Partnership', path: '/contact' },
           chips: ['Institutions', 'Startups', 'Enterprises', 'CSR'],
@@ -1037,6 +1045,7 @@ description: 'From individual certification preparation to enterprise capability
         hero: {
           eyebrow: 'Programs',
           title: 'Learning pathways built for different starting points and different goals.',
+          titleHighlight: 'Learning pathways',
           description: 'VidyaOps offers workshop-led entry points, guided practical programs, and structured training paths for individuals and groups.',
           chips: ['Workshops', 'Tracks', 'Mentorship', 'Career support'],
           panelLabel: 'Choose your path',
@@ -1138,6 +1147,7 @@ description: 'From individual certification preparation to enterprise capability
         hero: {
           eyebrow: 'FAQ',
           title: 'Common questions before you get started.',
+          titleHighlight: 'Common questions',
           description: 'Find quick answers about VidyaOps training formats, workshop options, learner support, and who the programs are built for.',
           chips: ['Workshops', 'Support', 'Learner fit', 'Pricing guidance'],
         },
@@ -1165,6 +1175,7 @@ description: 'From individual certification preparation to enterprise capability
         hero: {
           eyebrow: 'Privacy Policy',
           title: 'How VidyaOps handles inquiries and learner information.',
+          titleHighlight: 'learner information',
           description: 'This summary explains how inquiry details and learning-related information are handled in the current VidyaOps experience.',
         },
         sections: [
@@ -1199,6 +1210,7 @@ description: 'From individual certification preparation to enterprise capability
         hero: {
           eyebrow: 'Terms of Service',
           title: 'General usage terms for the VidyaOps experience.',
+          titleHighlight: 'General usage terms',
           description: 'These summary terms outline how the website, inquiry forms, and related training information are intended to be used.',
         },
         sections: [

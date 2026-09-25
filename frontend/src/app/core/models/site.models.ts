@@ -32,6 +32,7 @@ export interface FaqItem {
 export interface HeroContent {
   eyebrow: string;
   title: string;
+  titleHighlight?: string;
   description: string;
   chips?: string[];
   cta?: { label: string; path: string };

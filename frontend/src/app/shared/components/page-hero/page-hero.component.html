@@ -4,7 +4,15 @@
   <div class="page-shell page-hero__inner">
     <div class="page-hero__content">
       <p class="eyebrow">{{ hero().eyebrow }}</p>
-      <h1>{{ hero().title }}</h1>
+      <h1>
+        @for (segment of titleSegments(); track $index) {
+          @if (segment.highlight) {
+            <span class="gradient-text">{{ segment.text }}</span>
+          } @else {
+            <span>{{ segment.text }}</span>
+          }
+        }
+      </h1>
       <p>{{ hero().description }}</p>
 
       @if (hero().cta; as cta) {
