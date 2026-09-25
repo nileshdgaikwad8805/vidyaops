@@ -65,10 +65,6 @@ vidyaops/
 │   ├── services/            # Gemini, email (Resend), Razorpay, nurture jobs
 │   └── db/                  # SQLite schema + seeds
 ├── scripts/                 # generate-config.js, update_paths.js, favicon-update.ps1
-├── jobs-agent/              # Python job-finding agent (standalone, not deployed)
-│   ├── main.py              # Agent CLI entry
-│   ├── services/ models/ db/ config/ data/
-│   └── requirements.txt
 ├── data/                    # SQLite DB + uploads (Render disk mount)
 └── reports/                 # Internal fix/change notes
 ```

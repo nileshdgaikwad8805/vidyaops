@@ -9,7 +9,6 @@ Practical tech training in Cloud, Data Analysis, AI, and Cybersecurity for stude
 - **Payments:** Razorpay
 - **AI:** Google Gemini API (chatbot, lead scoring, content generation)
 - **Email:** Resend API / SMTP
-- **Job agent:** Python (`jobs-agent/`, standalone CLI tool)
 
 ## Structure
 
@@ -24,7 +23,6 @@ src/            → Backend Express app
   middleware/    → Auth middleware
   utils/         → Helpers
 public/         → Static legacy assets served by the backend
-jobs-agent/     → Python job-finding agent (standalone, not deployed)
 scripts/        → Build/generate/update helper scripts
 server.js       → Entry point
 ```
@@ -33,7 +31,6 @@ server.js       → Entry point
 
 - Frontend: Angular app in `frontend/` deployed to Vercel
 - Backend: Node.js app at repo root deployed to Render (free tier)
-- Job agent: standalone Python tool, run manually
 - See `DEPLOYMENT.md` for details.
 
 
