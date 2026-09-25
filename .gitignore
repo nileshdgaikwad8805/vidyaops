@@ -4,8 +4,12 @@ node_modules
 data/*.db
 *.sqlite3
 reports/*_jobs_report.csv
+jobs-agent/reports/*_jobs_report.csv
 data/banners/
 data/uploads/
 server.out.log
 server.err.log
 .chrome-tmp
+
+__pycache__/
+*.pyc

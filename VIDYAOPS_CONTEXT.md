@@ -48,28 +48,29 @@ The VidyaOps website code is the Node.js application tied to the **vidyaops** Gi
 
 ```text
 vidyaops/
-├── server.js                 # Entry: loads .env, DB, seeds, starts Express
-├── app-config.js             # Env-driven config (platform, runtime, DB, APIs)
-├── package.json              # "vidyaops-site"
-├── render.yaml               # Render deployment (backend + persistent disk)
-├── vercel.json               # Vercel static frontend build
-├── netlify.toml              # Alternative static host
-├── DEPLOYMENT.md             # Deployment guide
-├── config.js                 # Generated runtime frontend config (root)
-├── public/                   # Static marketing pages + admin UI
-│   ├── index.html, about.html, workshops.html, enroll.html, ...
-│   ├── js/script.js          # Chatbot, contact form, navigation
-│   ├── js/workshops.js, enroll.js, admin.js, ...
-│   └── config.js             # Runtime frontend config (served statically)
+├── frontend/                # Angular SPA (Vercel production build)
+├── server.js                # Entry: loads .env, DB, seeds, starts Express
+├── app-config.js            # Env-driven config (platform, runtime, DB, APIs)
+├── package.json             # "vidyaops-site"
+├── render.yaml              # Render deployment (backend + persistent disk)
+├── vercel.json              # Vercel frontend build (frontend/)
+├── netlify.toml             # Alternative static host
+├── DEPLOYMENT.md            # Deployment guide
+├── config.js                # Generated runtime frontend config (root)
+├── public/                  # Static assets served by the backend
 ├── src/
-│   ├── app.js                # Express app, CORS, static files, /config.js route
-│   ├── routes/               # /api/* and /api/admin/*
-│   ├── controllers/          # Public, admin, workshop, volunteer, content
-│   ├── services/             # Gemini, email (Resend), Razorpay, nurture jobs
-│   └── db/                   # SQLite schema + seeds
-├── scripts/generate-config.js  # Vercel build: writes config.js
-├── data/                     # SQLite DB + uploads (Render disk mount)
-└── reports/                  # Internal fix/change notes
+│   ├── app.js               # Express app, CORS, static files, /config.js route
+│   ├── routes/              # /api/* and /api/admin/*
+│   ├── controllers/         # Public, admin, workshop, volunteer, content
+│   ├── services/            # Gemini, email (Resend), Razorpay, nurture jobs
+│   └── db/                  # SQLite schema + seeds
+├── scripts/                 # generate-config.js, update_paths.js, favicon-update.ps1
+├── jobs-agent/              # Python job-finding agent (standalone, not deployed)
+│   ├── main.py              # Agent CLI entry
+│   ├── services/ models/ db/ config/ data/
+│   └── requirements.txt
+├── data/                    # SQLite DB + uploads (Render disk mount)
+└── reports/                 # Internal fix/change notes
 ```
 
 ---

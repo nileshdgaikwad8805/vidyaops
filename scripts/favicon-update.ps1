@@ -1,4 +1,5 @@
-$files = Get-ChildItem "public/*.html"
+$publicDir = Join-Path $PSScriptRoot "..\public"
+$files = Get-ChildItem "$publicDir/*.html"
 foreach ($f in $files) {
   $content = [System.IO.File]::ReadAllText($f.FullName)
   $orig = $content
