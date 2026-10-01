@@ -1,5 +1,5 @@
 const path = require('path');
-const { generateTrainerBanner } = require('./src/services/banner.service');
+const { generateTrainerBanner } = require('../server/services/banner.service');
 
 async function runTest() {
   console.log("Testing generation directly...");

@@ -1,0 +1,22 @@
+{
+  "/api": {
+    "target": "http://localhost:10000",
+    "secure": false,
+    "changeOrigin": true
+  },
+  "/config.js": {
+    "target": "http://localhost:10000",
+    "secure": false,
+    "changeOrigin": true
+  },
+  "/admin.html": {
+    "target": "http://localhost:10000",
+    "secure": false,
+    "changeOrigin": true
+  },
+  "/admin-login.html": {
+    "target": "http://localhost:10000",
+    "secure": false,
+    "changeOrigin": true
+  }
+}
