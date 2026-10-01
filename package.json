@@ -18,6 +18,9 @@
   },
   "scripts": {
     "build:vercel": "node scripts/generate-config.js",
-    "start": "node server.js"
+    "build:frontend": "cd frontend && npm install && npx ng build",
+    "start": "node scripts/start-local.js",
+    "start:backend": "node server.js",
+    "dev:frontend": "cd frontend && npm start"
   }
 }

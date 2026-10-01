@@ -107,7 +107,37 @@ app.use((req, res, next) => {
 });
 
 const PUBLIC_DIR = path.join(ROOT, 'public');
-app.use(express.static(PUBLIC_DIR, { index: 'index.html' }));
+const FRONTEND_DIST = path.join(ROOT, 'frontend', 'dist', 'frontend', 'browser');
+
+// Admin dashboard has no Angular equivalent, so it keeps living in public/.
+const ADMIN_STATIC_DIRS = ['js', 'css', 'assets'];
+
+if (fs.existsSync(FRONTEND_DIST)) {
+  ['/admin.html', '/admin-login.html'].forEach((pageRoute) => {
+    app.get(pageRoute, (req, res, next) => {
+      const pagePath = path.join(PUBLIC_DIR, pageRoute.slice(1));
+      if (!fs.existsSync(pagePath)) return next();
+      res.sendFile(pagePath);
+    });
+  });
+
+  ADMIN_STATIC_DIRS.forEach((dirName) => {
+    const dirPath = path.join(PUBLIC_DIR, dirName);
+    if (fs.existsSync(dirPath)) {
+      app.use(`/${dirName}`, express.static(dirPath, { index: false }));
+    }
+  });
+
+  app.use(express.static(FRONTEND_DIST, { index: 'index.html' }));
+
+  // SPA fallback: match the Vercel rewrite so every route resolves to the Angular shell.
+  app.use((req, res, next) => {
+    if (req.method !== 'GET') return next();
+    res.sendFile(path.join(FRONTEND_DIST, 'index.html'));
+  });
+} else {
+  app.use(express.static(PUBLIC_DIR, { index: 'index.html' }));
+}
 
 app.use((req, res, next) => {
   res.status(404).json({ error: "Not found" });
