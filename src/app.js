@@ -30,10 +30,21 @@ app.use(helmet());
 const corsOptions = {
   origin: function (origin, callback) {
     if (!origin) return callback(null, true);
-    
-    const allowed = APP_CONFIG.allowedOrigins.includes("*") ||
+
+    // ES modules are fetched in CORS mode, so the browser sends Origin even for
+    // same-origin requests. Without this, an empty allowedOrigins rejects the
+    // Angular bundles with 403 and the app never bootstraps.
+    const selfOrigins = [
+      `http://${APP_CONFIG.host}:${APP_CONFIG.port}`,
+      `http://127.0.0.1:${APP_CONFIG.port}`,
+      `http://localhost:${APP_CONFIG.port}`,
+    ];
+
+    const allowed =
+      selfOrigins.includes(origin) ||
+      APP_CONFIG.allowedOrigins.includes("*") ||
       APP_CONFIG.allowedOrigins.includes(origin);
-      
+
     if (allowed) return callback(null, true);
     callback(new Error('Not allowed by CORS'));
   },
@@ -112,7 +123,27 @@ const FRONTEND_DIST = path.join(ROOT, 'frontend', 'dist', 'frontend', 'browser')
 // Admin dashboard has no Angular equivalent, so it keeps living in public/.
 const ADMIN_STATIC_DIRS = ['js', 'css', 'assets'];
 
+// The Angular build inlines critical CSS via critters, which emits
+// <link rel="stylesheet" media="print" onload="this.media='all'">. Helmet's
+// default script-src-attr 'none' blocks that handler, leaving the stylesheet
+// stuck in print mode and the page unstyled. Relax CSP for the static frontend
+// only; the API keeps the strict default from helmet().
+const FRONTEND_CSP_DIRECTIVES = {
+  ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+  'script-src': ["'self'", 'https://api.web3forms.com'],
+  'script-src-attr': ["'unsafe-inline'"],
+  'style-src': ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com'],
+  'font-src': ["'self'", 'https:', 'data:'],
+  'img-src': ["'self'", 'data:', 'https:'],
+  'connect-src': ["'self'", 'https://api.web3forms.com', 'https://vidyaops.onrender.com'],
+};
+
 if (fs.existsSync(FRONTEND_DIST)) {
+  const frontendCsp = helmet.contentSecurityPolicy({
+    useDefaults: false,
+    directives: FRONTEND_CSP_DIRECTIVES,
+  });
+
   ['/admin.html', '/admin-login.html'].forEach((pageRoute) => {
     app.get(pageRoute, (req, res, next) => {
       const pagePath = path.join(PUBLIC_DIR, pageRoute.slice(1));
@@ -128,6 +159,7 @@ if (fs.existsSync(FRONTEND_DIST)) {
     }
   });
 
+  app.use(frontendCsp);
   app.use(express.static(FRONTEND_DIST, { index: 'index.html' }));
 
   // SPA fallback: match the Vercel rewrite so every route resolves to the Angular shell.
