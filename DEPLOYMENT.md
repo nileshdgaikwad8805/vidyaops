@@ -104,13 +104,18 @@ After updating `.env`, restart the server and use the `Send Test Email` button i
 
 1. Push this project to GitHub.
 2. Create a new Render Web Service from the repo.
-3. Use the included `render.yaml`.
+3. Use the included `render.yaml`. It runs `npm install && npx ng build`, so the
+   Angular bundle in `dist/vidyaops/browser` is built before the server starts.
 4. Add environment variables from `.env.example`, including:
    `GEMINI_API_KEY`, `ADMIN_USERNAME`, `ADMIN_PASSWORD`, Resend values, and `ALLOWED_ORIGINS`.
 5. Keep the Render disk enabled so `data/skillnest.db` persists. The existing DB filename stays unchanged for compatibility.
 6. Confirm the health check passes at `/api/health`.
 7. Open `/admin-login.html` after deploy and verify:
    login, workshop CRUD, lead status update, and `Send Test Email`.
+
+`server/app.js` serves `dist/vidyaops/browser` when it exists and falls back to the
+legacy pages in `server/public/` when it does not, so the service still boots on a
+failed or skipped build.
 
 Suggested `ALLOWED_ORIGINS` on Render:
 
@@ -120,13 +125,17 @@ ALLOWED_ORIGINS=https://your-render-domain.onrender.com
 
 ## Frontend on Netlify or Vercel
 
-If you deploy the frontend separately, Vercel now generates [`config.js`](./config.js) at build time from env vars.
+If you deploy the frontend separately, `npm run build:vercel` generates
+`public/config.js` and `server/public/config.js` at build time from env vars, then
+builds the Angular app.
 
 Vercel build command:
 
 ```bash
 npm run build:vercel
 ```
+
+Output directory: `dist/vidyaops/browser` (set in [`vercel.json`](./vercel.json)).
 
 Set these env vars in Vercel:
 
@@ -144,7 +153,8 @@ ALLOWED_ORIGINS=https://your-site.netlify.app,https://your-site.vercel.app
 
 Then deploy the static files:
 
-- Netlify uses [`netlify.toml`](./netlify.toml)
+- Netlify uses [`netlify.toml`](./netlify.toml), which publishes the legacy pages
+  from `server/public`
 - Vercel can serve the static frontend, or you can deploy the full app using [`vercel.json`](./vercel.json) for demo purposes
 
 ## Important Note About Vercel

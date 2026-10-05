@@ -1,9 +1,31 @@
 {
-  "name": "vidyaops-site",
-  "private": true,
+  "name": "vidyaops",
   "version": "1.0.0",
-  "description": "VidyaOps marketing site with a local Gemini chatbot proxy.",
+  "description": "VidyaOps — Angular frontend with an Express API and a local Gemini chatbot proxy.",
+  "private": true,
+  "scripts": {
+    "ng": "ng",
+    "start": "node scripts/start-local.js",
+    "start:server": "node server/index.js",
+    "dev": "ng serve",
+    "dev:watch": "ng build --watch --configuration development",
+    "build": "ng build",
+    "build:dev": "ng build --configuration development",
+    "test": "ng test",
+    "extract-i18n": "ng extract-i18n",
+    "build:config": "node scripts/generate-config.js",
+    "build:vercel": "node scripts/generate-config.js && ng build",
+    "update:paths": "node scripts/update_paths.js"
+  },
   "dependencies": {
+    "@angular/animations": "^18.2.0",
+    "@angular/common": "^18.2.0",
+    "@angular/compiler": "^18.2.0",
+    "@angular/core": "^18.2.0",
+    "@angular/forms": "^18.2.0",
+    "@angular/platform-browser": "^18.2.0",
+    "@angular/platform-browser-dynamic": "^18.2.0",
+    "@angular/router": "^18.2.0",
     "@google/generative-ai": "^0.24.1",
     "@resvg/resvg-js": "^2.6.2",
     "cookie-parser": "^1.4.7",
@@ -13,14 +35,26 @@
     "helmet": "^8.1.0",
     "multer": "^2.1.1",
     "qrcode": "^1.5.4",
+    "rxjs": "~7.8.0",
     "satori": "^0.26.0",
-    "satori-html": "^0.3.2"
+    "satori-html": "^0.3.2",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.14.10"
   },
-  "scripts": {
-    "build:vercel": "node scripts/generate-config.js",
-    "build:frontend": "cd frontend && npm install && npx ng build",
-    "start": "node scripts/start-local.js",
-    "start:backend": "node server.js",
-    "dev:frontend": "cd frontend && npm start"
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^18.2.21",
+    "@angular/cli": "^18.2.21",
+    "@angular/compiler-cli": "^18.2.0",
+    "@types/jasmine": "~5.1.0",
+    "jasmine-core": "~5.2.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "typescript": "~5.5.2"
+  },
+  "engines": {
+    "node": ">=18.19.0"
   }
 }

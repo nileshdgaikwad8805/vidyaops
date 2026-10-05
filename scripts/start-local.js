@@ -3,8 +3,8 @@ const path = require("path");
 const { spawnSync } = require("child_process");
 
 const ROOT = path.join(__dirname, "..");
-const FRONTEND_DIR = path.join(ROOT, "frontend");
-const DIST_DIR = path.join(FRONTEND_DIR, "dist", "frontend", "browser");
+const SRC_DIR = path.join(ROOT, "src");
+const DIST_DIR = path.join(ROOT, "dist", "vidyaops", "browser");
 
 const isWindows = process.platform === "win32";
 
@@ -73,15 +73,15 @@ function hasAngularBuild() {
   return fs.existsSync(path.join(DIST_DIR, "index.html"));
 }
 
-const sourceTime = newestMtime(FRONTEND_DIR, [".ts", ".html", ".scss", ".css", ".json"]);
+const sourceTime = newestMtime(SRC_DIR, [".ts", ".html", ".scss", ".css", ".json"]);
 const buildTime = hasAngularBuild() ? fs.statSync(path.join(DIST_DIR, "index.html")).mtimeMs : 0;
 
 if (!hasAngularBuild() || sourceTime > buildTime) {
-  console.log("Building Angular frontend (frontend/dist is missing or stale)...");
-  runInShell("npm install", FRONTEND_DIR);
-  runInShell("npx ng build", FRONTEND_DIR);
+  console.log("Building Angular app (dist/vidyaops is missing or stale)...");
+  runInShell("npm install", ROOT);
+  runInShell("npx ng build", ROOT);
 } else {
-  console.log("Angular frontend build is up to date.");
+  console.log("Angular build is up to date.");
 }
 
-runNode(path.join(ROOT, "server.js"), ROOT);
+runNode(path.join(ROOT, "server", "index.js"), ROOT);

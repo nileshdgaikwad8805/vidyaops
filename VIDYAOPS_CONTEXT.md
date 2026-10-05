@@ -48,25 +48,40 @@ The VidyaOps website code is the Node.js application tied to the **vidyaops** Gi
 
 ```text
 vidyaops/
-├── frontend/                # Angular SPA (Vercel production build)
-├── server.js                # Entry: loads .env, DB, seeds, starts Express
-├── app-config.js            # Env-driven config (platform, runtime, DB, APIs)
-├── package.json             # "vidyaops-site"
-├── render.yaml              # Render deployment (backend + persistent disk)
-├── vercel.json              # Vercel frontend build (frontend/)
-├── netlify.toml             # Alternative static host
-├── DEPLOYMENT.md            # Deployment guide
-├── config.js                # Generated runtime frontend config (root)
-├── public/                  # Static assets served by the backend
-├── src/
-│   ├── app.js               # Express app, CORS, static files, /config.js route
-│   ├── routes/              # /api/* and /api/admin/*
-│   ├── controllers/         # Public, admin, workshop, volunteer, content
-│   ├── services/            # Gemini, email (Resend), Razorpay, nurture jobs
-│   └── db/                  # SQLite schema + seeds
-├── scripts/                 # generate-config.js, update_paths.js, favicon-update.ps1
-├── data/                    # SQLite DB + uploads (Render disk mount)
-└── reports/                 # Internal fix/change notes
+├── angular.json               # Angular workspace config
+├── package.json               # "vidyaops" — Angular + Express deps in one manifest
+├── proxy.conf.json            # ng serve -> localhost:10000 API proxy
+├── tsconfig*.json
+├── render.yaml                # Render deployment (backend + persistent disk)
+├── vercel.json                # Vercel static build -> dist/vidyaops/browser
+├── netlify.toml               # Alternative static host (publishes server/public)
+├── DEPLOYMENT.md              # Deployment guide
+├── src/                       # Angular SPA (Vercel production build)
+│   ├── index.html
+│   ├── main.ts                # bootstrapApplication(AppComponent, appConfig)
+│   ├── styles.scss
+│   ├── assets/
+│   ├── environments/          # environment.ts / .development.ts / .production.ts
+│   └── app/
+│       ├── app.component.*    # Root component -> <router-outlet />
+│       ├── app.config.ts      # Router, HttpClient + interceptors, TitleStrategy
+│       ├── app.routes.ts      # Top-level route table (lazy loaded pages)
+│       ├── core/              # Services, guards, interceptors, models
+│       ├── features/public/   # Routed page components
+│       └── shared/            # Reusable components, layouts, directives, pipes
+├── public/                    # Angular static assets (served at /)
+├── server/                    # Express backend (Render)
+│   ├── index.js               # Entry: loads .env, DB, seeds, starts Express
+│   ├── app.js                 # Express app, CORS, static files, /config.js route
+│   ├── config/app-config.js   # Env-driven config (platform, runtime, DB, APIs)
+│   ├── routes/                # /api/* and /api/admin/*
+│   ├── controllers/           # Public, admin, workshop, volunteer, content
+│   ├── services/              # Gemini, email (Resend), Razorpay, nurture jobs
+│   ├── db/                    # SQLite schema + seeds
+│   └── public/                # Legacy static pages + admin dashboard
+├── scripts/                   # generate-config.js, update_paths.js, favicon-update.ps1
+├── data/                      # SQLite DB + uploads (Render disk mount)
+└── reports/                   # Internal fix/change notes
 ```
 
 ---
@@ -75,9 +90,9 @@ vidyaops/
 
 ```mermaid
 flowchart TB
-  subgraph Frontend["Frontend (public/)"]
-    HTML[Static HTML pages]
-    JS[JS + config.js]
+  subgraph Frontend["Frontend (Angular SPA)"]
+    HTML[Lazy routed page components]
+    JS[Services + config.js runtime config]
   end
 
   subgraph Backend["Backend (Express on Render)"]

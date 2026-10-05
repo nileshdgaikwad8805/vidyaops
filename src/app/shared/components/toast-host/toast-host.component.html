@@ -1,0 +1,12 @@
+<div class="toast-host" role="status" aria-live="polite">
+  @for (notification of notifications(); track notification.id) {
+    <button
+      type="button"
+      class="toast"
+      [class]="'toast--' + notification.tone"
+      (click)="notificationService.dismiss(notification.id)"
+    >
+      {{ notification.message }}
+    </button>
+  }
+</div>

@@ -2,8 +2,21 @@ const fs = require("fs");
 const path = require("path");
 
 const root = path.resolve(__dirname, "..");
-const configPath = path.join(root, "config.js");
-const publicConfigPath = path.join(root, "public", "config.js");
+
+// The Angular app reads window.VIDYAOPS_CONFIG from a plain script tag, so the
+// generated file has to land in the Angular public folder to end up in the build.
+// It is also written next to the legacy static pages for the Netlify fallback.
+const configTargets = [
+  path.join(root, "public", "config.js"),
+  path.join(root, "server", "public", "config.js"),
+];
+
+// Static hosts serve the legacy pages from server/public, so the SEO files have
+// to be copied there as well as kept at the repo root.
+const staticHosts = [
+  path.join(root, "public"),
+  path.join(root, "server", "public"),
+];
 
 const apiBase = String(process.env.PUBLIC_API_BASE || "https://vidyaops.onrender.com").replace(/\/$/, "");
 const runtimeMode = String(process.env.PUBLIC_RUNTIME_MODE || "static");
@@ -20,17 +33,23 @@ const contents =
     2
   )};\n`;
 
-fs.writeFileSync(configPath, contents, "utf8");
-fs.writeFileSync(publicConfigPath, contents, "utf8");
+for (const target of configTargets) {
+  fs.mkdirSync(path.dirname(target), { recursive: true });
+  fs.writeFileSync(target, contents, "utf8");
+}
 
-// Copy SEO files into public/ so static hosts (Vercel/Netlify) serve them
 const seoFiles = ["robots.txt", "sitemap.xml"];
 for (const file of seoFiles) {
   const src = path.join(root, file);
-  const dest = path.join(root, "public", file);
-  if (fs.existsSync(src)) {
-    fs.copyFileSync(src, dest);
-    console.log(`Copied ${file} → public/${file}`);
+
+  if (!fs.existsSync(src)) {
+    continue;
+  }
+
+  for (const destDir of staticHosts) {
+    fs.mkdirSync(destDir, { recursive: true });
+    fs.copyFileSync(src, path.join(destDir, file));
+    console.log(`Copied ${file} → ${path.relative(root, path.join(destDir, file))}`);
   }
 }
 

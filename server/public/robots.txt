@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin.html
+Disallow: /admin-login.html
+Disallow: /learner-dashboard.html
+Disallow: /payment-success.html
+
+Sitemap: https://vidyaops.com/sitemap.xml

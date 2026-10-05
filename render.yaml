@@ -3,7 +3,7 @@ services:
     name: vidyaops-app
     env: node
     plan: free
-    buildCommand: npm install
+    buildCommand: npm install && npx ng build
     startCommand: npm start
     healthCheckPath: /api/health
     autoDeploy: true
@@ -34,5 +34,5 @@ services:
         value: info@vidyaops.com
     disk:
       name: skillnest-data
-      mountPath: /opt/render/project/src/data
+      mountPath: /opt/render/project/data
       sizeGB: 1

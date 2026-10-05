@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const publicDir = path.join(__dirname, '..', 'public');
+const publicDir = path.join(__dirname, '..', 'server', 'public');
 const files = fs.readdirSync(publicDir).filter(f => f.endsWith('.html'));
 
 const replacements = [
